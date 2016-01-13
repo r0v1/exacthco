@@ -1,0 +1,64 @@
+<h1>Your Cart</h1>
+<br><br><br>
+
+<% if @cart.empty? %>
+  <p>Your cart is currently empty.</p>
+<% else %>
+  <%= link_to "Empty your Cart", cart_clear_path %>
+
+  <br><br><br>
+  <% total = 0 %>
+  <% @cart.each do |id, quantity| %>
+    <% product = Product.find_by_id(id) %>
+
+    <div class="tile">
+      <div><%= image_tag product.image_url, class: "image_size" %></div>
+      <h3 class="text_bckg"><%= product.title %></h3>
+      <p class="text_bckg"><b>Unit Price: </b><%= number_to_currency(product.price, :unit => "$") %></p>
+      <p class="text_bckg"><b>Quantity: </b><%= quantity %></p>
+      <p class="text_bckg"><b>Sub-Total: </b>$<%= quantity * product.price %></p>
+    </div>
+
+    <% total += quantity * product.price %>
+  <% end %>
+
+  <h2 class="apart">
+    <strong>Your cart's total:</strong>
+    <b><%= number_to_currency(total, :unit => "$") %></b>
+  </h2>
+
+  <%= form_tag("https://rpm.demo.e-xact.com/payment", method: "post") do %>
+
+    <%# The payment data. %>
+    <% x_login = "HCO-ROVI-940" %>
+    <%# x_fp_sequence = "1234567890" %>
+    <% x_fp_sequence = ((rand*100000).to_i + 5000).to_s %>
+    <% x_fp_timestamp = Time.now.to_i.to_s %>
+    <% x_amount = total %>
+    <% x_currency_code = "CAD" %>
+    <% transaction_key = "AVk2Qilt9_k79YAV6C8X" %>
+    <%# If preauth is required (however, preauth can't be completed through HCO): %>
+    <% x_type = "AUTH_ONLY" %>
+
+    <%# Concatenating the values included in the x_fp_hash  %>
+    <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
+
+    <%# Calculating HMAC-MD5 %>
+    <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
+
+    <%= hidden_field_tag 'x_type', x_type %>
+    <%= hidden_field_tag 'x_amount', x_amount %>
+    <%= hidden_field_tag 'x_login', x_login %>
+    <%= hidden_field_tag 'x_fp_sequence', x_fp_sequence %>
+    <%= hidden_field_tag :x_fp_timestamp, x_fp_timestamp %>
+    <%= hidden_field_tag :x_currency_code, x_currency_code %>
+    <%= hidden_field_tag :x_fp_hash, x_fp_hash %>
+    <%= hidden_field_tag :x_show_form, "PAYMENT_FORM" %>
+    <p class="apart">
+      <a><%= submit_tag "Confirm and Checkout with E­-xact.com", class: 'button' %></a>
+    </p>
+  <% end %>
+
+  <%# @cart = {} %>
+
+<% end %>

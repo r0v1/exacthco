@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<div class="tile">
+  <div><%= image_tag @product.image_url, class: "image_size" %></div>
+  <h3 class="text_bckg"><b>Title: </b><%= @product.title %></h3>
+  <p class="text_bckg"><b>Description: </b><%= @product.description %></p>
+  <p class="text_bckg"><b>Image URL: </b><%= @product.image_url %></p>
+  <p class="text_bckg"><b>Unit Price: </b>$<%= @product.price %></p>
+  <p class="text_bckg"><b>Category: </b><%= @product.category %></p>
+  <p class="text_bckg"><b>Subcategory: </b><%= @product.subcategory %></p>
+  <br>
+  <p class="tile-left-span"><b>Product ID: </b><%= @product.id %></p>
+</div>
+
+<h4 class="apart"><%= link_to 'Edit', edit_product_path %></h4>
+<h4 class="apart"><%= link_to 'Back', products_path %></h4>
