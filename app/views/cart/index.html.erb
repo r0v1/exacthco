@@ -1,26 +1,20 @@
 <h1>Your Cart</h1>
 <br><br><br>
 
-<% x_first_name         = nil %>
-<% x_last_name          = nil %>
-<%# x_ship_to_first_name = "" %>
-<%# x_ship_to_last_name  = "" %>
+<%# = @product.x_first_name %>
+<%# x_first_name          = "" %>
+<%# x_last_name          = nil %>
 
 <% if @cart.empty? %>
 
-  <% if x_first_name.nil? %>
-    <p>Your cart is currently empty.</p>
-    <br><br><br>
-    <p>First Name: <%= x_first_name %></p>
-    <p>Last Name: <%= x_last_name %></p>
-    <p>Ship To First Name: <%= x_ship_to_first_name %></p>
-    <!-- p>Ship To Last Name: <%= x_ship_to_last_name %></p -->
+  <p>Your cart is currently empty.</p>
 
-  <% else %>
-    <p>Thank you for your order!</p>
-  <% end %>
-
-
+  <%# if x_first_name.nil? %>
+    <!-- p>First Name: <%# = x_first_name %></p -->
+    <!-- p>Last Name: <%# = x_last_name %></p -->
+  <%# else %>
+    <!-- p>Thank you for your order!</p -->
+  <%# end %>
 
 <% else %>
   <%= link_to "Empty your Cart", cart_clear_path %>
@@ -74,8 +68,9 @@
 
 
     <%# Customer Name and Billing Address Fields %>
-    <% x_first_name = current_user.username %>
-    <% x_last_name = current_user.username %>
+    <% x_first_name = current_user.first_name %>
+    <% x_last_name = current_user.last_name %>
+    <% x_email = current_user.email %>
     <%# x_company = current_user.username %>
     <%# x_address = current_user.username %>
     <%# x_city = current_user.username %>
@@ -86,8 +81,8 @@
     <%# x_fax = current_user.username %>
 
     <%# Customer Shipping Address Fields %>
-    <% x_ship_to_first_name = current_user.username %>
-    <% x_ship_to_last_name = current_user.username %>
+    <%# x_ship_to_first_name = current_user.username %>
+    <%# x_ship_to_last_name = current_user.username %>
     <%# x_ship_to_company = current_user.username %>
     <%# x_ship_to_address = current_user.username %>
     <%# x_ship_to_city = current_user.username %>
@@ -118,8 +113,9 @@
     <%= hidden_field_tag :x_freight, x_freight %>
     <%= hidden_field_tag :x_first_name, x_first_name %>
     <%= hidden_field_tag :x_last_name, x_last_name %>
-    <%= hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
-    <%= hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
+    <%= hidden_field_tag :x_email, x_email %>
+    <%# = hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
+    <%# = hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
 
     <p class="apart">
       <a><%= submit_tag "Confirm and Checkout with E­-xact.com", class: 'button' %></a>
