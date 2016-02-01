@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :relays
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'

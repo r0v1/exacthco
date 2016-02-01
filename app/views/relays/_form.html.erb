@@ -1,0 +1,213 @@
+<%= form_for(@relay) do |f| %>
+  <% if @relay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relay.errors.count, "error") %> prohibited this relay from being saved:</h2>
+
+      <ul>
+      <% @relay.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :x_show_form %><br>
+    <%= f.text_field :x_show_form %>
+  </div>
+  <div class="field">
+    <%= f.label :x_tax_exempt %><br>
+    <%= f.text_field :x_tax_exempt %>
+  </div>
+  <div class="field">
+    <%= f.label :x_zip %><br>
+    <%= f.text_field :x_zip %>
+  </div>
+  <div class="field">
+    <%= f.label :exact_wsp_version %><br>
+    <%= f.text_field :exact_wsp_version %>
+  </div>
+  <div class="field">
+    <%= f.label :x_auth_code %><br>
+    <%= f.text_field :x_auth_code %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_last_name %><br>
+    <%= f.text_field :x_ship_to_last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :x_fax %><br>
+    <%= f.text_field :x_fax %>
+  </div>
+  <div class="field">
+    <%= f.label :x_company %><br>
+    <%= f.text_field :x_company %>
+  </div>
+  <div class="field">
+    <%= f.label :exact_issname %><br>
+    <%= f.text_field :exact_issname %>
+  </div>
+  <div class="field">
+    <%= f.label :x_login %><br>
+    <%= f.text_field :x_login %>
+  </div>
+  <div class="field">
+    <%= f.label :x_amount %><br>
+    <%= f.text_field :x_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :x_description %><br>
+    <%= f.text_field :x_description %>
+  </div>
+  <div class="field">
+    <%= f.label :x_avs_code %><br>
+    <%= f.text_field :x_avs_code %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_company %><br>
+    <%= f.text_field :x_ship_to_company %>
+  </div>
+  <div class="field">
+    <%= f.label :x_last_name %><br>
+    <%= f.text_field :x_last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :x_method %><br>
+    <%= f.text_field :x_method %>
+  </div>
+  <div class="field">
+    <%= f.label :x_currency_code %><br>
+    <%= f.text_field :x_currency_code %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_first_name %><br>
+    <%= f.text_field :x_ship_to_first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_state %><br>
+    <%= f.text_field :x_ship_to_state %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_city %><br>
+    <%= f.text_field :x_ship_to_city %>
+  </div>
+  <div class="field">
+    <%= f.label :x_address %><br>
+    <%= f.text_field :x_address %>
+  </div>
+  <div class="field">
+    <%= f.label :x_freight %><br>
+    <%= f.text_field :x_freight %>
+  </div>
+  <div class="field">
+    <%= f.label :exact_issconf %><br>
+    <%= f.text_field :exact_issconf %>
+  </div>
+  <div class="field">
+    <%= f.label :x_fp_sequence %><br>
+    <%= f.text_field :x_fp_sequence %>
+  </div>
+  <div class="field">
+    <%= f.label :x_first_name %><br>
+    <%= f.text_field :x_first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :x_response_subcode %><br>
+    <%= f.text_field :x_response_subcode %>
+  </div>
+  <div class="field">
+    <%= f.label :x_invoice_num %><br>
+    <%= f.text_field :x_invoice_num %>
+  </div>
+  <div class="field">
+    <%= f.label :x_fp_timestamp %><br>
+    <%= f.text_field :x_fp_timestamp %>
+  </div>
+  <div class="field">
+    <%= f.label :x_response_code %><br>
+    <%= f.text_field :x_response_code %>
+  </div>
+  <div class="field">
+    <%= f.label :x_trans_id %><br>
+    <%= f.text_field :x_trans_id %>
+  </div>
+  <div class="field">
+    <%= f.label :x_tax %><br>
+    <%= f.text_field :x_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :x_email %><br>
+    <%= f.text_field :x_email %>
+  </div>
+  <div class="field">
+    <%= f.label :x_city %><br>
+    <%= f.text_field :x_city %>
+  </div>
+  <div class="field">
+    <%= f.label :x_cvv2_resp_code %><br>
+    <%= f.text_field :x_cvv2_resp_code %>
+  </div>
+  <div class="field">
+    <%= f.label :x_country %><br>
+    <%= f.text_field :x_country %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_country %><br>
+    <%= f.text_field :x_ship_to_country %>
+  </div>
+  <div class="field">
+    <%= f.label :x_phone %><br>
+    <%= f.text_field :x_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_address %><br>
+    <%= f.text_field :x_ship_to_address %>
+  </div>
+  <div class="field">
+    <%= f.label :x_cavv_response %><br>
+    <%= f.text_field :x_cavv_response %>
+  </div>
+  <div class="field">
+    <%= f.label :x_response_reason_code %><br>
+    <%= f.text_field :x_response_reason_code %>
+  </div>
+  <div class="field">
+    <%= f.label :x_duty %><br>
+    <%= f.text_field :x_duty %>
+  </div>
+  <div class="field">
+    <%= f.label :x_reference_3 %><br>
+    <%= f.text_field :x_reference_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :exact_ctr %><br>
+    <%= f.text_area :exact_ctr %>
+  </div>
+  <div class="field">
+    <%= f.label :x_cust_id %><br>
+    <%= f.text_field :x_cust_id %>
+  </div>
+  <div class="field">
+    <%= f.label :x_type %><br>
+    <%= f.text_field :x_type %>
+  </div>
+  <div class="field">
+    <%= f.label :x_po_num %><br>
+    <%= f.text_field :x_po_num %>
+  </div>
+  <div class="field">
+    <%= f.label :x_state %><br>
+    <%= f.text_field :x_state %>
+  </div>
+  <div class="field">
+    <%= f.label :x_ship_to_zip %><br>
+    <%= f.text_field :x_ship_to_zip %>
+  </div>
+  <div class="field">
+    <%= f.label :x_response_reason_text %><br>
+    <%= f.text_field :x_response_reason_text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

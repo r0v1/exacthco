@@ -1,0 +1,123 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Relays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>X show form</th>
+      <th>X tax exempt</th>
+      <th>X zip</th>
+      <th>Exact wsp version</th>
+      <th>X auth code</th>
+      <th>X ship to last name</th>
+      <th>X fax</th>
+      <th>X company</th>
+      <th>Exact issname</th>
+      <th>X login</th>
+      <th>X amount</th>
+      <th>X description</th>
+      <th>X avs code</th>
+      <th>X ship to company</th>
+      <th>X last name</th>
+      <th>X method</th>
+      <th>X currency code</th>
+      <th>X ship to first name</th>
+      <th>X ship to state</th>
+      <th>X ship to city</th>
+      <th>X address</th>
+      <th>X freight</th>
+      <th>Exact issconf</th>
+      <th>X fp sequence</th>
+      <th>X first name</th>
+      <th>X response subcode</th>
+      <th>X invoice num</th>
+      <th>X fp timestamp</th>
+      <th>X response code</th>
+      <th>X trans</th>
+      <th>X tax</th>
+      <th>X email</th>
+      <th>X city</th>
+      <th>X cvv2 resp code</th>
+      <th>X country</th>
+      <th>X ship to country</th>
+      <th>X phone</th>
+      <th>X ship to address</th>
+      <th>X cavv response</th>
+      <th>X response reason code</th>
+      <th>X duty</th>
+      <th>X reference 3</th>
+      <th>Exact ctr</th>
+      <th>X cust</th>
+      <th>X type</th>
+      <th>X po num</th>
+      <th>X state</th>
+      <th>X ship to zip</th>
+      <th>X response reason text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relays.each do |relay| %>
+      <tr>
+        <td><%= relay.x_show_form %></td>
+        <td><%= relay.x_tax_exempt %></td>
+        <td><%= relay.x_zip %></td>
+        <td><%= relay.exact_wsp_version %></td>
+        <td><%= relay.x_auth_code %></td>
+        <td><%= relay.x_ship_to_last_name %></td>
+        <td><%= relay.x_fax %></td>
+        <td><%= relay.x_company %></td>
+        <td><%= relay.exact_issname %></td>
+        <td><%= relay.x_login %></td>
+        <td><%= relay.x_amount %></td>
+        <td><%= relay.x_description %></td>
+        <td><%= relay.x_avs_code %></td>
+        <td><%= relay.x_ship_to_company %></td>
+        <td><%= relay.x_last_name %></td>
+        <td><%= relay.x_method %></td>
+        <td><%= relay.x_currency_code %></td>
+        <td><%= relay.x_ship_to_first_name %></td>
+        <td><%= relay.x_ship_to_state %></td>
+        <td><%= relay.x_ship_to_city %></td>
+        <td><%= relay.x_address %></td>
+        <td><%= relay.x_freight %></td>
+        <td><%= relay.exact_issconf %></td>
+        <td><%= relay.x_fp_sequence %></td>
+        <td><%= relay.x_first_name %></td>
+        <td><%= relay.x_response_subcode %></td>
+        <td><%= relay.x_invoice_num %></td>
+        <td><%= relay.x_fp_timestamp %></td>
+        <td><%= relay.x_response_code %></td>
+        <td><%= relay.x_trans_id %></td>
+        <td><%= relay.x_tax %></td>
+        <td><%= relay.x_email %></td>
+        <td><%= relay.x_city %></td>
+        <td><%= relay.x_cvv2_resp_code %></td>
+        <td><%= relay.x_country %></td>
+        <td><%= relay.x_ship_to_country %></td>
+        <td><%= relay.x_phone %></td>
+        <td><%= relay.x_ship_to_address %></td>
+        <td><%= relay.x_cavv_response %></td>
+        <td><%= relay.x_response_reason_code %></td>
+        <td><%= relay.x_duty %></td>
+        <td><%= relay.x_reference_3 %></td>
+        <td><%= relay.exact_ctr %></td>
+        <td><%= relay.x_cust_id %></td>
+        <td><%= relay.x_type %></td>
+        <td><%= relay.x_po_num %></td>
+        <td><%= relay.x_state %></td>
+        <td><%= relay.x_ship_to_zip %></td>
+        <td><%= relay.x_response_reason_text %></td>
+        <td><%= link_to 'Show', relay %></td>
+        <td><%= link_to 'Edit', edit_relay_path(relay) %></td>
+        <td><%= link_to 'Destroy', relay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relay', new_relay_path %>
