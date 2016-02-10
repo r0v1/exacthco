@@ -1,4 +1,9 @@
 class RelaysController < ApplicationController
+
+  # Line added to avoid the verification of the authenticity_token when
+  # receiving the POST request back from the payment page.
+  skip_before_action :verify_authenticity_token, only: [:create]
+
   before_action :set_relay, only: [:show, :edit, :update, :destroy]
 
   # GET /relays
@@ -24,11 +29,11 @@ class RelaysController < ApplicationController
   # POST /relays
   # POST /relays.json
   def create
-    @relay = Relay.new(relay_params)
+    @relay = Relay.new(create_params)
 
     respond_to do |format|
       if @relay.save
-        format.html { redirect_to @relay, notice: 'Relay was successfully created.' }
+        format.html { redirect_to @relay, notice: 'A new Register in Relay was successfully created.' }
         format.json { render :show, status: :created, location: @relay }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class RelaysController < ApplicationController
   def update
     respond_to do |format|
       if @relay.update(relay_params)
-        format.html { redirect_to @relay, notice: 'Relay was successfully updated.' }
+        format.html { redirect_to @relay, notice: 'The Register in Relay was successfully updated.' }
         format.json { render :show, status: :ok, location: @relay }
       else
         format.html { render :edit }
@@ -68,7 +73,14 @@ class RelaysController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # The create actions has different params due to the HCO relay feature
     def relay_params
-      params.require(:relay).permit(:x_show_form, :x_tax_exempt, :x_zip, :exact_wsp_version, :x_auth_code, :x_ship_to_last_name, :x_fax, :x_company, :exact_issname, :x_login, :x_amount, :x_description, :x_avs_code, :x_ship_to_company, :x_last_name, :x_method, :x_currency_code, :x_ship_to_first_name, :x_ship_to_state, :x_ship_to_city, :x_address, :x_freight, :exact_issconf, :x_fp_sequence, :x_first_name, :x_response_subcode, :x_invoice_num, :x_fp_timestamp, :x_response_code, :x_trans_id, :x_tax, :x_email, :x_city, :x_cvv2_resp_code, :x_country, :x_ship_to_country, :x_phone, :x_ship_to_address, :x_cavv_response, :x_response_reason_code, :x_duty, :x_reference_3, :exact_ctr, :x_cust_id, :x_type, :x_po_num, :x_state, :x_ship_to_zip, :x_response_reason_text)
+      params.require(:relay).permit(:x_type, :x_login, :x_show_form, :x_tax_exempt, :x_zip, :exact_wsp_version, :x_auth_code, :x_ship_to_last_name, :x_fax, :x_company, :exact_issname, :x_amount, :x_description, :x_avs_code, :x_ship_to_company, :x_last_name, :x_method, :x_currency_code, :x_ship_to_first_name, :x_ship_to_state, :x_ship_to_city, :x_address, :x_freight, :exact_issconf, :x_fp_sequence, :x_first_name, :x_response_subcode, :x_invoice_num, :x_fp_timestamp, :x_response_code, :x_trans_id, :x_tax, :x_email, :x_city, :x_cvv2_resp_code, :x_country, :x_ship_to_country, :x_phone, :x_ship_to_address, :x_cavv_response, :x_response_reason_code, :x_duty, :x_reference_3, :exact_ctr, :x_cust_id, :x_po_num, :x_state, :x_ship_to_zip, :x_response_reason_text)
+    end
+
+    # Specific params for create action, without "require"
+    # These params allow the relay response to save to the DB
+    def create_params
+      params.permit(:x_type, :x_login, :x_show_form, :x_tax_exempt, :x_zip, :exact_wsp_version, :x_auth_code, :x_ship_to_last_name, :x_fax, :x_company, :exact_issname, :x_amount, :x_description, :x_avs_code, :x_ship_to_company, :x_last_name, :x_method, :x_currency_code, :x_ship_to_first_name, :x_ship_to_state, :x_ship_to_city, :x_address, :x_freight, :exact_issconf, :x_fp_sequence, :x_first_name, :x_response_subcode, :x_invoice_num, :x_fp_timestamp, :x_response_code, :x_trans_id, :x_tax, :x_email, :x_city, :x_cvv2_resp_code, :x_country, :x_ship_to_country, :x_phone, :x_ship_to_address, :x_cavv_response, :x_response_reason_code, :x_duty, :x_reference_3, :exact_ctr, :x_cust_id, :x_po_num, :x_state, :x_ship_to_zip, :x_response_reason_text)
     end
 end

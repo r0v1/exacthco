@@ -111,8 +111,10 @@
         <td><%= relay.x_ship_to_zip %></td>
         <td><%= relay.x_response_reason_text %></td>
         <td><%= link_to 'Show', relay %></td>
-        <td><%= link_to 'Edit', edit_relay_path(relay) %></td>
-        <td><%= link_to 'Destroy', relay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%# Edit is not allowed %>
+        <!-- td><%#= link_to 'Edit', edit_relay_path(relay) %></td -->
+        <%# Destroy is not allowed %>
+        <!-- td><%#= link_to 'Destroy', relay, method: :delete, data: { confirm: 'Are you sure?' } %></td -->
       </tr>
     <% end %>
   </tbody>
@@ -120,4 +122,5 @@
 
 <br>
 
-<%= link_to 'New Relay', new_relay_path %>
+<%# New is not allowed %>
+<%#= link_to 'New Relay', new_relay_path %>

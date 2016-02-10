@@ -44,8 +44,7 @@
   <h3 class="apart">You can get a test credit card number <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a>.<h3>
 
 
-  <%= form_tag("https://rpm.demo.e-xact.com/payment", method: "post") do %>
-  <%#= form_tag("https://rpm.demo.e-xact.com/payment"(@user.id, @relay), method: "post") do %>
+  <%= form_for @relay, url: https://rpm.demo.e-xact.com/payment do |f| %>
 
     <%# The payment data %>
     <% x_login = "HCO-ROVI-940" %>
@@ -58,7 +57,7 @@
     <% x_currency_code = "CAD" %>
     <% transaction_key = "AVk2Qilt9_k79YAV6C8X" %>
     <%# If preauth is required (however, preauth can't be completed through HCO): %>
-    <% x_type = "AUTH_CAPTURE" %>
+    <% x_type = "AUTH_ONLY" %>
 
     <%# Order and Customer Detail Fields %>
     <% x_invoice_num = "123456" %>
@@ -97,32 +96,51 @@
     <%# Calculating HMAC-MD5 %>
     <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
 
-    <%# relay = 10 %>
-    <%#= hidden_field_tag 'relay', relay %>
-
-    <%= hidden_field_tag 'x_type', x_type %>
-    <%= hidden_field_tag 'x_amount', x_amount %>
+    <%#= hidden_field_tag 'x_type', x_type %>
+    <%= f.hidden_field :x_type, { :value => x_type } %>
+    <%#= hidden_field_tag 'x_amount', x_amount %>
+    <%= f.hidden_field :x_amount, { :value => x_amount } %>
     <%#= hidden_field_tag 'x_card_num', x_card_num %>
-    <%= hidden_field_tag 'x_login', x_login %>
-    <%= hidden_field_tag 'x_fp_sequence', x_fp_sequence %>
-    <%= hidden_field_tag :x_fp_timestamp, x_fp_timestamp %>
-    <%= hidden_field_tag :x_currency_code, x_currency_code %>
-    <%= hidden_field_tag :x_fp_hash, x_fp_hash %>
-    <%= hidden_field_tag :x_show_form, "PAYMENT_FORM" %>
-    <%= hidden_field_tag :x_invoice_num, x_invoice_num %>
-    <%= hidden_field_tag :x_po_num, x_po_num %>
-    <%= hidden_field_tag :x_line_item, x_line_item %>
-    <%= hidden_field_tag :x_line_item, x_line_item %>
-    <%= hidden_field_tag :x_tax, x_tax %>
-    <%= hidden_field_tag :x_freight, x_freight %>
-    <%= hidden_field_tag :x_first_name, x_first_name %>
-    <%= hidden_field_tag :x_last_name, x_last_name %>
-    <%= hidden_field_tag :x_email, x_email %>
-    <%# = hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
-    <%# = hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
+    <%#= f.hidden_field :x_card_num, { :value => x_card_num } %>
+    <%#= hidden_field_tag 'x_login', x_login %>
+    <%= f.hidden_field :x_login, { :value => x_login } %>
+    <%#= hidden_field_tag 'x_fp_sequence', x_fp_sequence %>
+    <%= f.hidden_field :x_fp_sequence, { :value => x_fp_sequence } %>
+    <%#= hidden_field_tag :x_fp_timestamp, x_fp_timestamp %>
+    <%= f.hidden_field :x_fp_timestamp, { :value => x_fp_timestamp } %>
+    <%#= hidden_field_tag :x_currency_code, x_currency_code %>
+    <%= f.hidden_field :x_currency_code, { :value => x_currency_code } %>
+    <%#= hidden_field_tag :x_fp_hash, x_fp_hash %>
+    <%= f.hidden_field :x_fp_hash, { :value => x_fp_hash } %>
+
+    <%#= hidden_field_tag :x_show_form, "PAYMENT_FORM" %>
+    <%= f.hidden_field :x_show_form, { :value => "PAYMENT_FORM" } %>
+    <%#= hidden_field_tag :x_invoice_num, x_invoice_num %>
+    <%= f.hidden_field :x_invoice_num, { :value => x_invoice_num } %>
+    <%#= hidden_field_tag :x_po_num, x_po_num %>
+    <%= f.hidden_field :x_po_num, { :value => x_po_num } %>
+    <%#= hidden_field_tag :x_line_item, x_line_item %>
+    <%= f.hidden_field :x_line_item, { :value => x_line_item } %>
+    <%#= hidden_field_tag :x_line_item, x_line_item %>
+    <%= f.hidden_field :x_line_item, { :value => x_line_item } %>
+    <%#= hidden_field_tag :x_tax, x_tax %>
+    <%= f.hidden_field :x_tax, { :value => x_tax } %>
+    <%#= hidden_field_tag :x_freight, x_freight %>
+    <%= f.hidden_field :x_freight, { :value => x_freight } %>
+    <%#= hidden_field_tag :x_first_name, x_first_name %>
+    <%= f.hidden_field :x_first_name, { :value => x_first_name } %>
+    <%#= hidden_field_tag :x_last_name, x_last_name %>
+    <%= f.hidden_field :x_last_name, { :value => x_last_name } %>
+    <%#= hidden_field_tag :x_email, x_email %>
+    <%= f.hidden_field :x_email, { :value => x_email } %>
+    <%#= hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
+    <%= f.hidden_field :x_ship_to_first_name, { :value => x_ship_to_first_name } %>
+    <%#= hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
+    <%= f.hidden_field :x_ship_to_last_name, { :value => x_ship_to_last_name } %>
 
     <p class="apart">
-      <a><%= submit_tag "Confirm and Checkout with E­-xact.com", class: 'button' %></a>
+      <a><%#= submit_tag "Confirm and Checkout with E­-xact.com", class: 'button' %></a>
+      <%= f.submit %>
     </p>
   <% end %>
 

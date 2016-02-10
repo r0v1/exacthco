@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :relays
+  resources :relays, :only => [:create, :show, :index]
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   get '/cart' => 'cart#index'
