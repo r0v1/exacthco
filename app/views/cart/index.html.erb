@@ -43,7 +43,7 @@
 
   <h3 class="apart">You can get a test credit card number <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a>.<h3>
 
-
+  <h2>E-xact HCO</h2>
   <%= form_tag("https://rpm.demo.e-xact.com/payment", method: "post") do %>
   <%#= form_tag("https://rpm.demo.e-xact.com/payment"(@user.id, @relay), method: "post") do %>
 
@@ -52,8 +52,8 @@
     <%# x_fp_sequence = "1234567890" %>
     <% x_fp_sequence = ((rand*100000).to_i + 5000).to_s %>
     <% x_fp_timestamp = Time.now.to_i.to_s %>
-    <% x_tax = (total * 0.07).round(2) %>
-    <% x_freight = 25.00 %>
+    <% x_tax = (total * 0.0).round(2) %>
+    <% x_freight = 0.00 %>
     <% x_amount = total + x_tax + x_freight %>
     <% x_currency_code = "CAD" %>
     <% transaction_key = "AVk2Qilt9_k79YAV6C8X" %>
@@ -123,6 +123,89 @@
 
     <p class="apart">
       <a><%= submit_tag "Confirm and Checkout with E­-xact.com", class: 'button' %></a>
+    </p>
+  <% end %>
+
+  <h2>PayEezy HCO</h2>
+  <%= form_tag("https://demo.globalgatewaye4.firstdata.com/payment", method: "post") do %>
+  <%#= form_tag("https://checkout.globalgatewaye4.firstdata.com/payment", method: "post") do %>
+
+    <%# The payment data %>
+    <% x_login = "HCO-R0V1-817" %>
+    <%# x_fp_sequence = "1234567890" %>
+    <% x_fp_sequence = ((rand*100000).to_i + 5000).to_s %>
+    <% x_fp_timestamp = Time.now.to_i.to_s %>
+    <% x_tax = (total * 0.0).round(2) %>
+    <% x_freight = 0.00 %>
+    <% x_amount = total + x_tax + x_freight %>
+    <% x_currency_code = "USD" %>
+    <% transaction_key = "~gYj39jq0zeGd2~nuaDB" %>
+    <%# If preauth is required (however, preauth can't be completed through HCO): %>
+    <% x_type = "AUTH_CAPTURE" %>
+
+    <%# Order and Customer Detail Fields %>
+    <% x_invoice_num = "123456" %>
+    <% x_po_num = "PO123456" %>
+    <%# x_line_item = "Item ID<|>Item Name<|>Item Description<|>Item Quantity<|>Item Price<|>Item Taxable(YES/NO)<|>" %>
+    <% x_line_item = "2<|>Item Name 2<|>Item Description 2<|>1<|>2.00<|>YES<|>" %>
+    <% x_line_item = "1<|>Item Name 1<|>Item Description 1<|>1<|>1.00<|>YES<|>" %>
+
+
+    <%# Customer Name and Billing Address Fields %>
+    <% x_first_name = current_user.first_name %>
+    <% x_last_name = current_user.last_name %>
+    <% x_email = current_user.email %>
+    <%# x_company = current_user.username %>
+    <%# x_address = current_user.username %>
+    <%# x_city = current_user.username %>
+    <%# x_state = current_user.username %>
+    <%# x_zip = current_user.username %>
+    <%# x_country = current_user.username %>
+    <%# x_phone = current_user.username %>
+    <%# x_fax = current_user.username %>
+
+    <%# Customer Shipping Address Fields %>
+    <%# x_ship_to_first_name = current_user.username %>
+    <%# x_ship_to_last_name = current_user.username %>
+    <%# x_ship_to_company = current_user.username %>
+    <%# x_ship_to_address = current_user.username %>
+    <%# x_ship_to_city = current_user.username %>
+    <%# x_ship_to_state = current_user.username %>
+    <%# x_ship_to_zip = current_user.username %>
+    <%# x_ship_to_country = current_user.username %>
+
+    <%# Concatenating the values included in the x_fp_hash  %>
+    <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
+
+    <%# Calculating HMAC-MD5 %>
+    <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
+
+    <%# relay = 10 %>
+    <%#= hidden_field_tag 'relay', relay %>
+
+    <%= hidden_field_tag 'x_type', x_type %>
+    <%= hidden_field_tag 'x_amount', x_amount %>
+    <%#= hidden_field_tag 'x_card_num', x_card_num %>
+    <%= hidden_field_tag 'x_login', x_login %>
+    <%= hidden_field_tag 'x_fp_sequence', x_fp_sequence %>
+    <%= hidden_field_tag :x_fp_timestamp, x_fp_timestamp %>
+    <%= hidden_field_tag :x_currency_code, x_currency_code %>
+    <%= hidden_field_tag :x_fp_hash, x_fp_hash %>
+    <%= hidden_field_tag :x_show_form, "PAYMENT_FORM" %>
+    <%= hidden_field_tag :x_invoice_num, x_invoice_num %>
+    <%= hidden_field_tag :x_po_num, x_po_num %>
+    <%= hidden_field_tag :x_line_item, x_line_item %>
+    <%= hidden_field_tag :x_line_item, x_line_item %>
+    <%= hidden_field_tag :x_tax, x_tax %>
+    <%= hidden_field_tag :x_freight, x_freight %>
+    <%= hidden_field_tag :x_first_name, x_first_name %>
+    <%= hidden_field_tag :x_last_name, x_last_name %>
+    <%= hidden_field_tag :x_email, x_email %>
+    <%# = hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
+    <%# = hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
+
+    <p class="apart">
+      <a><%= submit_tag "Confirm and Checkout with PayEezy", class: 'button' %></a>
     </p>
   <% end %>
 
