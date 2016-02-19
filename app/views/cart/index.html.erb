@@ -33,6 +33,10 @@
     </div>
 
     <% total += quantity * product.price %>
+
+    <%  %>
+
+
   <% end %>
 
   <h2 class="apart">
@@ -43,7 +47,7 @@
 
   <h3 class="apart">You can get a test credit card number <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a>.<h3>
 
-  <h2>E-xact HCO</h2>
+  <!-- h3 class="apart">E-xact's Payment Page Demo</h3 -->
   <%= form_tag("https://rpm.demo.e-xact.com/payment", method: "post") do %>
   <%#= form_tag("https://rpm.demo.e-xact.com/payment"(@user.id, @relay), method: "post") do %>
 
@@ -63,10 +67,11 @@
     <%# Order and Customer Detail Fields %>
     <% x_invoice_num = "123456" %>
     <% x_po_num = "PO123456" %>
-    <%# x_line_item = "Item ID<|>Item Name<|>Item Description<|>Item Quantity<|>Item Price<|>Item Taxable(YES/NO)<|>" %>
-    <% x_line_item = "2<|>Item Name 2<|>Item Description 2<|>1<|>2.00<|>YES<|>" %>
-    <% x_line_item = "1<|>Item Name 1<|>Item Description 1<|>1<|>1.00<|>YES<|>" %>
 
+    <%# Format for the x_line_item. This will be generate with an each/do below  %>
+    <%# x_line_item = "Item ID<|>Item Name<|>Item Description<|>Item Quantity<|>Item Price<|>Item Taxable(YES/NO)<|>" %>
+    <%# x_line_item_1 = "<|><|>1999 Cabernet Sauvignon, 0.7 l <|>10<|>19.95<|>YES" %>
+    <%# x_line_item_2 = "<|><|>2003 Merlot, 0.7 l<|>12<|>23.95<|>YES" %>
 
     <%# Customer Name and Billing Address Fields %>
     <% x_first_name = current_user.first_name %>
@@ -111,8 +116,14 @@
     <%= hidden_field_tag :x_show_form, "PAYMENT_FORM" %>
     <%= hidden_field_tag :x_invoice_num, x_invoice_num %>
     <%= hidden_field_tag :x_po_num, x_po_num %>
-    <%= hidden_field_tag :x_line_item, x_line_item %>
-    <%= hidden_field_tag :x_line_item, x_line_item %>
+
+    <%# Generation of the x_line_item hidden_field_tag %>
+    <%#= hidden_field_tag :x_line_item, x_line_item_1 %>
+    <% @cart.each do |id, quantity| %>
+      <% product = Product.find_by_id(id) %>
+        <%= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %></p>
+    <% end %>
+
     <%= hidden_field_tag :x_tax, x_tax %>
     <%= hidden_field_tag :x_freight, x_freight %>
     <%= hidden_field_tag :x_first_name, x_first_name %>
@@ -126,7 +137,7 @@
     </p>
   <% end %>
 
-  <h2>PayEezy HCO</h2>
+  <!-- h3 class="apart">PayEezy's Payment Page Demo</h3 -->
   <%= form_tag("https://demo.globalgatewaye4.firstdata.com/payment", method: "post") do %>
   <%#= form_tag("https://checkout.globalgatewaye4.firstdata.com/payment", method: "post") do %>
 
@@ -194,8 +205,14 @@
     <%= hidden_field_tag :x_show_form, "PAYMENT_FORM" %>
     <%= hidden_field_tag :x_invoice_num, x_invoice_num %>
     <%= hidden_field_tag :x_po_num, x_po_num %>
-    <%= hidden_field_tag :x_line_item, x_line_item %>
-    <%= hidden_field_tag :x_line_item, x_line_item %>
+
+    <%# Generation of the x_line_item hidden_field_tag %>
+    <%#= hidden_field_tag :x_line_item, x_line_item_1 %>
+    <% @cart.each do |id, quantity| %>
+      <% product = Product.find_by_id(id) %>
+        <%= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %></p>
+    <% end %>
+
     <%= hidden_field_tag :x_tax, x_tax %>
     <%= hidden_field_tag :x_freight, x_freight %>
     <%= hidden_field_tag :x_first_name, x_first_name %>
