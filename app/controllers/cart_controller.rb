@@ -1,6 +1,8 @@
 class CartController < ApplicationController
 
 before_action :authenticate_user!, except: [:index]
+# To be used if the clearCart method is to be called directly in the cart view:
+# helper_method :clearCart
 
   def add
     id = params[:id]

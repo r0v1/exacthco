@@ -1,5 +1,6 @@
+<br>
 <h1>Your Cart</h1>
-<br><br><br>
+<br>
 
 <%# = @product.x_first_name %>
 <%# x_first_name          = "" %>
@@ -17,9 +18,9 @@
   <%# end %>
 
 <% else %>
-  <%= link_to "Empty your Cart", cart_clear_path %>
+  <h2 class="apart"><%= link_to "Empty your Cart", cart_clear_path %></h2>
 
-  <br><br><br>
+  <br><br><br><br><br>
   <% total = 0 %>
   <% @cart.each do |id, quantity| %>
     <% product = Product.find_by_id(id) %>
@@ -34,9 +35,6 @@
 
     <% total += quantity * product.price %>
 
-    <%  %>
-
-
   <% end %>
 
   <h2 class="apart">
@@ -44,8 +42,7 @@
     <b><%= number_to_currency(total, :unit => "$") %></b>
   </h2>
 
-
-  <h3 class="apart">You can get a test credit card number <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a>.<h3>
+  <h1 class="apart"><%= link_to "Continue Shopping", products_path %></h1>
 
   <!-- h3 class="apart">E-xact's Payment Page Demo</h3 -->
   <%= form_tag("https://rpm.demo.e-xact.com/payment", method: "post") do %>
@@ -135,6 +132,7 @@
     <p class="apart">
       <a><%= submit_tag "Confirm and Checkout with E­-xact.com", class: 'button' %></a>
     </p>
+
   <% end %>
 
   <!-- h3 class="apart">PayEezy's Payment Page Demo</h3 -->
@@ -221,6 +219,12 @@
     <%# = hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
     <%# = hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
 
+    <%# Testing the x_tpp_id field %>
+    <% x_tpp_id = "ECV001" %>
+    <%= hidden_field_tag :x_tpp_id, x_tpp_id %>
+    <% x_whatever_id = "ECV001" %>
+    <%= hidden_field_tag :x_whatever_id, x_whatever_id %>
+
     <p class="apart">
       <a><%= submit_tag "Confirm and Checkout with PayEezy", class: 'button' %></a>
     </p>
@@ -228,3 +232,5 @@
 
 
 <% end %>
+
+<h3 class="apart">You can get a test credit card number <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a>.<h3>
