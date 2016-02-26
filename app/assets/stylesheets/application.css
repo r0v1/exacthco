@@ -54,6 +54,11 @@
   margin: 20px 5% 0 5%;
 }
 
+.notice {
+  color: green;
+  font-size:15px;
+	font-weight:bold;
+}
 
 /* Tiles */
 
@@ -164,6 +169,17 @@ li i{
 table, th, td {
     border: 1px solid black;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+/* This class is not in use
+.right_aligned {
+  text-align: right;
+}
+*/
+
 
 /* Buttons
 Source: http://www.bestcssbuttongenerator.com/#/27

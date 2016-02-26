@@ -7,8 +7,8 @@
 <%# x_last_name          = nil %>
 
 <% if @cart.empty? %>
-
-  <p>Your cart is currently empty.</p>
+  <br>
+  <h2>Your cart is currently empty.</h2>
 
   <%# if x_first_name.nil? %>
     <!-- p>First Name: <%# = x_first_name %></p -->
@@ -62,8 +62,8 @@
     <% x_type = "AUTH_CAPTURE" %>
 
     <%# Order and Customer Detail Fields %>
-    <% x_invoice_num = "123456" %>
-    <% x_po_num = "PO123456" %>
+    <% x_invoice_num = ((rand*10000).to_i).to_s %>
+    <% x_po_num = "P.O." + (((rand*10000).to_i).to_s) %>
 
     <%# Format for the x_line_item. This will be generate with an each/do below  %>
     <%# x_line_item = "Item ID<|>Item Name<|>Item Description<|>Item Quantity<|>Item Price<|>Item Taxable(YES/NO)<|>" %>
@@ -74,14 +74,14 @@
     <% x_first_name = current_user.first_name %>
     <% x_last_name = current_user.last_name %>
     <% x_email = current_user.email %>
-    <%# x_company = current_user.username %>
-    <%# x_address = current_user.username %>
-    <%# x_city = current_user.username %>
-    <%# x_state = current_user.username %>
-    <%# x_zip = current_user.username %>
-    <%# x_country = current_user.username %>
-    <%# x_phone = current_user.username %>
-    <%# x_fax = current_user.username %>
+    <% x_company = current_user.company %>
+    <% x_address = current_user.address %>
+    <% x_city = current_user.city %>
+    <% x_state = current_user.state %>
+    <% x_zip = current_user.postal_code %>
+    <% x_country = current_user.country %>
+    <% x_phone = current_user.cell_phone %>
+    <% x_fax = current_user.fax %>
 
     <%# Customer Shipping Address Fields %>
     <%# x_ship_to_first_name = current_user.username %>
@@ -164,14 +164,14 @@
     <% x_first_name = current_user.first_name %>
     <% x_last_name = current_user.last_name %>
     <% x_email = current_user.email %>
-    <%# x_company = current_user.username %>
-    <%# x_address = current_user.username %>
-    <%# x_city = current_user.username %>
-    <%# x_state = current_user.username %>
-    <%# x_zip = current_user.username %>
-    <%# x_country = current_user.username %>
-    <%# x_phone = current_user.username %>
-    <%# x_fax = current_user.username %>
+    <% x_company = current_user.company %>
+    <% x_address = current_user.address %>
+    <% x_city = current_user.city %>
+    <% x_state = current_user.state %>
+    <% x_zip = current_user.postal_code %>
+    <% x_country = current_user.country %>
+    <% x_phone = current_user.cell_phone %>
+    <% x_fax = current_user.fax %>
 
     <%# Customer Shipping Address Fields %>
     <%# x_ship_to_first_name = current_user.username %>
@@ -230,7 +230,6 @@
     </p>
   <% end %>
 
+  <h3 class="apart">You can get a test credit card number <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a>.<h3>
 
 <% end %>
-
-<h3 class="apart">You can get a test credit card number <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a>.<h3>

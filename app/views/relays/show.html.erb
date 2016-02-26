@@ -1,250 +1,218 @@
-<p id="notice"><%= notice %></p>
+<!-- p id="notice"><%= notice %></p -->
+<br>
+<h2>Data saved to the DB from the Silent Post</h2>
+<br>
 
-<p>
-  <strong>X show form:</strong>
-  <%= @relay.x_show_form %>
-</p>
+<h1 class="apart"><%= link_to "Continue Shopping", products_path %></h1>
+<br><br>
 
-<p>
-  <strong>X tax exempt:</strong>
-  <%= @relay.x_tax_exempt %>
-</p>
+<table>
+  <col width="220">
+  <col width="150">
+  <thead>
+    <tr>
+      <th>Data Base Fields</th>
+      <th>Values</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>X zip:</strong>
-  <%= @relay.x_zip %>
-</p>
+  <tbody>
+      <tr>
+        <td class="bold">exact_ctr</td>
+        <td class="right_aligned"><%= simple_format(@relay.exact_ctr) %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_fp_timestamp</td>
+        <td class="right_aligned"><%= @relay.x_fp_timestamp %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_login</td>
+        <td class="right_aligned"><%= @relay.x_login %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_response_code</td>
+        <td class="right_aligned"><%= @relay.x_response_code %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_response_subcode</td>
+        <td class="right_aligned"><%= @relay.x_response_subcode %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_avs_code</td>
+        <td class="right_aligned"><%= @relay.x_avs_code %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_cvv2_resp_code</td>
+        <td class="right_aligned"><%= @relay.x_cvv2_resp_code %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_cavv_response</td>
+        <td class="right_aligned"><%= @relay.x_cavv_response %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_response_reason_code</td>
+        <td class="right_aligned"><%= @relay.x_response_reason_code %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_fp_sequence</td>
+        <td class="right_aligned"><%= @relay.x_fp_sequence %></td>
+      </tr>
+      <tr>
+        <td class="bold">exact_issname</td>
+        <td class="right_aligned"><%= @relay.exact_issname %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_type</td>
+        <td class="right_aligned"><%= @relay.x_type %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_auth_code</td>
+        <td class="right_aligned"><%= @relay.x_auth_code %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_show_form</td>
+        <td class="right_aligned"><%= @relay.x_show_form %></td>
+      </tr>
+      <tr>
+        <td class="bold">exact_wsp_version</td>
+        <td class="right_aligned"><%= @relay.exact_wsp_version %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_method</td>
+        <td class="right_aligned"><%= @relay.x_method %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_reference_3</td>
+        <td class="right_aligned"><%= @relay.x_reference_3 %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_response_reason_text</td>
+        <td class="right_aligned"><%= @relay.x_response_reason_text %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_invoice_num</td>
+        <td class="right_aligned"><%= @relay.x_invoice_num %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_po_num</td>
+        <td class="right_aligned"><%= @relay.x_po_num %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_amount</td>
+        <td class="right_aligned"><%= @relay.x_amount %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_currency_code</td>
+        <td class="right_aligned"><%= @relay.x_currency_code %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_freight</td>
+        <td class="right_aligned"><%= @relay.x_freight %></td>
+      </tr>
 
-<p>
-  <strong>Exact wsp version:</strong>
-  <%= @relay.exact_wsp_version %>
-</p>
+      <tr>
+        <td class="bold">x_tax</td>
+        <td class="right_aligned"><%= @relay.x_tax %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_tax_exempt</td>
+        <td class="right_aligned"><%= @relay.x_tax_exempt %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_duty</td>
+        <td class="right_aligned"><%= @relay.x_duty %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_description</td>
+        <td class="right_aligned"><%= @relay.x_description %></td>
+      </tr>
 
-<p>
-  <strong>X auth code:</strong>
-  <%= @relay.x_auth_code %>
-</p>
+      <tr>
+        <td class="bold">x_cust_id</td>
+        <td class="right_aligned"><%= @relay.x_cust_id %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_first_name</td>
+        <td class="right_aligned"><%= @relay.x_first_name %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_last_name</td>
+        <td class="right_aligned"><%= @relay.x_last_name %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_company</td>
+        <td class="right_aligned"><%= @relay.x_company %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_address</td>
+        <td class="right_aligned"><%= @relay.x_address %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_city</td>
+        <td class="right_aligned"><%= @relay.x_city %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_state</td>
+        <td class="right_aligned"><%= @relay.x_state %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_zip</td>
+        <td class="right_aligned"><%= @relay.x_zip %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_country</td>
+        <td class="right_aligned"><%= @relay.x_country %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_fax</td>
+        <td class="right_aligned"><%= @relay.x_fax %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_email</td>
+        <td class="right_aligned"><%= @relay.x_email %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_phone</td>
+        <td class="right_aligned"><%= @relay.x_phone %></td>
+      </tr>
 
-<p>
-  <strong>X ship to last name:</strong>
-  <%= @relay.x_ship_to_last_name %>
-</p>
 
-<p>
-  <strong>X fax:</strong>
-  <%= @relay.x_fax %>
-</p>
-
-<p>
-  <strong>X company:</strong>
-  <%= @relay.x_company %>
-</p>
-
-<p>
-  <strong>Exact issname:</strong>
-  <%= @relay.exact_issname %>
-</p>
-
-<p>
-  <strong>X login:</strong>
-  <%= @relay.x_login %>
-</p>
-
-<p>
-  <strong>X amount:</strong>
-  <%= @relay.x_amount %>
-</p>
-
-<p>
-  <strong>X description:</strong>
-  <%= @relay.x_description %>
-</p>
-
-<p>
-  <strong>X avs code:</strong>
-  <%= @relay.x_avs_code %>
-</p>
-
-<p>
-  <strong>X ship to company:</strong>
-  <%= @relay.x_ship_to_company %>
-</p>
-
-<p>
-  <strong>X last name:</strong>
-  <%= @relay.x_last_name %>
-</p>
-
-<p>
-  <strong>X method:</strong>
-  <%= @relay.x_method %>
-</p>
-
-<p>
-  <strong>X currency code:</strong>
-  <%= @relay.x_currency_code %>
-</p>
-
-<p>
-  <strong>X ship to first name:</strong>
-  <%= @relay.x_ship_to_first_name %>
-</p>
-
-<p>
-  <strong>X ship to state:</strong>
-  <%= @relay.x_ship_to_state %>
-</p>
-
-<p>
-  <strong>X ship to city:</strong>
-  <%= @relay.x_ship_to_city %>
-</p>
-
-<p>
-  <strong>X address:</strong>
-  <%= @relay.x_address %>
-</p>
-
-<p>
-  <strong>X freight:</strong>
-  <%= @relay.x_freight %>
-</p>
-
-<p>
-  <strong>Exact issconf:</strong>
-  <%= @relay.exact_issconf %>
-</p>
-
-<p>
-  <strong>X fp sequence:</strong>
-  <%= @relay.x_fp_sequence %>
-</p>
-
-<p>
-  <strong>X first name:</strong>
-  <%= @relay.x_first_name %>
-</p>
-
-<p>
-  <strong>X response subcode:</strong>
-  <%= @relay.x_response_subcode %>
-</p>
-
-<p>
-  <strong>X invoice num:</strong>
-  <%= @relay.x_invoice_num %>
-</p>
-
-<p>
-  <strong>X fp timestamp:</strong>
-  <%= @relay.x_fp_timestamp %>
-</p>
-
-<p>
-  <strong>X response code:</strong>
-  <%= @relay.x_response_code %>
-</p>
-
-<p>
-  <strong>X trans:</strong>
-  <%= @relay.x_trans_id %>
-</p>
-
-<p>
-  <strong>X tax:</strong>
-  <%= @relay.x_tax %>
-</p>
-
-<p>
-  <strong>X email:</strong>
-  <%= @relay.x_email %>
-</p>
-
-<p>
-  <strong>X city:</strong>
-  <%= @relay.x_city %>
-</p>
-
-<p>
-  <strong>X cvv2 resp code:</strong>
-  <%= @relay.x_cvv2_resp_code %>
-</p>
-
-<p>
-  <strong>X country:</strong>
-  <%= @relay.x_country %>
-</p>
-
-<p>
-  <strong>X ship to country:</strong>
-  <%= @relay.x_ship_to_country %>
-</p>
-
-<p>
-  <strong>X phone:</strong>
-  <%= @relay.x_phone %>
-</p>
-
-<p>
-  <strong>X ship to address:</strong>
-  <%= @relay.x_ship_to_address %>
-</p>
-
-<p>
-  <strong>X cavv response:</strong>
-  <%= @relay.x_cavv_response %>
-</p>
-
-<p>
-  <strong>X response reason code:</strong>
-  <%= @relay.x_response_reason_code %>
-</p>
-
-<p>
-  <strong>X duty:</strong>
-  <%= @relay.x_duty %>
-</p>
-
-<p>
-  <strong>X reference 3:</strong>
-  <%= @relay.x_reference_3 %>
-</p>
-
-<p>
-  <strong>Exact ctr:</strong>
-  <%= @relay.exact_ctr %>
-</p>
-
-<p>
-  <strong>X cust:</strong>
-  <%= @relay.x_cust_id %>
-</p>
-
-<p>
-  <strong>X type:</strong>
-  <%= @relay.x_type %>
-</p>
-
-<p>
-  <strong>X po num:</strong>
-  <%= @relay.x_po_num %>
-</p>
-
-<p>
-  <strong>X state:</strong>
-  <%= @relay.x_state %>
-</p>
-
-<p>
-  <strong>X ship to zip:</strong>
-  <%= @relay.x_ship_to_zip %>
-</p>
-
-<p>
-  <strong>X response reason text:</strong>
-  <%= @relay.x_response_reason_text %>
-</p>
+      <tr>
+        <td class="bold">x_ship_to_first_name</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_first_name %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_ship_to_last_name</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_last_name %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_ship_to_company</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_company %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_ship_to_address</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_address %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_ship_to_city</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_city %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_ship_to_state</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_state %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_ship_to_zip</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_zip %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_ship_to_country</td>
+        <td class="right_aligned"><%= @relay.x_ship_to_country %></td>
+      </tr>
+  </tbody>
+</table>
+<br><br>
 
 <%# Edit is not allowed %>
-<%#= link_to 'Edit', edit_relay_path(@relay) %> |
+<%#= link_to 'Edit', edit_relay_path(@relay) %> <%#=|%>
 <%#= link_to 'Back', relays_path %>
