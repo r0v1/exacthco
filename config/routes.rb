@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
-  get '/cart/:id' => 'cart#add'
+  get '/cart/more/:id' => 'cart#add'
+  get '/cart/less/:id' => 'cart#substract'
 
   resources :products
   root 'page#home'

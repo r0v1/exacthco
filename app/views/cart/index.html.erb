@@ -31,6 +31,8 @@
       <p class="text_bckg"><b>Unit Price: </b><%= number_to_currency(product.price, :unit => "$") %></p>
       <p class="text_bckg"><b>Quantity: </b><%= quantity %></p>
       <p class="text_bckg"><b>Sub-Total: </b>$<%= quantity * product.price %></p>
+      <p class="tile-left-span"><a href="/cart/less/<%= product.id %>" class="button">-1</a>
+      <p class="tile-right-span"><a href="/cart/more/<%= product.id %>" class="button">+1</a>
     </div>
 
     <% total += quantity * product.price %>

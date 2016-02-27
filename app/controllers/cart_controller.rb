@@ -25,6 +25,27 @@ before_action :authenticate_user!, except: [:index]
 
   end
 
+  #Added this method to be able to substract items one by one, up to 0
+  def substract
+    id = params[:id]
+
+    # Use the existing cart
+    # if session[:cart] then
+    cart = session[:cart]
+    # else
+      # session[:cart] = {}
+      # cart = session[:cart]
+    # end
+
+    # if the product has already been added to the cart, decrease the value, else set [the value to 1]
+    if cart[id] >= 1 then
+      cart[id] = cart[id] - 1
+    end
+
+    redirect_to :action => :index
+
+  end
+
   def clearCart
     session[:cart] = nil
     redirect_to :action => :index
