@@ -16,7 +16,7 @@
     <b><%= link_to 'Edit', edit_product_path(product) %></b>
     <b><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></b>
     <p class="tile-left-span"><b>Product ID: </b><%= product.id %></p>
-    <p class="tile-right-span"><a href="/cart/<%= product.id %>" class="button">Add to Cart</a>
+    <p class="tile-right-span"><a href="/cart/more/<%= product.id %>" class="button">Add to Cart</a>
   </div>
 <% end %>
 

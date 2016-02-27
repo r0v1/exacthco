@@ -30,20 +30,15 @@ before_action :authenticate_user!, except: [:index]
     id = params[:id]
 
     # Use the existing cart
-    # if session[:cart] then
     cart = session[:cart]
-    # else
-      # session[:cart] = {}
-      # cart = session[:cart]
-    # end
 
     # if the product has already been added to the cart, decrease the value, else set [the value to 1]
     if cart[id] >= 1 then
       cart[id] = cart[id] - 1
+    elsif cart[id] == 0 then
     end
 
     redirect_to :action => :index
-
   end
 
   def clearCart
