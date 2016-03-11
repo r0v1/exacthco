@@ -85,6 +85,12 @@ ul {
     background-color: rgb(30, 31, 42);
 }
 
+.text_center {
+    background-color: rgb(30, 31, 42);
+    top: 15%;
+    text-align: center;
+}
+
 .tile {
   float:left; /* So that they wrap */
   height:500px;
@@ -92,7 +98,7 @@ ul {
   margin:0 15px 15px 0; /* The gaps between them */
   background-color: rgb(30, 31, 42);
 
-  text-transform:capitalize;
+  /* text-transform:capitalize; */
 
   /*transition may need prefixes in some browsers */
   -webkit-transition:.2s -webkit-transform, 1s opacity;
@@ -205,7 +211,7 @@ Source: http://www.bestcssbuttongenerator.com/#/27
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:15px;
+	font-size:20px;
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;

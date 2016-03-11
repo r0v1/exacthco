@@ -2,7 +2,7 @@ class CartController < ApplicationController
 
 before_action :authenticate_user!, except: [:index]
 # To be used if the clearCart method is to be called directly in the cart view:
-# helper_method :clearCart
+helper_method :clearCart
 
   def add
     id = params[:id]
@@ -32,10 +32,11 @@ before_action :authenticate_user!, except: [:index]
     # Use the existing cart
     cart = session[:cart]
 
-    # if the product has already been added to the cart, decrease the value, else set [the value to 1]
+    # if the product is in the cart, decrease the value by one, up to 0
     if cart[id] >= 1 then
       cart[id] = cart[id] - 1
     elsif cart[id] == 0 then
+      cart[id] = nil
     end
 
     redirect_to :action => :index

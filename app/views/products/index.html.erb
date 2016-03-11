@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
-<h1>Available Products</h1>
-<br><br>
-<h4 class="apart"><%= link_to 'New Product', new_product_path %></h4>
+<h1>Products</h1>
+<br>
+<h2 class="apart"><%= link_to 'Add a new Product', new_product_path %></h2>
 
 <% @products.each do |product| %>
   <div class="tile">
     <div><%= image_tag product.image_url, class: "image_size" %></div>
-    <h3 class="text_bckg"><%= product.title %></h3>
-    <p class="text_bckg"><%= product.description %></p>
-    <p class="text_bckg"><b>Unit Price: </b><%= product.price %></p>
-    <p class="text_bckg"><b>Category: </b><%= product.category %></p>
-    <p class="text_bckg"><b>Subcategory: </b><%= product.subcategory %></p>
+    <h2 class="text_bckg"><%= product.title %></h2>
     <br>
-    <b><%= link_to 'Show', product %></b>
-    <b><%= link_to 'Edit', edit_product_path(product) %></b>
-    <b><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></b>
-    <p class="tile-left-span"><b>Product ID: </b><%= product.id %></p>
-    <p class="tile-right-span"><a href="/cart/more/<%= product.id %>" class="button">Add to Cart</a>
+    <p class="text_bckg"><%= product.description %></p>
+    <br>
+    <h3 class="text_bckg"><b class="text_bckg">Unit Price: $<%= product.price %></b></h3>
+    <!-- p class="text_bckg"><b class="text_bckg">Category: </b><%= product.category %></p -->
+    <!-- p class="text_bckg"><b class="text_bckg">Subcategory: </b><%= product.subcategory %></p -->
+
+    <div class="tile-left-span text_bckg">
+      <b class="text_bckg">Product ID: <%= product.id %></b>
+      <br>
+      <b><%= link_to 'Show', product %></b>
+      <b><%= link_to 'Edit', edit_product_path(product) %></b>
+      <b><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></b>
+    </div>
+
+    <div class="tile-right-span text_bckg">
+      <a href="/cart/more/<%= product.id %>" class="button">Add to Cart</a>
+    </div>
+
   </div>
 <% end %>
 
-
-<h4 class="apart"><%= link_to 'New Product', new_product_path %></h4>
+<h1 class="apart"><%= link_to "See your Cart", cart_path %></h1>

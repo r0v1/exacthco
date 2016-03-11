@@ -27,7 +27,8 @@
   </thead>
 
   <tbody>
-    <% @relays.each do |relay| %>
+    <%# Used reverse_each to show the newest items at the top of the table %>
+    <% @relays.reverse_each do |relay| %>
       <tr>
         <td><%= relay.x_trans_id %></td>
         <td><%= simple_format(relay.exact_ctr) %></td>

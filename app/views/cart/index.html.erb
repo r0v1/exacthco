@@ -1,41 +1,71 @@
-<br>
-<h1>Your Cart</h1>
-<br>
+<!-- h1>Your Cart</h1 -->
 
-<%# = @product.x_first_name %>
-<%# x_first_name          = "" %>
-<%# x_last_name          = nil %>
+<% total = 0 %>
 
 <% if @cart.empty? %>
-  <br>
-  <h2>Your cart is currently empty.</h2>
 
-  <%# if x_first_name.nil? %>
-    <!-- p>First Name: <%# = x_first_name %></p -->
-    <!-- p>Last Name: <%# = x_last_name %></p -->
-  <%# else %>
-    <!-- p>Thank you for your order!</p -->
-  <%# end %>
+  <br><br><br>
+  <a href="<%= products_path %>">
+    <div class="tile">
+        <br><br>
+        <h2 class="text_center">Your cart is currently empty.</h2>
+        <br><br>
+        <h1 class="text_center">Buy something!</h1>
+        <div><%= image_tag("buy_something_basket.png", class: "image_size") %></div>
+    </div>
+  </a>
 
 <% else %>
-  <h2 class="apart"><%= link_to "Empty your Cart", cart_clear_path %></h2>
 
-  <br><br><br><br><br>
-  <% total = 0 %>
+  <h2 class="apart"><%= link_to "Empty your Cart", cart_clear_path %></h2>
+  <br><br><br><br>
+
   <% @cart.each do |id, quantity| %>
+
     <% product = Product.find_by_id(id) %>
 
-    <div class="tile">
-      <div><%= image_tag product.image_url, class: "image_size" %></div>
-      <h3 class="text_bckg"><%= product.title %></h3>
-      <p class="text_bckg"><b>Unit Price: </b><%= number_to_currency(product.price, :unit => "$") %></p>
-      <p class="text_bckg"><b>Quantity: </b><%= quantity %></p>
-      <p class="text_bckg"><b>Sub-Total: </b>$<%= quantity * product.price %></p>
-      <p class="tile-left-span"><a href="/cart/less/<%= product.id %>" class="button">-1</a>
-      <p class="tile-right-span"><a href="/cart/more/<%= product.id %>" class="button">+1</a>
-    </div>
+    <% if quantity == 0 %>
 
-    <% total += quantity * product.price %>
+      <%# To delete the tile of the item from the cart: %>
+      <% id = nil %>
+
+    <% else %>
+
+        <div class="tile">
+          <div><%= image_tag product.image_url, class: "image_size" %></div>
+          <h3 class="text_bckg"><%= product.title %></h3>
+          <p class="text_bckg"><b class="text_bckg">Unit Price: </b><%= number_to_currency(product.price, :unit => "$") %></p>
+          <p class="text_bckg"><b class="text_bckg">Quantity: </b><%= quantity %></p>
+          <p class="text_bckg"><b class="text_bckg">Sub-Total: </b>$<%= quantity * product.price %></p>
+          <p class="tile-left-span"><a href="/cart/less/<%= product.id %>" class="button">-1</a>
+          <p class="tile-right-span"><a href="/cart/more/<%= product.id %>" class="button">+1</a>
+        </div>
+
+    <% end %>
+
+  <% total += quantity * product.price %>
+
+  <% end %>
+
+  <% if total >= 1 %>
+
+    <%# This tile appeara only once, no matter how many items there are in the cart. %>
+    <a href="<%= products_path %>">
+      <div class="tile">
+        <br><br>
+        <h2 class="text_center">Add other items to your cart</h2>
+        <br><br>
+        <!-- h1 class="text_center">Buy something!</h1 -->
+        <div><%= image_tag("buy_something_basket.png", class: "image_size") %></div>
+      </div>
+    </a>
+
+  <% else %>
+
+    <% clearCart %>
+
+    <%# Another way to do this, without creating a helper method in the cart controller: %>
+    <%# controller.redirect_to cart_clear_path %>
 
   <% end %>
 
