@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :relays, :only => [:create, :show, :index]
 
   devise_for :users, :controllers => { registrations: 'registrations' }
