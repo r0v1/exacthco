@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1>Products</h1>
-<br>
-<h2 class="apart"><%= link_to 'Add a new Product', new_product_path %></h2>
+<br><br>
+<% if current_user.try(:admin?) %>
+  <h2 class="apart"><%= link_to 'Add a new Product', new_product_path %></h2>
+<% end %>
 
 <% @products.each do |product| %>
   <div class="tile">
@@ -17,9 +19,11 @@
     <div class="tile-left-span text_bckg">
       <b class="text_bckg">Product ID: <%= product.id %></b>
       <br>
-      <b><%= link_to 'Show', product %></b>
-      <b><%= link_to 'Edit', edit_product_path(product) %></b>
-      <b><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></b>
+      <% if current_user.try(:admin?) %>
+        <b><%= link_to 'Show', product %></b>
+        <b><%= link_to 'Edit', edit_product_path(product) %></b>
+        <b><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></b>
+      <% end %>
     </div>
 
     <div class="tile-right-span text_bckg">

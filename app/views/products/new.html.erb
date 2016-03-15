@@ -1,5 +1,14 @@
-<h1>New Product</h1>
+<% if current_user.try(:admin?) %>
 
-<%= render 'form' %>
+  <h1>New Product</h1>
 
-<%= link_to 'Back', products_path %>
+  <%= render 'form' %>
+
+  <%= link_to 'Back', products_path %>
+
+<% else  %>
+
+  <br><br>
+  <h2>Sorry! You are not an Administrator! </h2>
+
+<% end %>
