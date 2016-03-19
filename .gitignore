@@ -12,3 +12,7 @@ config/secrets.yml
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore Values Received Payment Pages
+app/views/cart/_ex3.html.erb
+app/views/cart/_fd1.html.erb
