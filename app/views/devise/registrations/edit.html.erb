@@ -3,6 +3,9 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <br><br>
+  <h3>General Info</h3>
+
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>
@@ -16,46 +19,6 @@
   <div class="field">
     <%= f.label :company %><br />
     <%= f.text_field :company, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :home_phone %><br />
-    <%= f.text_field :home_phone, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cell_phone %><br />
-    <%= f.text_field :cell_phone, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax, autofocus: true %>
   </div>
 
   <div class="field">
@@ -82,6 +45,97 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <br><br>
+  <div>
+    <h3>Permanent address</h3>
+
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :city %><br />
+      <%= f.text_field :city, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :state %><br />
+      <%= f.text_field :state, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :postal_code %><br />
+      <%= f.text_field :postal_code, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :country %><br />
+      <%= f.text_field :country, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :home_phone %><br />
+      <%= f.text_field :home_phone, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :cell_phone %><br />
+      <%= f.text_field :cell_phone, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :fax %><br />
+      <%= f.text_field :fax, autofocus: true %>
+    </div>
+  </div>
+
+  <br><br>
+  <div>
+    <h3>Ship to address</h3>
+
+    <div class="field">
+      <%= f.label :ship_to_first_name, "First Name" %><br />
+      <%= f.text_field :ship_to_first_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ship_to_last_name, "Last Name" %><br />
+      <%= f.text_field :ship_to_last_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ship_to_company, "Company" %><br />
+      <%= f.text_field :ship_to_company, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ship_to_address, "Address" %><br />
+      <%= f.text_field :ship_to_address, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ship_to_city, "City" %><br />
+      <%= f.text_field :ship_to_city, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ship_to_state, "State" %><br />
+      <%= f.text_field :ship_to_state, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ship_to_zip, "Postal Code"  %><br />
+      <%= f.text_field :ship_to_zip, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ship_to_country, "Country" %><br />
+      <%= f.text_field :ship_to_country, autofocus: true %>
+    </div>
+  </div>
+
+  <br><br>
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
@@ -90,10 +144,13 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+
 <% end %>
 
+<br><br>
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
+<br><br>
 <%= link_to "Back", :back %>

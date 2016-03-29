@@ -39,14 +39,14 @@
   <% x_fax = current_user.fax %>
 
   <%# Customer Shipping Address Fields %>
-  <%# x_ship_to_first_name = current_user.username %>
-  <%# x_ship_to_last_name = current_user.username %>
-  <%# x_ship_to_company = current_user.username %>
-  <%# x_ship_to_address = current_user.username %>
-  <%# x_ship_to_city = current_user.username %>
-  <%# x_ship_to_state = current_user.username %>
-  <%# x_ship_to_zip = current_user.username %>
-  <%# x_ship_to_country = current_user.username %>
+  <% x_ship_to_first_name = current_user.ship_to_first_name %>
+  <% x_ship_to_last_name = current_user.ship_to_last_name %>
+  <% x_ship_to_company = current_user.ship_to_company %>
+  <% x_ship_to_address = current_user.ship_to_address %>
+  <% x_ship_to_city = current_user.ship_to_city %>
+  <% x_ship_to_state = current_user.ship_to_state %>
+  <% x_ship_to_zip = current_user.ship_to_zip %>
+  <% x_ship_to_country = current_user.ship_to_country %>
 
   <%# Concatenating the values included in the x_fp_hash  %>
   <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
@@ -81,8 +81,22 @@
   <%= hidden_field_tag :x_first_name, x_first_name %>
   <%= hidden_field_tag :x_last_name, x_last_name %>
   <%= hidden_field_tag :x_email, x_email %>
-  <%# = hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
-  <%# = hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
+  <%= hidden_field_tag :x_company, x_company %>
+  <%= hidden_field_tag :x_address, x_address %>
+  <%= hidden_field_tag :x_city, x_city %>
+  <%= hidden_field_tag :x_state, x_state %>
+  <%= hidden_field_tag :x_zip, x_zip %>
+  <%= hidden_field_tag :x_country, x_country %>
+  <%= hidden_field_tag :x_phone, x_phone %>
+  <%= hidden_field_tag :x_fax, x_fax %>
+  <%= hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
+  <%= hidden_field_tag :x_ship_to_last_name, x_ship_to_last_name %>
+  <%= hidden_field_tag :x_ship_to_company, x_ship_to_company %>
+  <%= hidden_field_tag :x_ship_to_address, x_ship_to_address %>
+  <%= hidden_field_tag :x_ship_to_city, x_ship_to_city %>
+  <%= hidden_field_tag :x_ship_to_state, x_ship_to_state %>
+  <%= hidden_field_tag :x_ship_to_zip, x_ship_to_zip %>
+  <%= hidden_field_tag :x_ship_to_country, x_ship_to_country %>
 
   <p class="apart">
     <a><%= submit_tag "Receipt only", class: 'button' %></a>
