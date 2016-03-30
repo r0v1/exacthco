@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/cart/less/:id' => 'cart#substract'
 
   resources :products
-  root 'page#home'
+  #root 'page#home'
+  root 'products#index'
 
   get 'page/about'
 
