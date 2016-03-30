@@ -8,9 +8,9 @@
   <%# x_fp_sequence = "1234567890" %>
   <% x_fp_sequence = ((rand*100000).to_i + 5000).to_s %>
   <% x_fp_timestamp = Time.now.to_i.to_s %>
-  <% x_tax = (@total * 0.0).round(2) %>
-  <% x_freight = 0.00 %>
-  <% x_amount = @total + x_tax + x_freight %>
+  <% x_freight = 10.00 %>
+  <% x_tax = (((@total + x_freight) * 0.05) + ((@total + x_freight) * 0.07)).round(2) %>
+  <% x_amount = @total + x_freight + x_tax %>
   <% x_currency_code = "CAD" %>
   <% transaction_key = Rails.application.secrets.ex_hco3_tk %>
   <%# If preauth is required (however, preauth can't be completed through HCO): %>
