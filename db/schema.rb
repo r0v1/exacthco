@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329043105) do
+ActiveRecord::Schema.define(version: 20160405222544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 20160329043105) do
     t.string   "x_response_reason_text"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "tax2_amount"
+    t.string   "tax1_amount"
   end
 
   create_table "users", force: :cascade do |t|
