@@ -171,6 +171,17 @@ li i{
   margin: 1% 0 1% 0%;
 }
 
+/* PayNow Button position */
+.paynow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  /* background-color: #efefef; */
+  /* text-align: center; */
+}
+
 /* Table for CC numbers */
 table, th, td {
     border: 1px solid black;
