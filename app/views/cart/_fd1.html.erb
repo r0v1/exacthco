@@ -7,9 +7,6 @@
 
     <%# The payment data %>
     <% x_login = Rails.application.secrets.fd_hco1_id %>
-    <%# Login for live terminal %>
-    <%# x_login = "WSP-E-XAC-047OcgBlWg" %>
-
     <%# x_fp_sequence = "1234567890" %>
     <% x_fp_sequence = ((rand*100000).to_i + 5000).to_s %>
     <% x_fp_timestamp = Time.now.to_i.to_s %>
@@ -119,10 +116,12 @@
 
     <p class="apart">
       <a><%= submit_tag "Values Received", class: 'button' %></a>
+      <%# Values received link: %>
+      <%# https://rpm-demo.e-xact.com/demo_relay_response/post_to_html %>
     </p>
   <% end %>
 
   <%# PayNow button %>
   <!--div class="paynow" -->
-     
+
   <!--/div -->
