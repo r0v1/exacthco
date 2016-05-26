@@ -85,7 +85,9 @@
   <%= render 'ex2' %>
 
   <!-- h3 class="apart">E-xact's Payment Page Demo - Values Received</h3 -->
-  <%= render 'ex3' %>
+  <% if current_user.admin? %>
+    <%= render 'ex3' %>
+  <% end %>
 
   <% if current_user.admin? %>
     <h1 class="apart">Checkout with PayEezy's Payment Page Demo</h1>
