@@ -1,4 +1,4 @@
-  <%# PayEezy's Payment Page PROD - Receipt only %>
+  <%# PayEezy's Payment Page PROD - Receipt only - C50118-01 %>
 
   <%= form_tag("https://checkout.globalgatewaye4.firstdata.com/payment", method: "post") do %>
   <%# Live terminal: %>
@@ -23,6 +23,7 @@
     <%# transaction_key = "PaUdFoWpOuF6~Q0b7IB1" %>
 
     <%# If preauth is required (however, preauth can't be completed through HCO): %>
+    <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
     <% x_type = "AUTH_CAPTURE" %>
 
     <%# Order and Customer Detail Fields %>
@@ -119,6 +120,6 @@
   <% end %>
 
   <%# PayNow button %>
-  <%# This button is for MERCHANT NAME %>
+  <%# This button is for SEIP %>
   <!--div class="paynow" -->
   <!--/div -->
