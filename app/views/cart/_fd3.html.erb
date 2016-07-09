@@ -59,7 +59,9 @@
     <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
 
     <%# Calculating HMAC-MD5 %>
-    <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
+    <%# Heroku shows this error message: "Digest::Digest is deprecated; use Digest". Use "Digest::Digest" only for backwards compatibility. %>
+    <%# x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
+    <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"),transaction_key, hmac_string) %>
 
     <%# relay = 10 %>
     <%#= hidden_field_tag 'relay', relay %>
