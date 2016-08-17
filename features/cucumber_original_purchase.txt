@@ -1,0 +1,45 @@
+Feature:
+
+Scenario: A purchase transaction in USD with a VISA credit card can be done from the PP
+  Given that I am in a PP with a title like "Roberto's Test"
+  When enter a Cardholder Name of up to thirty characters like "012345678901234567890123456789"
+    And I enter a sixteen digit test Credit Card Number like "4111111111111111"
+    And I enter an Expiry Date in the future like "1223"
+    And I enter a test Security Code like "123"
+    And I check the Captcha checkbox
+    And I click on the payment button
+  Then I should see "This order is now complete. Transaction approved!" displayed on the receipt page
+
+  ++++++++++++++++++++++++++++++++++++++++++
+
+  Steps:
+  Given(/^that I am in a PP with a title like "([^"]*)"$/) do |page_name|
+    unless browser.text.include? page_name
+      puts "You're not in the (right) Payment Page!"
+    end
+  end
+
+  When(/^enter a Cardholder Name of up to thirty characters like "([^"]*)"$/) do |name|
+    browser.text_field(id: 'exact_cardholder_name').set(name)
+  end
+
+  When(/^I enter a sixteen digit test Credit Card Number like "([^"]*)"$/) do |number|
+    browser.text_field(id: 'x_card_num').set(number)
+  end
+
+  When(/^I enter an Expiry Date in the future like "([^"]*)"$/) do |mmyy|
+    browser.text_field(id: 'x_exp_date').set(mmyy)
+  end
+
+  When(/^I enter a test Security Code like "([^"]*)"$/) do |code|
+    browser.text_field(id: 'x_card_code').set(code)
+  end
+
+  When(/^I check the Captcha checkbox$/) do
+    #browser.checkbox(index: 1).click
+    sleep 120
+  end
+
+  When(/^I click on the payment button$/) do
+    browser.button(value: "Pay With Your Credit Card").click
+  end
