@@ -56,6 +56,12 @@
     <% x_ship_to_zip = current_user.ship_to_zip %>
     <% x_ship_to_country = current_user.ship_to_country %>
 
+    <%# Customize Form Fields %>
+    <% x_user1 = "Campito 1" %>
+    <% x_user2 = "Campito 2" %>
+    <% x_user3 = "Campito 3" %>
+    <% x_reference_3 = "Referencia 3" %>
+
     <%# Concatenating the values included in the x_fp_hash  %>
     <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
 
@@ -109,6 +115,10 @@
     <%= hidden_field_tag :x_ship_to_state, x_ship_to_state %>
     <%= hidden_field_tag :x_ship_to_zip, x_ship_to_zip %>
     <%= hidden_field_tag :x_ship_to_country, x_ship_to_country %>
+    <%= hidden_field_tag :x_user1, x_user1 %>
+    <%= hidden_field_tag :x_user2, x_user2 %>
+    <%= hidden_field_tag :x_user3, x_user3 %>
+    <%= hidden_field_tag :x_reference_3, x_reference_3 %>
 
     <%# Testing the x_tpp_id field %>
     <% x_tpp_id = "ECV001" %>

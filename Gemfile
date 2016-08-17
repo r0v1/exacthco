@@ -35,12 +35,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   gem "interactive_editor"
   gem "awesome_print"
   gem "hirb"
   gem "faker"
-
+  gem "cucumber-rails", :require => false
+  # database_cleaner is not required, but highly recommended (for cucumber)
+  gem "database_cleaner"
+  gem "watir-webdriver"
+  gem "rspec-rails"
 end
 
 group :development do
