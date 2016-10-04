@@ -8,11 +8,11 @@
   <%# x_fp_sequence = "1234567890" %>
   <% x_fp_sequence = ((rand*100000).to_i + 5000).to_s %>
   <% x_fp_timestamp = Time.now.to_i.to_s %>
-  <% x_freight = 0.00 %>
+  <% x_freight = 10.00 %>
   <%#= GST %>
-  <% tax2_amount = ((@total + x_freight) * 0.00).round(2) %>
+  <% tax2_amount = ((@total + x_freight) * 0.05).round(2) %>
   <%#= PST %>
-  <% tax1_amount = ((@total + x_freight) * 0.00).round(2) %>
+  <% tax1_amount = ((@total + x_freight) * 0.07).round(2) %>
   <% x_tax = tax2_amount + tax1_amount %>
   <% x_amount = @total + x_freight + x_tax %>
   <%# x_first_name = "Testing VCO" %>
