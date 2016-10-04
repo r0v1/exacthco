@@ -126,6 +126,10 @@
     <% x_whatever_id = "ECV001" %>
     <%= hidden_field_tag :x_whatever_id, x_whatever_id %>
 
+    <%# Relay Response fields %>
+    <% x_relay_response = "FALSE" %>
+    <%= hidden_field_tag :x_relay_response, x_relay_response %>
+
     <p class="apart">
       <a><%= submit_tag "FD2 PROD", class: 'button' %></a>
     </p>
