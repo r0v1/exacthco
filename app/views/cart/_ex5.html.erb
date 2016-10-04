@@ -14,10 +14,10 @@
   <%#= PST %>
   <% tax1_amount = ((@total + x_freight) * 0.00).round(2) %>
   <% x_tax = tax2_amount + tax1_amount %>
-  <%# x_amount = @total + x_freight + x_tax %>
-  <% x_first_name = "SC TC " %>
-  <% x_last_name = "" %>
-  <% x_amount = 15.00 %>
+  <% x_amount = @total + x_freight + x_tax %>
+  <%# x_first_name = "SC TC " %>
+  <%# x_last_name = "" %>
+  <%# x_amount = 15.00 %>
   <% x_currency_code = "CAD" %>
 
   <% transaction_key = Rails.application.secrets.ex_hco5_tk %>
@@ -35,8 +35,8 @@
   <%# x_line_item_2 = "<|><|>2003 Merlot, 0.7 l<|>12<|>23.95<|>YES" %>
 
   <%# Customer Name and Billing Address Fields %>
-  <%# x_first_name = current_user.first_name %>
-  <%# x_last_name = current_user.last_name %>
+  <% x_first_name = current_user.first_name %>
+  <% x_last_name = current_user.last_name %>
   <% x_email = current_user.email %>
   <% x_company = current_user.company %>
   <% x_address = current_user.address %>
