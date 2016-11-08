@@ -22,12 +22,28 @@
         <td class="right_aligned"><%= simple_format(@relay.exact_ctr) %></td>
       </tr>
       <tr>
-        <td class="bold">x_fp_timestamp</td>
-        <td class="right_aligned"><%= @relay.x_fp_timestamp %></td>
+        <td class="bold">x_trans_id</td>
+        <td class="right_aligned"><%= @relay.x_trans_id %></td>
       </tr>
       <tr>
         <td class="bold">x_login</td>
         <td class="right_aligned"><%= @relay.x_login %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_response_reason_text</td>
+        <td class="right_aligned"><%= @relay.x_response_reason_text %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_type</td>
+        <td class="right_aligned"><%= @relay.x_type %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_auth_code</td>
+        <td class="right_aligned"><%= @relay.x_auth_code %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_show_form</td>
+        <td class="right_aligned"><%= @relay.x_show_form %></td>
       </tr>
       <tr>
         <td class="bold">x_response_code</td>
@@ -54,48 +70,12 @@
         <td class="right_aligned"><%= @relay.x_response_reason_code %></td>
       </tr>
       <tr>
+        <td class="bold">x_fp_timestamp</td>
+        <td class="right_aligned"><%= @relay.x_fp_timestamp %></td>
+      </tr>
+      <tr>
         <td class="bold">x_fp_sequence</td>
         <td class="right_aligned"><%= @relay.x_fp_sequence %></td>
-      </tr>
-      <tr>
-        <td class="bold">exact_issname</td>
-        <td class="right_aligned"><%= @relay.exact_issname %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_type</td>
-        <td class="right_aligned"><%= @relay.x_type %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_auth_code</td>
-        <td class="right_aligned"><%= @relay.x_auth_code %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_show_form</td>
-        <td class="right_aligned"><%= @relay.x_show_form %></td>
-      </tr>
-      <tr>
-        <td class="bold">exact_wsp_version</td>
-        <td class="right_aligned"><%= @relay.exact_wsp_version %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_method</td>
-        <td class="right_aligned"><%= @relay.x_method %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_reference_3</td>
-        <td class="right_aligned"><%= @relay.x_reference_3 %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_response_reason_text</td>
-        <td class="right_aligned"><%= @relay.x_response_reason_text %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_invoice_num</td>
-        <td class="right_aligned"><%= @relay.x_invoice_num %></td>
-      </tr>
-      <tr>
-        <td class="bold">x_po_num</td>
-        <td class="right_aligned"><%= @relay.x_po_num %></td>
       </tr>
       <tr>
         <td class="bold">x_amount</td>
@@ -137,6 +117,30 @@
       <tr>
         <td class="bold">x_cust_id</td>
         <td class="right_aligned"><%= @relay.x_cust_id %></td>
+      </tr>
+      <tr>
+        <td class="bold">exact_issname</td>
+        <td class="right_aligned"><%= @relay.exact_issname %></td>
+      </tr>
+      <tr>
+        <td class="bold">exact_wsp_version</td>
+        <td class="right_aligned"><%= @relay.exact_wsp_version %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_method</td>
+        <td class="right_aligned"><%= @relay.x_method %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_reference_3</td>
+        <td class="right_aligned"><%= @relay.x_reference_3 %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_invoice_num</td>
+        <td class="right_aligned"><%= @relay.x_invoice_num %></td>
+      </tr>
+      <tr>
+        <td class="bold">x_po_num</td>
+        <td class="right_aligned"><%= @relay.x_po_num %></td>
       </tr>
       <tr>
         <td class="bold">x_first_name</td>
