@@ -40,6 +40,12 @@
     <%# x_line_item = "1<|>Item Name 2<|>Item Description 1<|>1<|>20.00<|>YES<|>A200<|>A2222<|>each<|>12<|>FED<|>5.0<|>1<|>2.00<|>18.00" %>
     <%# x_line_item = "2<|>Item Name 1<|>Item Description 2<|>1<|>10.00<|>YES<|>A100<|>A1111<|>each<|>12<|>FED<|>5.0<|>0<|>0.00<|>10.00" %>
 
+    <%# Recurring %>
+    <% x_recurring_billing        = TRUE %>
+    <% x_recurring_billing_id     = "MB-ROBER-125-625" %>
+    <% x_recurring_billing_amount = 50.00 %>
+
+
     <%# Customer Name and Billing Address Fields %>
     <% x_first_name = current_user.first_name %>
     <% x_last_name  = current_user.last_name %>
@@ -97,6 +103,11 @@
     <%= hidden_field_tag :tax1_amount,          tax1_amount %>
     <%= hidden_field_tag :x_tax,                x_tax %>
     <%= hidden_field_tag :x_freight,            x_freight %>
+
+    <%= hidden_field_tag :x_recurring_billing,        x_recurring_billing %>
+    <%= hidden_field_tag :x_recurring_billing_id,     x_recurring_billing_id %>
+    <%= hidden_field_tag :x_recurring_billing_amount, x_recurring_billing_amount %>
+
     <%= hidden_field_tag :x_first_name,         x_first_name %>
     <%= hidden_field_tag :x_last_name,          x_last_name %>
     <%= hidden_field_tag :x_email,              x_email %>
