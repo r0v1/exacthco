@@ -34,6 +34,11 @@
   <%# x_line_item_1 = "<|><|>1999 Cabernet Sauvignon, 0.7 l <|>10<|>19.95<|>YES" %>
   <%# x_line_item_2 = "<|><|>2003 Merlot, 0.7 l<|>12<|>23.95<|>YES" %>
 
+  <%# Recurring %>
+  <% x_recurring_billing        = TRUE %>
+  <% x_recurring_billing_id     = "MB-E-XAC-663-174" %>
+  <% x_recurring_billing_amount = 25.00 %>
+
   <%# Customer Name and Billing Address Fields %>
   <% x_first_name = current_user.first_name %>
   <% x_last_name = current_user.last_name %>
@@ -112,7 +117,7 @@
   <%= hidden_field_tag :x_ship_to_country, x_ship_to_country %>
 
   <p class="apart">
-    <a><%= submit_tag "ET QA", class: 'button' %></a>
+    <a><%= submit_tag "ET QA with recurring", class: 'button' %></a>
   </p>
 
 <% end %>

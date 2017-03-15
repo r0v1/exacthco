@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405222544) do
+ActiveRecord::Schema.define(version: 20161224013243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,27 @@ ActiveRecord::Schema.define(version: 20160405222544) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "apitrans", force: :cascade do |t|
+    t.string   "gateway_id",       limit: 10
+    t.string   "password",         limit: 30
+    t.string   "transaction_type", limit: 2
+    t.float    "amount"
+    t.string   "cc_number",        limit: 16
+    t.string   "cc_expiry",        limit: 4
+    t.string   "cardholder_name",  limit: 30
+    t.string   "cvd_code",         limit: 4
+    t.string   "cvd_presence_ind", limit: 1
+    t.string   "cavv"
+    t.string   "ecommerce_flag"
+    t.string   "transarmor_token"
+    t.string   "credit_card_type"
+    t.integer  "transaction_tag"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "apitrans", ["transaction_tag"], name: "index_apitrans_on_transaction_tag", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
