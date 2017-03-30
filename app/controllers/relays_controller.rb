@@ -34,10 +34,10 @@ class RelaysController < ApplicationController
     respond_to do |format|
       if @relay.save
         format.html { redirect_to @relay, notice: 'A new Register in Relay was successfully created.' }
-        # The following line allows to render a specific HTTP status code (comment out the previous line to make it work and modify the http_status_page in the relays views with the right HTTP code)
+        # The following line allows to render a specific HTTP status code (comment out the previous line to make it work and modify the http_status_page in the relays views with the right HTTP code). When finished, comment out "format.html { render 'http_status_page.html.erb', status: 204 }".
         # "If you try to render content along with a non-content status code (100-199, 204, 205 or 304), it will be dropped from the response."
         # Source: http://guides.rubyonrails.org/layouts_and_rendering.html
-        #format.html { render 'http_status_page.html.erb', status: 507 }
+        # format.html { render 'http_status_page.html.erb', status: 204 }
         format.json { render :show, status: :created, location: @relay }
       else
         format.html { render :new }
