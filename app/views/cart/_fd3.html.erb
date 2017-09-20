@@ -41,10 +41,10 @@
     <%# x_line_item = "2<|>Item Name 1<|>Item Description 2<|>1<|>10.00<|>YES<|>A100<|>A1111<|>each<|>12<|>FED<|>5.0<|>0<|>0.00<|>10.00" %>
 
     <%# Recurring %>
-    <%# The x_recurring_billing must be submitted as string %>
-    <% x_recurring_billing        = "TRUE" %>
-    <% x_recurring_billing_id     = "MB-ROBER-125-625" %>
-    <% x_recurring_billing_amount = 50.00 %>
+    <%# x_recurring_billing must be submitted as string ("TRUE" or "FALSE") and in capital letters. %>
+    <% x_recurring_billing        = (Rails.application.secrets.fd_hco3_reb).to_s.upcase %>
+    <% x_recurring_billing_id     = (Rails.application.secrets.fd_hco3_rep).to_s %>
+    <% x_recurring_billing_amount = (rand*10).round(2) %>
 
 
     <%# Customer Name and Billing Address Fields %>
