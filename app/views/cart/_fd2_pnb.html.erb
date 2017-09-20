@@ -1,0 +1,18 @@
+<%# PayNow button %>
+<%# This PNB is for FD2 PGW Prod %>
+
+  <div onclick="document.getElementById('pay_now_form_8ebfa731b3').submit()">
+      <form action="https://checkout.globalgatewaye4.firstdata.com/pay" id="pay_now_form_8ebfa731b3" method="post">
+        <input type="hidden" name="x_login" value="WSP-E-XAC-047OcgBlWg" />
+        <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+        <input type="hidden" name="x_fp_sequence" value="14998189272053723722" />
+        <input type="hidden" name="x_fp_hash" value="PNB-1.0-3e9bd8a342564451a37fea871a6d2f3c92a182ce" />
+        <input type="hidden" name="x_amount" />
+        <input type="hidden" name="x_currency_code" value="USD" />
+        <input type="hidden" name="x_test_request" value="TRUE" />
+        <input type="hidden" name="x_relay_response" value="" />
+        <input type="hidden" name="donation_prompt" />
+        <input type="hidden" name="button_code" value="Pay Now Roberto's Test" />
+        <button class="button">FD2 PROD PNB</button>
+      </form>
+    </div>

@@ -1,0 +1,18 @@
+<%# PayNow button %>
+<%# This PNB is for FD4 PGW FT2 %>
+
+  <div onclick="document.getElementById('pay_now_form_14adcccb64').submit()">
+      <form action="https://checkout-ft2.gateway.payeezytest.com/pay" id="pay_now_form_14adcccb64" method="post">
+        <input type="hidden" name="x_login" value="WSP-RVILL-L5TbOAABDQ" />
+        <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+        <input type="hidden" name="x_fp_sequence" value="14998194902489146318" />
+        <input type="hidden" name="x_fp_hash" value="PNB-1.0-2aea53fce4d8b4b45433a2ef9b03a0847bc18a33" />
+        <input type="hidden" name="x_amount" />
+        <input type="hidden" name="x_currency_code" value="USD" />
+        <input type="hidden" name="x_test_request" value="TRUE" />
+        <input type="hidden" name="x_relay_response" value="" />
+        <input type="hidden" name="donation_prompt" />
+        <input type="hidden" name="button_code" value="Pay Now Roberto's FT2 Payment Page" />
+        <button class="button">FD4 FT2 PNB</button>
+      </form>
+    </div>

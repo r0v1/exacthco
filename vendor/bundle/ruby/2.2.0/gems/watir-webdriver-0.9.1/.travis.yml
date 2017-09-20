@@ -1,0 +1,30 @@
+sudo: false
+rvm:
+  - 2.0
+  - 2.1
+  - 2.2
+addons:
+  apt:
+    packages:
+      - unzip
+      - libxss1
+cache: bundler
+notifications:
+  recipients:
+    - p0deje@gmail.com
+    - jarmo.p@gmail.com
+    - titusfortner@gmail.com
+  irc: "irc.freenode.net#watir"
+before_script: support/travis.sh
+script: bundle exec rake $RAKE_TASK
+env:
+  - RAKE_TASK=spec:firefox
+  - RAKE_TASK=spec:firefox ALWAYS_LOCATE=false
+  - RAKE_TASK=spec:firefox PREFER_CSS=1 SELECTOR_STATS=1
+  - RAKE_TASK=spec:chrome
+  - RAKE_TASK=spec:chrome ALWAYS_LOCATE=false
+  - RAKE_TASK=spec:chrome PREFER_CSS=1 SELECTOR_STATS=1
+  - RAKE_TASK=spec:phantomjs
+  - RAKE_TASK=spec:phantomjs ALWAYS_LOCATE=false
+  - RAKE_TASK=spec:phantomjs PREFER_CSS=1 SELECTOR_STATS=1
+  - RAKE_TASK=yard:doctest

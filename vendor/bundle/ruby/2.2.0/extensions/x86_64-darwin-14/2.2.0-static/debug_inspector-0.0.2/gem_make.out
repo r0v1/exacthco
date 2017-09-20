@@ -1,0 +1,12 @@
+/Users/rvillalva/.rvm/rubies/ruby-2.2.1/bin/ruby -r ./siteconf20170711-89933-1ll08xt.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+ld: warning: directory not found for option '-L/Users/haven/.sm/pkg/active/lib'
+
+make "DESTDIR=" install
+/usr/bin/install -m 0755 debug_inspector.bundle ./.gem.20170711-89933-en8wek
