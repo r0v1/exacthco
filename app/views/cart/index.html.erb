@@ -96,20 +96,31 @@
   <% if current_user.admin? %>
     <h1 class="apart">Checkout with PayEezy's Payment Pages</h1>
     <!-- h3 class="apart">PayEezy's Payment Page Demo - Values Received</h3 -->
-    <%= render 'fd1' %>
-    <%= render 'fd1_pnb' %>
+    <div>
+      <%= render 'fd1' %>
+      <%= render 'fd1_pnb' %>
+    </div>
     <!-- h3 class="apart">PayEezy's Payment Page PROD - Receipt only - C50118-01</h3 -->
-    <%= render 'fd2' %>
-    <%= render 'fd2_pnb' %>
+    <div>
+      <%= render 'fd2' %>
+      <%= render 'fd2_pnb' %>
+    </div>
     <!-- h3 class="apart">PayEezy's Payment Page QA - Receipt only - A05351-02</h3 -->
-    <%= render 'fd3' %>
-    <%= render 'fd3_pnb' %>
+    <div>
+      <%= render 'fd3' %>
+      <%= render 'fd3_vanilla' %>
+      <%= render 'fd3_pnb' %>
+    </div>
     <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A08216-01</h3 -->
-    <%= render 'fd4' %>
-    <%= render 'fd4_pnb' %>
+    <div>
+      <%= render 'fd4' %>
+      <%= render 'fd4_pnb' %>
+    </div>
     <!-- h3 class="apart">PayEezy's Payment Page FT1 - Receipt only - O86029-97</h3 -->
-    <%= render 'fd5' %>
-    <%= render 'fd5_pnb' %>
+    <div>
+      <%= render 'fd5' %>
+      <%= render 'fd5_pnb' %>
+    </div>
   <% end %>
 
   <h3 class="apart">Click <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a> to get a test credit card number.<h3>
