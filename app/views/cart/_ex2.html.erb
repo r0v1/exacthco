@@ -60,7 +60,7 @@
   <%# Heroku shows this error message: "Digest::Digest is deprecated; use Digest". Use "Digest::Digest" only for backwards compatibility. %>
   <%# x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
   <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"),transaction_key, hmac_string) %>
-  
+
   <%# relay = 10 %>
   <%#= hidden_field_tag 'relay', relay %>
 
@@ -107,8 +107,8 @@
   <%= hidden_field_tag :x_ship_to_zip, x_ship_to_zip %>
   <%= hidden_field_tag :x_ship_to_country, x_ship_to_country %>
 
-  <p class="apart">
-    <a><%= submit_tag "Silent Post", class: 'button' %></a>
+  <p class="nosoapart">
+    <a><%= submit_tag "ET Demo - Silent Post", class: 'button' %></a>
   </p>
 
 <% end %>
