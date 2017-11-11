@@ -78,51 +78,67 @@
 
   <h1 class="apart">Checkout with E­-xact's Payment Page Demo</h1>
 
-  <!-- h3 class="apart">E-xact's Payment Page Demo - Receipt only, no Silent Post</h3 -->
-  <%= render 'ex1' %>
-
-  <!-- h3 class="apart">E-xact's Payment Page Demo - Silent Post</h3 -->
-  <%= render 'ex2' %>
-
-  <!-- h3 class="apart">E-xact's Payment Page Demo - Values Received</h3 -->
-  <% if current_user.admin? %>
+  <div class="apart">
+    <!-- h3 class="apart">E-xact's Payment Page Demo - Receipt only, no Silent Post</h3 -->
+    <%= render 'ex1' %>
+    <!-- h3 class="apart">E-xact's Payment Page Demo - Silent Post</h3 -->
+    <%= render 'ex2' %>
+    <!-- h3 class="apart">E-xact's Payment Page Demo - Values Received</h3 -->
     <%= render 'ex3' %>
-    <!-- h3 class="apart">ET QA Payment Page - A05513-01</h3 -->
-    <%= render 'ex4' %>
-    <!-- h3 class="apart">ET QA Payment Page - Cineplex - AQ7308-01</h3 -->
-    <%= render 'ex5' %>
+  </div>
+
+  <% if current_user.admin? %>
+
+    <div class="apart">
+      <!-- h3 class="apart">ET QA Payment Page - A05513-01</h3 -->
+      <%= render 'ex4' %>
+      <!-- h3 class="apart">ET QA Payment Page - Cineplex - AQ7308-01</h3 -->
+      <%= render 'ex5' %>
+    </div>
+
   <% end %>
 
   <% if current_user.admin? %>
     <h1 class="apart">Checkout with PayEezy's Payment Pages</h1>
     <!-- h3 class="apart">PayEezy's Payment Page Demo - Values Received</h3 -->
-    <div>
+    <div class="apart">
       <%= render 'fd1' %>
       <%= render 'fd1_pnb' %>
     </div>
     <!-- h3 class="apart">PayEezy's Payment Page PROD - Receipt only - C50118-01</h3 -->
-    <div>
+    <div class="apart">
       <%= render 'fd2' %>
       <%= render 'fd2_pnb' %>
     </div>
     <!-- h3 class="apart">PayEezy's Payment Page QA - Receipt only - A05351-02</h3 -->
-    <div>
+    <div class="apart">
       <%= render 'fd3' %>
       <%= render 'fd3_vanilla' %>
       <%= render 'fd3_pnb' %>
     </div>
+    <!-- h3 class="apart">PayEezy's Payment Page FT1 - Receipt only - O86029-97</h3 -->
+    <div class="apart">
+      <%= render 'fd5' %>
+      <%= render 'fd5_pnb' %>
+    </div>
     <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A08216-01</h3 -->
-    <div>
+    <div class="apart">
       <%= render 'fd4' %>
       <%= render 'fd4_pnb' %>
       <%= render 'fd4_apple_pnb' %>
     </div>
-    <!-- h3 class="apart">PayEezy's Payment Page FT1 - Receipt only - O86029-97</h3 -->
-    <div>
-      <%= render 'fd5' %>
-      <%= render 'fd5_pnb' %>
+    <!-- h3 class="apart">PayEezy's Payment Page CAT - CA6290-96</h3 -->
+    <div class="apart">
+      <%= render 'fd6' %>
+      <%= render 'fd6_pnb' %>
+    </div>
+    <!-- h3 class="apart">PayEezy's Payment Page CERT - CR1386-16</h3 -->
+    <div class="apart">
+      <%= render 'fd7' %>
+      <%= render 'fd7_pnb' %>
     </div>
   <% end %>
+
 
   <h3 class="apart">Click <a href="https://hostedcheckout.zendesk.com/entries/231255-Using-test-credit-card-numbers" target="_blank">here</a> to get a test credit card number.<h3>
 

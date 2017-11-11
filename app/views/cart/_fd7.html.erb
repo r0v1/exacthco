@@ -1,11 +1,10 @@
-  <%# PayEezy's Payment Page FT1 - O86029-97 %>
+  <%# PayEezy's Payment Page CERT - CR1386-16 PP %>
   <%# Receipt link to Received Values page %>
 
-  <%= form_tag("https://checkout-ft1.gateway.payeezytest.com/payment", method: "post") do %>
-  <%# https://gateway.payeezyqa.com/pay %>
+  <%= form_tag("https://checkout-crt.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# The payment data %>
-    <% x_login         = Rails.application.secrets.fd_hco5_id %>
+    <% x_login         = Rails.application.secrets.fd_hco7_id %>
     <%# x_fp_sequence = "1234567890" %>
     <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
     <% x_fp_timestamp  = Time.now.to_i.to_s %>
@@ -21,7 +20,7 @@
     <%# x_amount       = 10.00 %>
     <% x_currency_code = "USD" %>
 
-    <% transaction_key = Rails.application.secrets.fd_hco5_tk %>
+    <% transaction_key = Rails.application.secrets.fd_hco7_tk %>
     <%# Login for live terminal %>
     <%# transaction_key = "some_key" %>
 
@@ -127,6 +126,6 @@
     <%= hidden_field_tag :x_relay_response, x_relay_response %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD FT1", class: 'button' %></a>
+      <a><%= submit_tag "FD CERT", class: 'button' %></a>
     </p>
   <% end %>
