@@ -243,6 +243,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   byebug
+  capybara
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
@@ -269,4 +270,4 @@ RUBY VERSION
    ruby 2.2.2p95
 
 BUNDLED WITH
-   1.13.6
+   1.16.0
