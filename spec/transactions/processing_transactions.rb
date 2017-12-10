@@ -1,4 +1,4 @@
-require_relative '../../script/browserstack.rb'
+# require_relative '../../script/browserstack.rb'
 require 'rails_helper.rb'
 
 
