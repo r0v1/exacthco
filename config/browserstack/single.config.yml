@@ -1,0 +1,15 @@
+server: "hub-cloud.browserstack.com"
+user: "BROWSERSTACK_USERNAME"
+key: "BROWSERSTACK_ACCESS_KEY"
+
+common_caps:
+  "build": "rspec-browserstack"
+  # "build": "cart2"
+  "browserstack.debug": true
+
+browser_caps:
+  -
+    "browser": "chrome"
+    # "device": "iPhone 7"
+    # "realMobile": "true"
+    # "os_version": "10.0"
