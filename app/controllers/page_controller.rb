@@ -13,4 +13,7 @@ before_action :authenticate_user!, only: [:contact]
 
   def contact
   end
+
+  def pnb
+  end
 end

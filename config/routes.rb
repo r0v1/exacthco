@@ -11,11 +11,17 @@ Rails.application.routes.draw do
   #root 'page#home'
   root 'products#index'
 
-  get 'page/about'
+  # Original: get 'page/about'
+  get 'about', to: "page#about"
 
-  get 'page/faqs'
+  # Original: get 'page/faqs'
+  get 'faqs', to: "page#faqs"
 
-  get 'page/contact'
+  # Original: get 'page/contact'
+  get 'contact', to: "page#contact"
+
+  # Original: get 'page/pnb'
+  get 'pnb', to: "page#pnb"
 
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
