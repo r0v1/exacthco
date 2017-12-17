@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'contact', to: "page#contact"
 
   # Original: get 'page/pnb'
-  get 'pnb', to: "page#pnb"
+  get 'now', to: "page#now"
 
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
