@@ -1,0 +1,61 @@
+<!-- h1>Pay Now Button</h1 -->
+
+<br><br><br>
+
+<div class="apart">
+  <%# This a PNB is for FD3 OMA QA %>
+  <div onclick="document.getElementById('pay_now_form_450ca66434').submit()" class="nosoapart">
+    <form action="https://checkout.gateway.payeezyqa.com/pay" id="pay_now_form_450ca66434" method="post">
+      <input type="hidden" name="x_login" value="WSP-CHECK-@Y9F@wACTg" />
+      <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+      <input type="hidden" name="x_fp_sequence" value="15129546913993404063" />
+      <input type="hidden" name="x_fp_hash" value="PNB-1.0-e7b5bb73186dbed77488ed524db47cbad0c9f405" />
+      <input type="hidden" name="x_amount" />
+      <input type="hidden" name="x_currency_code" value="USD" />
+      <input type="hidden" name="x_test_request" value="TRUE" />
+      <input type="hidden" name="x_relay_response" value="" />
+      <input type="hidden" name="donation_prompt" />
+      <input type="hidden" name="button_code" value="Pay Now PNB - I15220-36" />
+      <button class="button">QA PNB</button>
+    </form>
+  </div>
+
+  <%# E4 QA Vanilla - Q23378-63 - Receipt only - Q23378-63 %>
+  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%# https://gateway.payeezyqa.com/pay %>
+
+    <%# The payment data %>
+    <% x_login = Rails.application.secrets.fd_hco3_vanilla_id %>
+    <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
+    <% x_fp_timestamp  = Time.now.to_i.to_s %>
+    <% x_amount        = 100.00 %>
+    <% x_currency_code = "USD" %>
+
+    <% transaction_key = Rails.application.secrets.fd_hco3_vanilla_tk %>
+
+    <%# If preauth is required (however, preauth can't be completed through HCO): %>
+    <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
+    <% x_type = "AUTH_CAPTURE" %>
+
+    <%# Concatenating the values included in the x_fp_hash  %>
+    <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
+
+    <%# Calculating HMAC-MD5 %>
+    <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"), transaction_key, hmac_string) %>
+
+    <%= hidden_field_tag 'x_type',         x_type %>
+    <%= hidden_field_tag 'x_amount',       x_amount %>
+    <%= hidden_field_tag 'x_login',        x_login %>
+    <%= hidden_field_tag 'x_fp_sequence',  x_fp_sequence %>
+    <%= hidden_field_tag :x_fp_timestamp,  x_fp_timestamp %>
+    <%= hidden_field_tag :x_currency_code, x_currency_code %>
+    <%= hidden_field_tag :x_fp_hash,       x_fp_hash %>
+    <%= hidden_field_tag :x_show_form,     "PAYMENT_FORM" %>
+
+    <p class="nosoapart">
+      <a><%= submit_tag "QA - Vanilla PP", class: 'button' %></a>
+    </p>
+
+  <% end %>
+
+</div>
