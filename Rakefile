@@ -11,7 +11,7 @@ Rails.application.load_tasks
 
 RSpec::Core::RakeTask.new(:single) do |t|
   ENV['CONFIG_NAME'] ||= "single"
-  t.pattern = Dir.glob('spec/transactions/processing_transactions.rb')
+  t.pattern = Dir.glob('spec/transactions/qa_vanilla_pp_bs.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
 end

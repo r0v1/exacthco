@@ -14,7 +14,7 @@ feature 'Processing a set of transactions through the QA Vanilla PP' do
     # puts TheData.pp_data
     TheData.pp_data.each do |set|
 
-      visit("/now")
+      visit("https://payment-page-develop.herokuapp.com/now")
 
       expect(page).to have_selector(:link_or_button, "FD QA - Vanilla",                  count: 1)
 
