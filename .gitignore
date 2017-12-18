@@ -7,7 +7,6 @@
 # Rails files/folders
 /.bundle
 /vendor/bundle
-Gemfile.lock
 .DS_Store
 .byebug_history
 README.rdoc
