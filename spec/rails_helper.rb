@@ -7,6 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'yaml'
+require 'browserstack/local'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -59,6 +61,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
+# ---------------------------------------------------------------------------
+# This is the configuration needed for running the Capybara rspecs in local browser.
+# =begin
+
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
@@ -75,3 +81,56 @@ end
 
 # Start server before specs
 Capybara.current_session
+
+# =end
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# This is the configuration needed for running the Capybara rspecs in BrowserStack.
+=begin
+
+# monkey patch to avoid reset sessions
+class Capybara::Selenium::Driver < Capybara::Driver::Base
+  def reset!
+    if @browser
+      @browser.navigate.to('about:blank')
+    end
+  end
+end
+
+TASK_ID = (ENV['TASK_ID'] || 0).to_i
+CONFIG_NAME = ENV['CONFIG_NAME'] || 'single'
+
+CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../config/browserstack/#{CONFIG_NAME}.config.yml")))
+CONFIG['user'] = ENV['BROWSERSTACK_USERNAME'] || CONFIG['user']
+CONFIG['key'] = ENV['BROWSERSTACK_ACCESS_KEY'] || CONFIG['key']
+
+Capybara.register_driver :browserstack do |app|
+  @caps = CONFIG['common_caps'].merge(CONFIG['browser_caps'][TASK_ID])
+
+  # Code to start browserstack local before start of test
+  if @caps['browserstack.local'] && @caps['browserstack.local'].to_s == 'true';
+    @bs_local = BrowserStack::Local.new
+    bs_local_args = {"key" => "#{CONFIG['key']}"}
+    @bs_local.start(bs_local_args)
+  end
+
+  Capybara::Selenium::Driver.new(app,
+    :browser => :remote,
+    :url => "http://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",
+    :desired_capabilities => @caps
+  )
+end
+
+Capybara.configure do |config|
+  config.default_driver        = :browserstack
+  config.run_server            = false
+end
+
+# Code to stop browserstack local after end of test
+at_exit do
+  @bs_local.stop unless @bs_local.nil?
+end
+
+=end
+# ---------------------------------------------------------------------------

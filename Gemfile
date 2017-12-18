@@ -60,6 +60,11 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'parallel'
+  gem 'browserstack-local'
+  # gem "rspec-core", "~> 3.4.4"
+  gem 'rspec-core'
+  gem 'rspec'
 end
 
 gem 'rails_12factor', group: :production

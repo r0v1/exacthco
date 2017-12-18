@@ -1,4 +1,6 @@
+# require_relative '../../script/browserstack.rb'
 require 'rails_helper.rb'
+
 
 feature 'Processing transactions' do
 
