@@ -4,7 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 require 'rake'
-require 'parallel'
+# require 'parallel'
 require 'rspec/core/rake_task'
 
 Rails.application.load_tasks
@@ -25,18 +25,18 @@ RSpec::Core::RakeTask.new(:local) do |t|
   t.verbose = false
 end
 
-task :parallel do |t, args|
-  @num_parallel = 4
+# task :parallel do |t, args|
+  # @num_parallel = 4
 
-  Parallel.map([*1..@num_parallel], :in_processes => @num_parallel) do |task_id|
-    ENV["TASK_ID"] = (task_id - 1).to_s
-    ENV['name'] = "parallel_test"
-    ENV['CONFIG_NAME'] = "parallel"
+  # Parallel.map([*1..@num_parallel], :in_processes => @num_parallel) do |task_id|
+    # ENV["TASK_ID"] = (task_id - 1).to_s
+    # ENV['name'] = "parallel_test"
+    # ENV['CONFIG_NAME'] = "parallel"
 
-    Rake::Task["single"].invoke
-    Rake::Task["single"].reenable
-  end
-end
+    # Rake::Task["single"].invoke
+    # Rake::Task["single"].reenable
+  # end
+# end
 
 task :test do |t, args|
   Rake::Task["single"].invoke
