@@ -48,8 +48,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'watir-webdriver'
   gem 'rspec-rails'
-  gem 'rspec-core'
-  gem 'rspec'
 end
 
 group :development do
@@ -66,7 +64,8 @@ group :test do
   gem 'chromedriver-helper'
   gem 'parallel'
   gem 'browserstack-local'
-  # gem "rspec-core", "~> 3.4.4"
+  gem 'rspec-core'
+  gem 'rspec'
 end
 
 gem 'rails_12factor', group: :production
