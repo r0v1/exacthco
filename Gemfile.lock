@@ -272,7 +272,6 @@ DEPENDENCIES
   pg
   rails (= 4.2.4)
   rails_12factor
-  rake
   rspec
   rspec-core
   rspec-rails
@@ -289,4 +288,4 @@ RUBY VERSION
    ruby 2.2.2p95
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
