@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'payeezy'
 
-gem 'rake'
 gem 'rspec-core'
 
 # Use ActiveModel has_secure_password
