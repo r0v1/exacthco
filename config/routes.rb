@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # Original: get 'page/contact'
   get 'contact', to: "page#contact"
 
-  # Original: get 'page/pnb'
+  # Original: get 'page/now'
   get 'now', to: "page#now"
 
   resources :products

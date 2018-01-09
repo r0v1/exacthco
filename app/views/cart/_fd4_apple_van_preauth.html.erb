@@ -1,6 +1,6 @@
   <%# PayEezy's Payment Page FT2 - Apple - VAN - Purchase - G85813-99 %>
 
-  <%= form_tag("https://checkout-ft2.gateway.payeezytest.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-ft2.gateway.payeezytest.com/payment", method: "get") do %>
   <%# https://gateway.payeezyqa.com/pay %>
 
     <%# The payment data %>
@@ -17,7 +17,7 @@
     <%# x_amount        = @total + x_freight + x_tax %>
     <%# x_first_name   = "" %>
     <%# x_last_name    = "" %>
-    <% x_amount       = 58.30 %>
+    <% x_amount        = @total %>
     <% x_currency_code = "USD" %>
 
     <% transaction_key = Rails.application.secrets.fd_hco4_ap_van_tk %>
