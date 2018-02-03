@@ -12,7 +12,13 @@
     <br>
     <p class="text_bckg"><%= product.description %></p>
     <br>
-    <h3 class="text_bckg"><b class="text_bckg">Unit Price: $<%= product.price %></b></h3>
+    <% if current_user == nil  %>
+      <% currency_code = "USD" %>
+      <h3 class="text_bckg"><b class="text_bckg">Unit Price: <%= "#{product.price} #{currency_code}" %></b></h3>
+    <% else  %>
+      <h3 class="text_bckg"><b class="text_bckg">Unit Price: <%= number_to_currency(product.price, unit: "#{current_user.currency_code}", format: "%n %u") %></b></h3>
+    <% end  %>
+
     <!-- p class="text_bckg"><b class="text_bckg">Category: </b><%= product.category %></p -->
     <!-- p class="text_bckg"><b class="text_bckg">Subcategory: </b><%= product.subcategory %></p -->
 

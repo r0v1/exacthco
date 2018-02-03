@@ -7,7 +7,7 @@
   <% if current_user.try(:admin?) %>
     <p class="text_bckg"><b>Image URL: </b><%= @product.image_url %></p>
   <% end %>
-  <p class="text_bckg"><b>Unit Price: </b>$<%= @product.price %></p>
+  <p class="text_bckg"><b>Unit Price: </b><%= @product.price %> <%= current_user.currency_code %></p>
   <p class="text_bckg"><b>Category: </b><%= @product.category %></p>
   <p class="text_bckg"><b>Subcategory: </b><%= @product.subcategory %></p>
   <br>

@@ -34,9 +34,9 @@
         <div class="tile">
           <div><%= image_tag product.image_url, class: "image_size" %></div>
           <h3 class="text_bckg"><%= product.title %></h3>
-          <p class="text_bckg"><b class="text_bckg">Unit Price: </b><%= number_to_currency(product.price, :unit => "$") %></p>
+          <p class="text_bckg"><b class="text_bckg">Unit Price: </b><%= number_to_currency(product.price, unit: "#{current_user.currency_code}", format: "%n %u") %></p>
           <p class="text_bckg"><b class="text_bckg">Quantity: </b><%= quantity %></p>
-          <p class="text_bckg"><b class="text_bckg">Sub-Total: </b>$<%= quantity * product.price %></p>
+          <p class="text_bckg"><b class="text_bckg">Sub-Total: </b><%= number_to_currency((quantity * product.price), unit: "#{current_user.currency_code}", format: "%n %u") %></p>
           <p class="tile-left-span"><a href="/cart/less/<%= product.id %>" class="button">-1</a>
           <p class="tile-right-span"><a href="/cart/more/<%= product.id %>" class="button">+1</a>
         </div>
@@ -71,7 +71,7 @@
 
   <h2 class="apart">
     <strong>Your cart's total:</strong>
-    <b><%= number_to_currency(@total, :unit => "$") %></b>
+    <b><%= number_to_currency(@total, unit: "#{current_user.currency_code}", format: "%n %u") %></b>
   </h2>
 
   <h1 class="apart"><%= link_to "Continue Shopping", products_path %></h1>
