@@ -20,7 +20,7 @@
     <%# x_first_name   = "" %>
     <%# x_last_name    = "" %>
     <%# x_amount       = 10.00 %>
-    <% x_currency_code = "USD" %>
+    <% x_currency_code = "#{current_user.currency_code}" %>
 
     <% transaction_key = Rails.application.secrets.fd_hco1_tk %>
     <%# Login for live terminal %>

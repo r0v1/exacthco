@@ -40,11 +40,12 @@
   </div>
 
   <div class="nosoapart">
-    <% x_currency_code = "USD" %>
-    <%#= "x_currency_code: #{x_currency_code}" %>
+    <% x_currency_code = "#{current_user.currency_code}" %>
     <%= hidden_field_tag :x_currency_code, x_currency_code %>
 
-    <%= "Total before freight & taxes: $#{@total} #{x_currency_code}" %>
+    <%#= "Total before freight & taxes: $#{@total} #{current_user.currency_code}" %>
+    <%= "Total before freight & taxes: #{number_to_currency(@total, unit: x_currency_code, format: "%n %u")}" %>
+
   </div>
 
   <div class="nosoapart">

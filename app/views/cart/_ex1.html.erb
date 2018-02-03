@@ -15,7 +15,7 @@
   <% tax1_amount = ((@total + x_freight) * 0.07).round(2) %>
   <% x_tax = tax2_amount + tax1_amount %>
   <% x_amount = @total + x_freight + x_tax %>
-  <% x_currency_code = "CAD" %>
+  <% x_currency_code = "#{current_user.currency_code}" %>
   <% transaction_key = Rails.application.secrets.ex_hco1_tk %>
   <%# If preauth is required (however, preauth can't be completed through HCO): %>
   <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>

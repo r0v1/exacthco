@@ -18,7 +18,7 @@
   <%# x_first_name = "SC TC " %>
   <%# x_last_name = "" %>
   <%# x_amount = 15.00 %>
-  <% x_currency_code = "CAD" %>
+  <% x_currency_code = "#{current_user.currency_code}" %>
 
   <% transaction_key = Rails.application.secrets.ex_hco5_tk %>
   <%# If preauth is required (however, preauth can't be completed through HCO): %>
