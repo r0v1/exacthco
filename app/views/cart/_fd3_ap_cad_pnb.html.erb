@@ -1,0 +1,19 @@
+<%# PayNow button %>
+<%# This PNB is for FD3 PGW AP CAD QA %>
+<%# Account: Checkout Demo; PP: AP CAD - R39579-25; PNB = WSP-CHECK-TkHUigACXA %>
+
+<div onclick="document.getElementById('pay_now_form_f61cb8f4d2').submit()">
+  <form action="https://checkout.gateway.payeezyqa.com/pay" id="pay_now_form_f61cb8f4d2" method="post">
+    <input type="hidden" name="x_login" value="WSP-CHECK-1VSUkQACYg" />
+    <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+    <input type="hidden" name="x_fp_sequence" value="15177682512850514606" />
+    <input type="hidden" name="x_fp_hash" value="PNB-1.0-213c30b40f35a3f6f39b14cfc6a35c1a82fc7dc5" />
+    <input type="hidden" name="x_amount" />
+    <input type="hidden" name="x_currency_code" value="CAD" />
+    <input type="hidden" name="x_test_request" value="TRUE" />
+    <input type="hidden" name="x_relay_response" value="" />
+    <input type="hidden" name="donation_prompt" />
+    <input type="hidden" name="button_code" value="Pay Now AP CAD - R39579-25" />
+    <button class="button">FD QA AP CAD PNB</button>
+  </form>
+</div>
