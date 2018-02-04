@@ -14,7 +14,7 @@
     <br>
     <% if current_user == nil  %>
       <% currency_code = "USD" %>
-      <h3 class="text_bckg"><b class="text_bckg">Unit Price: <%= "#{product.price} #{currency_code}" %></b></h3>
+      <h3 class="text_bckg"><b class="text_bckg">Unit Price: <%= number_to_currency(product.price, unit: "#{currency_code}", format: "%n %u") %></b></h3>
     <% else  %>
       <h3 class="text_bckg"><b class="text_bckg">Unit Price: <%= number_to_currency(product.price, unit: "#{current_user.currency_code}", format: "%n %u") %></b></h3>
     <% end  %>

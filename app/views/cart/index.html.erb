@@ -100,57 +100,73 @@
 
   <% if current_user.admin? %>
     <h1 class="apart">Checkout with PayEezy's Payment Pages</h1>
-    <!-- h3 class="apart">PayEezy's Payment Page Demo - Values Received</h3 -->
-    <div class="apart">
-      <%= render 'fd1' %>
-      <%= render 'fd1_pnb' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page PROD - Receipt only - C50118-01</h3 -->
-    <div class="apart">
-      <%= render 'fd2' %>
-      <%= render 'fd2_pnb' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page QA - Receipt only - A05351-02</h3 -->
-    <div class="apart">
-      <%= render 'fd3' %>
-      <%= render 'fd3_vanilla' %>
-      <%= render 'fd3_pnb' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay buttons</h3 -->
-    <div class="apart">
-      <%= render 'fd3_ap_purchase' %>
-      <%= render 'fd3_ap_preauth' %>
-      <%= render 'fd3_ap_recurring' %>
-      <%= render 'fd3_ap_pnb' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page FT1 - Receipt only - O86029-97</h3 -->
-    <div class="apart">
-      <%= render 'fd5' %>
-      <%= render 'fd5_pnb' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A08216-01</h3 -->
-    <div class="apart">
-      <%= render 'fd4' %>
-      <%= render 'fd4_pnb' %>
-      <%= render 'fd4_apple_pnb' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay - G85813-99</h3 -->
-    <div class="apart">
-      <%= render 'fd4_apple_van_purchase' %>
-      <%= render 'fd4_apple_van_preauth' %>
-      <%= render 'fd4_apple_recurring' %>
-      <%#= render 'fd4_apple_line_items' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page CAT - CA6290-96</h3 -->
-    <div class="apart">
-      <%= render 'fd6' %>
-      <%= render 'fd6_pnb' %>
-    </div>
-    <!-- h3 class="apart">PayEezy's Payment Page CERT - CR1386-16</h3 -->
-    <div class="apart">
-      <%= render 'fd7' %>
-      <%= render 'fd7_pnb' %>
-    </div>
+
+    <% if current_user.currency_code == "USD" %>
+      <!-- h3 class="apart">PayEezy's Payment Page Demo - Values Received</h3 -->
+      <div class="apart">
+        <%= render 'fd1' %>
+        <%= render 'fd1_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page PROD - Receipt only - C50118-01</h3 -->
+      <div class="apart">
+        <%= render 'fd2' %>
+        <%= render 'fd2_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Receipt only - A05351-02</h3 -->
+      <div class="apart">
+        <%= render 'fd3' %>
+        <%= render 'fd3_vanilla' %>
+        <%= render 'fd3_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd3_ap_purchase' %>
+        <%= render 'fd3_ap_preauth' %>
+        <%= render 'fd3_ap_recurring' %>
+        <%= render 'fd3_ap_pnb' %>
+      </div>
+
+      <!-- h3 class="apart">PayEezy's Payment Page FT1 - Receipt only - O86029-97</h3 -->
+      <div class="apart">
+        <%= render 'fd5' %>
+        <%= render 'fd5_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A08216-01</h3 -->
+      <div class="apart">
+        <%= render 'fd4' %>
+        <%= render 'fd4_pnb' %>
+        <%= render 'fd4_apple_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay - G85813-99</h3 -->
+      <div class="apart">
+        <%= render 'fd4_apple_van_purchase' %>
+        <%= render 'fd4_apple_van_preauth' %>
+        <%= render 'fd4_apple_recurring' %>
+        <%#= render 'fd4_apple_line_items' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page CAT - CA6290-96</h3 -->
+      <div class="apart">
+        <%= render 'fd6' %>
+        <%= render 'fd6_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page CERT - CR1386-16</h3 -->
+      <div class="apart">
+        <%= render 'fd7' %>
+        <%= render 'fd7_pnb' %>
+      </div>
+
+    <% else %>
+      <h2 class="apart">Only the following payment options are available for non USD-currencies:</h2>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay CAD buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd3_ap_cad_purchase' %>
+        <%= render 'fd3_ap_cad_preauth' %>
+        <%= render 'fd3_ap_cad_recurring' %>
+        <%= render 'fd3_ap_cad_pnb' %>
+      </div>
+
+    <% end %>
+
     <div class="apart">
       <%= render 'form.html.erb' %>
     </div>
