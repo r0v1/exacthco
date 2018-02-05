@@ -125,7 +125,11 @@
         <%= render 'fd3_ap_recurring' %>
         <%= render 'fd3_ap_pnb' %>
       </div>
-
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay Foreign Currency PNB buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd3_ap_eur_pnb' %>
+      </div>
       <!-- h3 class="apart">PayEezy's Payment Page FT1 - Receipt only - O86029-97</h3 -->
       <div class="apart">
         <%= render 'fd5' %>
@@ -155,14 +159,64 @@
         <%= render 'fd7_pnb' %>
       </div>
 
-    <% else %>
-      <h2 class="apart">Only the following payment options are available for non USD-currencies:</h2>
+    <% elsif current_user.currency_code == "CAD" %>
+      <h2 class="apart">Only the following payment options are available for CAD:</h2>
       <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay CAD buttons</h3 -->
       <div class="apart">
         <%= render 'fd3_ap_cad_purchase' %>
         <%= render 'fd3_ap_cad_preauth' %>
         <%= render 'fd3_ap_cad_recurring' %>
         <%= render 'fd3_ap_cad_pnb' %>
+      </div>
+      <div class="apart">
+        <%= render 'fd1_pnb' %>
+        <%= render 'fd2_pnb' %>
+        <%= render 'fd3_pnb' %>
+        <%= render 'fd3_ap_pnb' %>
+        <%= render 'fd3_ap_eur_pnb' %>
+        <%= render 'fd5_pnb' %>
+        <%= render 'fd4_pnb' %>
+        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd6_pnb' %>
+        <%= render 'fd7_pnb' %>
+      </div>
+
+    <% elsif current_user.currency_code == "EUR" %>
+      <h2 class="apart">Only the following payment options are available for EUR:</h2>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay EUR buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd3_ap_eur_purchase' %>
+        <%= render 'fd3_ap_eur_preauth' %>
+        <%= render 'fd3_ap_eur_recurring' %>
+        <%= render 'fd3_ap_eur_pnb' %>
+      </div>
+      <div class="apart">
+        <%= render 'fd1_pnb' %>
+        <%= render 'fd2_pnb' %>
+        <%= render 'fd3_pnb' %>
+        <%= render 'fd3_ap_pnb' %>
+        <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd5_pnb' %>
+        <%= render 'fd4_pnb' %>
+        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd6_pnb' %>
+        <%= render 'fd7_pnb' %>
+      </div>
+
+    <% else %>
+      <!-- h2 class="apart">Only the following payment options are available:</h2 -->
+      <div class="apart">
+        <%= render 'fd1_pnb' %>
+        <%= render 'fd2_pnb' %>
+        <%= render 'fd3_pnb' %>
+        <%= render 'fd3_ap_pnb' %>
+        <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd3_ap_eur_pnb' %>
+        <%= render 'fd5_pnb' %>
+        <%= render 'fd4_pnb' %>
+        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd6_pnb' %>
+        <%= render 'fd7_pnb' %>
       </div>
 
     <% end %>
