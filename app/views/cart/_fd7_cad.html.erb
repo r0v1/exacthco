@@ -1,35 +1,40 @@
-  <%# PayEezy's Payment Page QA - Apple Pay - Preauth - S14952-33 %>
+  <%# PayEezy's Payment Page CERT CAD - F58872-78 PP %>
+  <%# Receipt link to Received Values page %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-crt.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# The payment data %>
-    <% x_login         = Rails.application.secrets.fd_hco3_ap_id %>
+    <% x_login         = Rails.application.secrets.fd_hco7_cad_id %>
     <%# x_fp_sequence = "1234567890" %>
     <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
     <% x_fp_timestamp  = Time.now.to_i.to_s %>
-    <%# x_freight       = 10.00 %>
+    <% x_freight       = 10.00 %>
     <%#= Federal tax %>
-    <%# tax2_amount     = ((@total + x_freight) * 0.00).round(2) %>
+    <% tax2_amount     = ((@total + x_freight) * 0.00).round(2) %>
     <%#= Local tax %>
-    <%# tax1_amount     = ((@total + x_freight) * 0.00).round(2) %>
-    <%# x_tax           = tax2_amount + tax1_amount %>
-    <%# x_amount        = @total + x_freight + x_tax %>
+    <% tax1_amount     = ((@total + x_freight) * 0.00).round(2) %>
+    <% x_tax           = tax2_amount + tax1_amount %>
+    <% x_amount        = @total + x_freight + x_tax %>
     <%# x_first_name   = "" %>
     <%# x_last_name    = "" %>
-    <% x_amount        = @total %>
+    <%# x_amount       = 10.00 %>
     <% x_currency_code = "#{current_user.currency_code}" %>
 
-    <% transaction_key = Rails.application.secrets.fd_hco3_ap_tk %>
+    <% transaction_key = Rails.application.secrets.fd_hco7_cad_tk %>
     <%# Login for live terminal %>
     <%# transaction_key = "some_key" %>
 
     <%# If preauth is required (however, preauth can't be completed through HCO): %>
     <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
-    <% x_type = "AUTH_ONLY" %>
+    <% x_type = "AUTH_CAPTURE" %>
 
     <%# Order and Customer Detail Fields %>
     <% x_invoice_num = ((rand*10000).to_i).to_s %>
     <% x_po_num      = "P.O." + (((rand*10000).to_i).to_s) %>
+
+    <%# x_line_item = "Item ID<|>Item Name<|>Item Description<|>Item Quantity<|>Item Price<|>Item Taxable(YES/NO)<|>" %>
+    <% x_line_item = "2<|>Item Name 2<|>Item Description 2<|>1<|>2.00<|>YES<|>" %>
+    <% x_line_item = "1<|>Item Name 1<|>Item Description 1<|>1<|>1.00<|>YES<|>" %>
 
     <%# Customer Name and Billing Address Fields %>
     <% x_first_name = current_user.first_name %>
@@ -82,13 +87,13 @@
     <%#= hidden_field_tag :x_line_item, x_line_item_1 %>
     <% @cart.each do |id, quantity| %>
       <% product = Product.find_by_id(id) %>
-        <%= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %>
+        <%= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %></p>
     <% end %>
 
-    <%#= hidden_field_tag :tax2_amount,          tax2_amount %>
-    <%#= hidden_field_tag :tax1_amount,          tax1_amount %>
-    <%#= hidden_field_tag :x_tax,                x_tax %>
-    <%#= hidden_field_tag :x_freight,            x_freight %>
+    <%= hidden_field_tag :tax2_amount,          tax2_amount %>
+    <%= hidden_field_tag :tax1_amount,          tax1_amount %>
+    <%= hidden_field_tag :x_tax,                x_tax %>
+    <%= hidden_field_tag :x_freight,            x_freight %>
     <%= hidden_field_tag :x_first_name,         x_first_name %>
     <%= hidden_field_tag :x_last_name,          x_last_name %>
     <%= hidden_field_tag :x_email,              x_email %>
@@ -116,7 +121,11 @@
     <%# x_whatever_id = "ECV001" %>
     <%#= hidden_field_tag :x_whatever_id, x_whatever_id %>
 
+    <%# Relay Response fields %>
+    <% x_relay_response  = "TRUE" %>
+    <%= hidden_field_tag :x_relay_response, x_relay_response %>
+
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA AP PREAUTH", class: 'button' %></a>
+      <a><%= submit_tag "FD CERT CAD", class: 'button' %></a>
     </p>
   <% end %>
