@@ -1,4 +1,4 @@
-these options<!-- h1>Your Cart</h1 -->
+<!-- h1>Your Cart</h1 -->
 
 <% @total = 0 %>
 
@@ -164,6 +164,7 @@ these options<!-- h1>Your Cart</h1 -->
         <%= render 'fd7_fee_10pc' %>
         <%= render 'fd7_fee_20amount' %>
         <%= render 'fd7_fee_tiered' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
 
@@ -173,7 +174,7 @@ these options<!-- h1>Your Cart</h1 -->
       <div class="apart">
         <%= render 'fd7_aud' %>
       </div>
-      <h2 class="apart">You can also try other environements/currencies/amounts:</h2>
+      <h2 class="apart">You can also try these other options:</h2>
       <div class="apart">
         <%= render 'fd1_pnb' %>
         <%= render 'fd2_pnb' %>
@@ -186,6 +187,7 @@ these options<!-- h1>Your Cart</h1 -->
         <%= render 'fd4_apple_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
         <% elsif current_user.currency_code == "CAD" %>
@@ -210,6 +212,7 @@ these options<!-- h1>Your Cart</h1 -->
         <%= render 'fd4_apple_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
     <% elsif current_user.currency_code == "EUR" %>
@@ -235,6 +238,7 @@ these options<!-- h1>Your Cart</h1 -->
         <%= render 'fd4_apple_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
     <% elsif current_user.currency_code == "GBP" %>
@@ -256,6 +260,7 @@ these options<!-- h1>Your Cart</h1 -->
         <%= render 'fd4_apple_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
     <% elsif current_user.currency_code == "JPY" %>
@@ -278,6 +283,7 @@ these options<!-- h1>Your Cart</h1 -->
         <%= render 'fd4_apple_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
       <% elsif current_user.currency_code == "MXN" %>
@@ -299,6 +305,7 @@ these options<!-- h1>Your Cart</h1 -->
           <%= render 'fd4_apple_pnb' %>
           <%= render 'fd6_pnb' %>
           <%= render 'fd7_pnb' %>
+          <%= render 'fd7_fee_tiered_pnb' %>
         </div>
 
     <% else %>
@@ -315,6 +322,7 @@ these options<!-- h1>Your Cart</h1 -->
         <%= render 'fd4_apple_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
     <% end %>
