@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   # Original: get 'page/now'
   get 'now', to: "page#now"
 
+  # To see the whole site within an iFrame
+  get 'page/iframe'
+
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
