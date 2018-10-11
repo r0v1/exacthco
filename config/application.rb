@@ -30,6 +30,7 @@ module Cart2
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # The next line was commented out on 10oct18 because "This is not a valid configuration value in your version of Rails."
+    # config.active_record.raise_in_transactional_callbacks = true
   end
 end
