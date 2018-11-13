@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   # Original: get 'page/now'
   get 'now', to: "page#now"
 
+  # To see a CSS example & test HCO External Style Sheet customization
+  get 'css_file', to: "page#custom-hco-style.css"
+
   # To see the whole site within an iFrame
   get 'page/iframe'
 
