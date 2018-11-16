@@ -37,8 +37,8 @@
 
     <%# Recurring %>
     <%# x_recurring_billing must be submitted as string ("TRUE" or "FALSE") and in capital letters. %>
-    <% x_recurring_billing        = (Rails.application.secrets.fd_hco3_ap_reb).to_s.upcase %>
-    <% x_recurring_billing_id     = (Rails.application.secrets.fd_hco3_ap_rep).to_s %>
+    <% x_recurring_billing        = (Rails.application.secrets.fd_hco4_ap_reb).to_s.upcase %>
+    <% x_recurring_billing_id     = (Rails.application.secrets.fd_hco4_ap_rep).to_s %>
     <% x_recurring_billing_amount = (rand*10).round(2) %>
 
     <%# Customer Name and Billing Address Fields %>
