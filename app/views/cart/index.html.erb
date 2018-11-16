@@ -135,18 +135,23 @@
         <%= render 'fd5' %>
         <%= render 'fd5_pnb' %>
       </div>
-      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A08216-01</h3 -->
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A05351-02</h3 -->
       <div class="apart">
         <%= render 'fd4' %>
+        <%= render 'fd4_vanilla' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
       </div>
-      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay - G85813-99</h3 -->
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay buttons</h3 -->
       <div class="apart">
-        <%= render 'fd4_apple_van_purchase' %>
-        <%= render 'fd4_apple_van_preauth' %>
-        <%= render 'fd4_apple_recurring' %>
-        <%#= render 'fd4_apple_line_items' %>
+        <%= render 'fd4_ap_purchase' %>
+        <%= render 'fd4_ap_preauth' %>
+        <%= render 'fd4_ap_recurring' %>
+        <%= render 'fd4_ap_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay Foreign Currency PNB buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
       </div>
       <!-- h3 class="apart">PayEezy's Payment Page CAT - CA6290-96</h3 -->
       <div class="apart">
@@ -184,7 +189,9 @@
         <%= render 'fd3_ap_eur_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
@@ -198,6 +205,10 @@
         <%= render 'fd3_ap_cad_preauth' %>
         <%= render 'fd3_ap_cad_recurring' %>
         <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd4_ap_cad_purchase' %>
+        <%= render 'fd4_ap_cad_preauth' %>
+        <%= render 'fd4_ap_cad_recurring' %>
+        <%= render 'fd4_ap_cad_pnb' %>
         <%= render 'fd7_cad' %>
       </div>
       <h2 class="apart">You can also try these other options:</h2>
@@ -209,7 +220,8 @@
         <%= render 'fd3_ap_eur_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
@@ -223,6 +235,10 @@
         <%= render 'fd3_ap_eur_preauth' %>
         <%= render 'fd3_ap_eur_recurring' %>
         <%= render 'fd3_ap_eur_pnb' %>
+        <%= render 'fd4_ap_eur_purchase' %>
+        <%= render 'fd4_ap_eur_preauth' %>
+        <%= render 'fd4_ap_eur_recurring' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd7_eur' %>
 
       </div>
@@ -235,7 +251,8 @@
         <%= render 'fd3_ap_cad_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
@@ -257,7 +274,9 @@
         <%= render 'fd3_ap_eur_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
@@ -280,7 +299,9 @@
         <%= render 'fd3_ap_eur_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
@@ -302,7 +323,9 @@
           <%= render 'fd3_ap_eur_pnb' %>
           <%= render 'fd5_pnb' %>
           <%= render 'fd4_pnb' %>
-          <%= render 'fd4_apple_pnb' %>
+          <%= render 'fd4_ap_pnb' %>
+          <%= render 'fd4_ap_cad_pnb' %>
+          <%= render 'fd4_ap_eur_pnb' %>
           <%= render 'fd6_pnb' %>
           <%= render 'fd7_pnb' %>
           <%= render 'fd7_fee_tiered_pnb' %>
@@ -319,7 +342,9 @@
         <%= render 'fd3_ap_eur_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>

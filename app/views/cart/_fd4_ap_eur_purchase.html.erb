@@ -1,10 +1,9 @@
-  <%# PayEezy's Payment Page FT2 - Apple - VAN - Purchase - G85813-99 %>
+  <%# PayEezy's Payment Page FT2 - Apple Pay CAD - Purchase - R69855-68 %>
 
   <%= form_tag("https://checkout-ft2.gateway.payeezytest.com/payment", method: "post") do %>
-  <%# https://gateway.payeezyqa.com/pay %>
 
     <%# The payment data %>
-    <% x_login         = Rails.application.secrets.fd_hco4_ap_van_id %>
+    <% x_login         = Rails.application.secrets.fd_hco4_ap_eur_id %>
     <%# x_fp_sequence = "1234567890" %>
     <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
     <% x_fp_timestamp  = Time.now.to_i.to_s %>
@@ -20,7 +19,7 @@
     <% x_amount        = @total %>
     <% x_currency_code = "#{current_user.currency_code}" %>
 
-    <% transaction_key = Rails.application.secrets.fd_hco4_ap_van_tk %>
+    <% transaction_key = Rails.application.secrets.fd_hco4_ap_eur_tk %>
     <%# Login for live terminal %>
     <%# transaction_key = "some_key" %>
 
@@ -118,6 +117,6 @@
     <%#= hidden_field_tag :x_whatever_id, x_whatever_id %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD FT2 AP VAN PURCHASE", class: 'button' %></a>
+      <a><%= submit_tag "FD FT2 AP EUR PURCHASE", class: 'button' %></a>
     </p>
   <% end %>
