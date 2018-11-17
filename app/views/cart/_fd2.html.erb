@@ -19,7 +19,7 @@
     <%# x_first_name   = "" %>
     <%# x_last_name    = "" %>
     <%# x_amount       = 10.00 %>
-    <% x_currency_code = "USD" %>
+    <% x_currency_code = "#{current_user.currency_code}" %>
 
     <% transaction_key = Rails.application.secrets.fd_hco2_tk %>
     <%# Login for live terminal %>
@@ -134,12 +134,7 @@
     <% x_relay_response  = "TRUE" %>
     <%= hidden_field_tag :x_relay_response, x_relay_response %>
 
-    <p class="apart">
-      <a><%= submit_tag "FD2 PROD", class: 'button' %></a>
+    <p class="nosoapart">
+      <a><%= submit_tag "FD PROD", class: 'button' %></a>
     </p>
   <% end %>
-
-  <%# PayNow button %>
-  <%# This button is for SEIP %>
-  <!--div class="paynow" -->
-  <!--/div -->

@@ -11,11 +11,24 @@ Rails.application.routes.draw do
   #root 'page#home'
   root 'products#index'
 
-  get 'page/about'
+  # Original: get 'page/about'
+  get 'about', to: "page#about"
 
-  get 'page/faqs'
+  # Original: get 'page/faqs'
+  get 'faqs', to: "page#faqs"
 
-  get 'page/contact'
+  # Original: get 'page/contact'
+  get 'contact', to: "page#contact"
+
+  # Original: get 'page/now'
+  get 'now', to: "page#now"
+
+  # To see a CSS example & test HCO External Style Sheet customization
+  get 'css_file', to: "page#css_file"
+  # get 'css_file', to: "stylesheets#custom-hco-style.css"
+
+  # To see the whole site within an iFrame
+  get 'page/iframe'
 
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.

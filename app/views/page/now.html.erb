@@ -1,0 +1,20 @@
+<!-- h1>Pay Now Button</h1 -->
+
+<br><br><br>
+
+<div class="apart">
+
+  <div class="nosoapart">
+    <%# @total = 10.00 %>
+    <% @total = ((rand*100).to_i)+1 %>
+    <%# @total < 1 ? @total = 1 %>
+    <%= puts "Amount: #{@total}" %>
+    <%= render "cart/fd3_vanilla" %>
+
+  </div>
+
+  <!-- div class="nosoapart">
+    <%#= render 'cart/fd3_pnb' %>
+  </div -->
+
+</div>

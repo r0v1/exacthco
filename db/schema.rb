@@ -11,28 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224013243) do
+ActiveRecord::Schema.define(version: 20180131143351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "apitrans", force: :cascade do |t|
     t.string   "gateway_id",       limit: 10
@@ -59,11 +41,11 @@ ActiveRecord::Schema.define(version: 20161224013243) do
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.integer  "price"
     t.string   "category"
     t.string   "subcategory"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.decimal  "price",       precision: 9, scale: 2
   end
 
   create_table "relays", force: :cascade do |t|
@@ -123,18 +105,18 @@ ActiveRecord::Schema.define(version: 20161224013243) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                            default: "",    null: false
+    t.string   "encrypted_password",               default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                    default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
@@ -147,7 +129,7 @@ ActiveRecord::Schema.define(version: 20161224013243) do
     t.string   "home_phone"
     t.string   "cell_phone"
     t.string   "fax"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                            default: false
     t.string   "ship_to_first_name"
     t.string   "ship_to_last_name"
     t.string   "ship_to_company"
@@ -156,6 +138,8 @@ ActiveRecord::Schema.define(version: 20161224013243) do
     t.string   "ship_to_state"
     t.string   "ship_to_zip"
     t.string   "ship_to_country"
+    t.string   "currency_code",          limit: 3
+    t.string   "currency_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

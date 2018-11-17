@@ -13,4 +13,14 @@ before_action :authenticate_user!, only: [:contact]
 
   def contact
   end
+
+  def now
+  end
+
+  def css_file
+    respond_to do |format|
+      format.html
+      format.css
+    end
+  end
 end

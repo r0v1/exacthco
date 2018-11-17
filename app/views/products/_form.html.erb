@@ -27,7 +27,8 @@
     </div>
     <div class="field">
       <%= f.label :price %><br>
-      <%= f.number_field :price %>
+      <%= f.number_field :price, step: :any %> <%= current_user.currency_code %>
+      <p>To modify the display currency of your product, please modify the Currency Code in <a href="/users/edit">your profile.</a></p>
     </div>
     <div class="field">
       <%= f.label :category %><br>

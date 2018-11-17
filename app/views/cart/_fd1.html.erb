@@ -20,7 +20,7 @@
     <%# x_first_name   = "" %>
     <%# x_last_name    = "" %>
     <%# x_amount       = 10.00 %>
-    <% x_currency_code = "USD" %>
+    <% x_currency_code = "#{current_user.currency_code}" %>
 
     <% transaction_key = Rails.application.secrets.fd_hco1_tk %>
     <%# Login for live terminal %>
@@ -126,14 +126,9 @@
     <% x_relay_response  = "TRUE" %>
     <%= hidden_field_tag :x_relay_response, x_relay_response %>
 
-    <p class="apart">
-      <a><%= submit_tag "FD1 DEMO - Values Received", class: 'button' %></a>
+    <p class="nosoapart">
+      <a><%= submit_tag "FD DEMO - Values Received", class: 'button' %></a>
       <%# Values received link: %>
       <%# https://rpm-demo.e-xact.com/demo_relay_response/post_to_html %>
     </p>
   <% end %>
-
-  <%# PayNow button %>
-  <!--div class="paynow" -->
-
-  <!--/div -->
