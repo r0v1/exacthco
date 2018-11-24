@@ -1,51 +1,54 @@
 <%# PayEezy's Payment Page FT2 - Apple - VAN - Purchase - G85813-99 %>
 
 <% pp_url = "https://checkout-ft2.gateway.payeezytest.com/payment" %>
-
 <%= form_tag("#{pp_url}", method: "get") do %>
 
   <%# Essential fields %>
 
   <div class="nosoapart">
-    <% x_login = Rails.application.secrets.fd_hco4_ap_cad_id %>
-    <%= "x_login: #{x_login}" %>
-    <%#= label_tag(:x_login, "x_login:") %>
-    <%#= text_field_tag(:x_login, Rails.application.secrets.fd_hco4_ap_van_id) %>
+    <%#= "FT2 URL: #{pp_url}" %>
+    <%  url = "#{pp_url}" %>
+    <%= label_tag(:url, "url:") %>
+    <%= text_field_tag(:url, url) %>
+  </div>
+
+  <div class="nosoapart">
+    <%  x_login = "WSP-ROBER-s1u@9QACOg" %>
+    <%= label_tag(:x_login, "x_login:") %>
+    <%= text_field_tag(:x_login, x_login) %>
     <%= hidden_field_tag 'x_login', x_login %>
   </div>
 
   <div class="nosoapart">
-    <% transaction_key = Rails.application.secrets.fd_hco4_ap_cad_tk %>
-    <%= "transaction_key: #{transaction_key}" %>
+    <%  transaction_key = "kGuwYEje9sH1Lk2smrj5" %>
+    <%= label_tag(:transaction_key, "transaction_key:") %>
+    <%= text_field_tag(:transaction_key, transaction_key) %>
   </div>
 
   <div class="nosoapart">
-    <%= "URL: #{pp_url}" %>
-  </div>
-
-  <div class="nosoapart">
-    <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
-    <%= "x_fp_sequence: #{x_fp_sequence}" %>
-    <%#= label_tag(:x_fp_sequence, "x_fp_sequence:") %>
-    <%#= text_field_tag(:x_fp_sequence, x_fp_sequence) %>
+    <% x_fp_sequence = ((rand*100000).to_i + 5000).to_s %>
+    <%= label_tag(:x_fp_sequence, "x_fp_sequence:") %>
+    <%= text_field_tag(:x_fp_sequence, x_fp_sequence) %>
     <%= hidden_field_tag 'x_fp_sequence',  x_fp_sequence %>
   </div>
 
   <div class="nosoapart">
     <% x_fp_timestamp  = Time.now.to_i.to_s %>
-    <%= "x_fp_timestamp: #{x_fp_timestamp}" %>
-    <%#= label_tag(:x_fp_timestamp, "x_fp_timestamp:") %>
-    <%#= text_field_tag(:x_fp_timestamp, x_fp_timestamp) %>
+    <%#= "x_fp_timestamp: #{x_fp_timestamp}" %>
+    <%= label_tag(:x_fp_timestamp, "x_fp_timestamp:") %>
+    <%= text_field_tag(:x_fp_timestamp, x_fp_timestamp) %>
     <%= hidden_field_tag :x_fp_timestamp, x_fp_timestamp %>
   </div>
 
   <div class="nosoapart">
     <% x_currency_code = "#{current_user.currency_code}" %>
+    <%#= "x_currency_code: #{current_user.currency_code}" %>
     <%= hidden_field_tag :x_currency_code, x_currency_code %>
+  </div>
 
+  <div>
     <%#= "Total before freight & taxes: $#{@total} #{current_user.currency_code}" %>
-    <%= "Total before freight & taxes: #{number_to_currency(@total, unit: x_currency_code, format: "%n %u")}" %>
-
+    <%#= "Total before freight & taxes: #{number_to_currency(@total, unit: x_currency_code, format: "%n %u")}" %>
   </div>
 
   <div class="nosoapart">
@@ -77,21 +80,24 @@
 
   <div class="nosoapart">
     <% x_amount = @total + x_freight + x_tax %>
-    <%#= label_tag(:x_amount, "x_amount:") %>
-    <%#= text_field_tag(:x_amount, tax1_amount) %>
+    <%= label_tag(:x_amount, "x_amount:") %>
+    <%= text_field_tag(:x_amount, x_amount) %>
     <%= hidden_field_tag 'x_amount', x_amount %>
   </div>
 
-  <div class="nosoapart">
+  <div class="nosoapart" id="x_type_radio" onclick="calculate_md5_hash()">
     <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
     <%# HCO allows preauths, but they can NOT be completed through HCO %>
-    <% x_type = "AUTH_CAPTURE" %>
-    <%= "x_type: #{x_type}" %>
-    <%#= label_tag(:x_type, "x_type:") %>
-    <%#= text_field_tag(:x_type, x_type) %>
-    <%#= select_tag(:x_type, options_for_select(['AUTH_CAPTURE', 'AUTH_ONLY'])) %>
-    <%= hidden_field_tag 'x_type', x_type %>
+    <% x_type = "" %>
+      <%= radio_button_tag(:x_type, "AUTH_CAPTURE") %>
+      <%= label_tag(:x_type, "Purchase") %>
+      <%= radio_button_tag(:x_type, "AUTH_ONLY") %>
+      <%= label_tag(:x_type, "Pre-Auth") %>
+
+    <%# Adding a hidden_field_tag when using the radio buttons causes an error: x_type : Unsupported transaction type / x_type  %>
+    <%#= hidden_field_tag 'x_type', x_type %>
   </div>
+
 
   <%# Concatenating the values included in the x_fp_hash  %>
   <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
@@ -99,10 +105,32 @@
   <%# Calculating HMAC-MD5 %>
   <%# Heroku shows this error message: "Digest::Digest is deprecated; use Digest". Use "Digest::Digest" only for backwards compatibility. %>
   <%# x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
-  <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"),transaction_key, hmac_string) %>
 
-  <div class="nosoapart">
+  <%# This x_fp_hash is replaced by the calculation within the following JS script %>
+  <%# x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"),transaction_key, hmac_string) %>
+  <% x_fp_hash = "" %>
+
+  <script>
+    function calculate_md5_hash() {
+      // The following var and alert are a test only:
+      // var hashValue = "00000000000"
+      // alert(hashValue);
+
+      // var hmacStringJs = '<div> <% escape_javascript hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %> </div>'
+
+      // var xFdHashJs = '<div> <%= escape_javascript "x_fp_hash: #{x_fp_hash}" %> <div>'
+      var xFdHashJs = '<div> <%= escape_javascript x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"),transaction_key, hmac_string) %> <div>'
+
+      //display the result
+      document.getElementById('display_hash').innerHTML =
+                                       // "My MD5 hash: "+hashValue;
+                                      "My JS MD5 hash: "+xFdHashJs;
+    }
+  </script>
+
+  <div class="nosoapart" id="md5_hash">
     <%= "x_fp_hash: #{x_fp_hash}" %>
+      <div id="display_hash"></div>
     <%= hidden_field_tag :x_fp_hash, x_fp_hash %>
   </div>
 
