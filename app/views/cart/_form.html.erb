@@ -78,7 +78,8 @@
     <%= hidden_field_tag :x_tax, x_tax %>
   </div>
 
-  <div class="nosoapart">
+  <%# div class="nosoapart" id="x_amount_id" onchange="updateAmount(this.value)" onchange="calculate_md5_hash()" %>
+  <div class="nosoapart" onchange="calculate_md5_hash()">
     <% x_amount = @total + x_freight + x_tax %>
     <%= label_tag(:x_amount, "x_amount:") %>
     <%= text_field_tag(:x_amount, x_amount) %>
@@ -110,26 +111,47 @@
   <%# x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"),transaction_key, hmac_string) %>
   <% x_fp_hash = "" %>
 
+  <div class="nosoapart" id="original_hmac_string_id">
+    <%= "Original hmac string: #{hmac_string}" %>
+  </div>
+
+  <% hmac_string = "" %>
+
   <script>
+
     function calculate_md5_hash() {
       // The following var and alert are a test only:
-      // var hashValue = "00000000000"
+      var hashValue = "00000000000"
       // alert(hashValue);
 
-      // var hmacStringJs = '<div> <% escape_javascript hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %> </div>'
+      var xAmountJs = document.getElementById("x_amount").value;
 
-      // var xFdHashJs = '<div> <%= escape_javascript "x_fp_hash: #{x_fp_hash}" %> <div>'
+
+      var hmacStringJs = '<div> <% escape_javascript hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %> </div>'
+
+      //display hmac string created by JS
+      document.getElementById('display_string').innerHTML =
+                                       "My JS HMAC string: "+hmacStringJs;
+                                       // "My JS HMAC string: " + xAmountJs;
+
+      // var xFdHashJs = '<div> <%#= escape_javascript "x_fp_hash: #{x_fp_hash}" %> <div>'
       var xFdHashJs = '<div> <%= escape_javascript x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"),transaction_key, hmac_string) %> <div>'
+
+
 
       //display the result
       document.getElementById('display_hash').innerHTML =
                                        // "My MD5 hash: "+hashValue;
-                                      "My JS MD5 hash: "+xFdHashJs;
+                                      "My JS MD5 hash: " + xFdHashJs;
     }
   </script>
 
+  <div class="nosoapart" id="hmac_string_id">
+      <div id="display_string"></div>
+  </div>
+
   <div class="nosoapart" id="md5_hash">
-    <%= "x_fp_hash: #{x_fp_hash}" %>
+    <%= "Original x_fp_hash: #{x_fp_hash}" %>
       <div id="display_hash"></div>
     <%= hidden_field_tag :x_fp_hash, x_fp_hash %>
   </div>
