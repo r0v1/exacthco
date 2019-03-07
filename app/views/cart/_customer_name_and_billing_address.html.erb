@@ -1,0 +1,25 @@
+<%# Customer Name and Billing Address Fields %>
+
+<% x_first_name = current_user.first_name %>
+<% x_last_name  = current_user.last_name %>
+<% x_email      = current_user.email %>
+<% x_company    = current_user.company %>
+<% x_address    = current_user.address %>
+<% x_city       = current_user.city %>
+<% x_state      = current_user.state %>
+<% x_zip        = current_user.postal_code %>
+<% x_country    = current_user.country %>
+<% x_phone      = current_user.cell_phone %>
+<% x_fax        = current_user.fax %>
+
+<%= hidden_field_tag :x_first_name, x_first_name %>
+<%= hidden_field_tag :x_last_name,  x_last_name %>
+<%= hidden_field_tag :x_email,      x_email %>
+<%= hidden_field_tag :x_company,    x_company %>
+<%= hidden_field_tag :x_address,    x_address %>
+<%= hidden_field_tag :x_city,       x_city %>
+<%= hidden_field_tag :x_state,      x_state %>
+<%= hidden_field_tag :x_zip,        x_zip %>
+<%= hidden_field_tag :x_country,    x_country %>
+<%= hidden_field_tag :x_phone,      x_phone %>
+<%= hidden_field_tag :x_fax,        x_fax %>
