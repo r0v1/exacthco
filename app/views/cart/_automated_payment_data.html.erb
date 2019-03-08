@@ -1,0 +1,26 @@
+<%# Automated Payment Data %>
+
+
+<%# x_freight       = 10.00 %>
+
+<%#= Federal tax %>
+<%# tax2_amount     = ((@total + x_freight) * 0.00).round(2) %>
+
+<%#= Local tax %>
+<%# tax1_amount     = ((@total + x_freight) * 0.00).round(2) %>
+<%# x_tax           = tax2_amount + tax1_amount %>
+<%# x_amount        = @total + x_freight + x_tax %>
+
+
+<%# Order and Customer Detail Fields %>
+<% x_invoice_num = ((rand*10000).to_i).to_s %>
+<% x_po_num      = "P.O." + (((rand*10000).to_i).to_s) %>
+
+
+<%#= hidden_field_tag :tax2_amount, tax2_amount %>
+<%#= hidden_field_tag :tax1_amount, tax1_amount %>
+<%#= hidden_field_tag :x_tax,       x_tax %>
+<%#= hidden_field_tag :x_freight,   x_freight %>
+<%= hidden_field_tag :x_show_form,   "PAYMENT_FORM" %>
+<%= hidden_field_tag :x_invoice_num, x_invoice_num %>
+<%= hidden_field_tag :x_po_num,      x_po_num %>
