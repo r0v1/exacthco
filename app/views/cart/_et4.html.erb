@@ -25,14 +25,26 @@
   <%= hidden_field_tag 'x_type',         x_type %>
   <%= hidden_field_tag :x_fp_hash,       x_fp_hash %>
 
-  <%# Recurring - Plan uses A05723-02 in ETQA Demo %>
-  <% x_recurring_billing        = Rails.application.secrets.et_hco1_reb %>
-  <% x_recurring_billing_id     = Rails.application.secrets.et_hco1_rep %>
-  <% x_recurring_billing_amount = generate_random_amount_15_30 %>
-
   <%= render 'automated_payment_data' %>
   <%= render 'customer_name_and_shipping_address' %>
   <%= render 'customer_name_and_billing_address' %>
+
+  <%# Recurring - Plan uses A05723-02 in ETQA Demo %>
+  <%# x_recurring_billing must be submitted as string ("TRUE" or "FALSE") and in capital letters. %>
+  <% x_recurring_billing        = (Rails.application.secrets.et_hco2_reb).to_s.upcase %>
+  <% x_recurring_billing_id     = (Rails.application.secrets.et_hco2_rep).to_s %>
+  <% x_recurring_billing_amount = generate_random_amount_15_30 %>
+
+  <%# Generation of the x_line_item hidden_field_tag %>
+  <%#= hidden_field_tag :x_line_item, x_line_item_1 %>
+  <% @cart.each do |id, quantity| %>
+    <% product = Product.find_by_id(id) %>
+      <%= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %></p>
+  <% end %>
+
+  <%= hidden_field_tag :x_recurring_billing,        x_recurring_billing %>
+  <%= hidden_field_tag :x_recurring_billing_id,     x_recurring_billing_id %>
+  <%= hidden_field_tag :x_recurring_billing_amount, x_recurring_billing_amount %>
 
   <p class="nosoapart">
     <a><%= submit_tag "ET QA RECURRING CAD PURCHASE", class: 'button' %></a>

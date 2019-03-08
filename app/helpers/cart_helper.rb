@@ -5,7 +5,7 @@ module CartHelper
   end
 
   def generate_random_amount_15_30
-    (rand(15..30).to_i).to_s
+    (rand(15..30).to_i).round(2)
   end
 
   def generate_timestamp
