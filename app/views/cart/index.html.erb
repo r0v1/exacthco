@@ -248,6 +248,14 @@
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
       </div>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Multicurrency CAD</h3 -->
+      <h3 class="apart">These PPs override your user's currency and the cart amount:</h3>
+      <div class="apart">
+        <%= render 'fd3_multic_cad_purchase' %>
+        <%= render 'fd3_multic_clp_purchase' %>
+        <%= render 'fd3_multic_jpy_purchase' %>
+        <%= render 'fd3_multic_krw_purchase' %>
+      </div>
 
     <% elsif current_user.currency_code == "EUR" %>
       <h2 class="apart">These are the available payment options in your currency:</h2>
