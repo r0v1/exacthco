@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-# ruby '2.3.7'
-ruby '2.3.8'
+# ruby '2.3.8'
+ruby '2.4.0'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+# gem 'rails', '4.2.4'
+gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
 gem 'pg', '0.18.4'
 # Use SCSS for stylesheets
