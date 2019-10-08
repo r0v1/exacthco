@@ -9,7 +9,7 @@ gem "nokogiri", ">= 1.10.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 # gem "rails", "4.2.4"
-gem "rails", "4.2.8"
+gem "rails", "4.2.11"
 # Use postgresql as the database for Active Record
 gem "pg", "0.18.4"
 # Use SCSS for stylesheets
