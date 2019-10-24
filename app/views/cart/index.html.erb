@@ -76,25 +76,47 @@
 
   <h1 class="apart"><%= link_to "Continue Shopping", products_path %></h1>
 
-  <h1 class="apart">Checkout with E­-xact's Payment Page Demo</h1>
+  <% if current_user.currency_code == "CAD" %>
+    <h1 class="apart">Checkout with E­-xact's Demo Payment Pages</h1>
 
-  <div class="apart">
-    <!-- h3 class="apart">E-xact's Payment Page Demo - Receipt only, no Silent Post</h3 -->
-    <%= render 'ex1' %>
-    <!-- h3 class="apart">E-xact's Payment Page Demo - Silent Post</h3 -->
-    <%= render 'ex2' %>
-    <!-- h3 class="apart">E-xact's Payment Page Demo - Values Received</h3 -->
-    <%= render 'ex3' %>
-  </div>
+    <div class="apart">
+      <!-- h3 class="apart">E-xact's Payment Page Demo - Receipt only, no Silent Post</h3 -->
+      <%= render 'ex1' %>
+      <!-- h3 class="apart">E-xact's Payment Page Demo - Silent Post</h3 -->
+      <%= render 'ex2' %>
+      <!-- h3 class="apart">E-xact's Payment Page Demo - Values Received</h3 -->
+      <%= render 'ex3' %>
+    </div>
+  <% end %>
 
   <% if current_user.admin? %>
 
-    <div class="apart">
-      <!-- h3 class="apart">ET QA Payment Page - A05513-01</h3 -->
-      <%= render 'ex4' %>
-      <!-- h3 class="apart">ET QA Payment Page - Cineplex - AQ7308-01</h3 -->
-      <%= render 'ex5' %>
-    </div>
+    <% if current_user.currency_code == "CAD" %>
+      <div class="apart">
+        <!-- h3 class="apart">ET QA Payment Page - A05513-01</h3 -->
+        <%= render 'ex4' %>
+        <!-- h3 class="apart">ET QA Payment Page - Cineplex - AQ7308-01</h3 -->
+        <%= render 'ex5' %>
+      </div>
+      <div class="apart">
+        <!-- h3 class="apart">ETQA Demo - Vanilla PP CAD Purchase - A05723-01</h3 -->
+        <%= render 'et1' %>
+        <!-- h3 class="apart">ETQA Demo - Vanilla PP CAD Pre-Auth - A05723-01</h3 -->
+        <%= render 'et2' %>
+        <!-- h3 class="apart">ETQA Demo - Full CAD Purchase - A05723-01</h3 -->
+        <%= render 'et3' %>
+        <!-- h3 class="apart">ETQA Demo - Recurring CAD Purchase - A05723-01</h3 -->
+        <%= render 'et4' %>
+        <!-- h3 class="apart">ETQA Demo - Vanilla CVV2 CAD Purchase - A05723-06</h3 -->
+        <%= render 'et5' %>
+        <!-- h3 class="apart">ETQA Demo - Vanilla CVV2 CAD Pre-Auth - A05723-06</h3 -->
+        <%= render 'et6' %>
+      </div>
+      <div class="apart">
+        <!-- h3 class="apart">ETQA Demo - Cineplex PP CAD Purchase - A05726-01</h3 -->
+        <%= render 'et7' %>
+      </div>
+    <% end %>
 
   <% end %>
 
@@ -135,39 +157,83 @@
         <%= render 'fd5' %>
         <%= render 'fd5_pnb' %>
       </div>
-      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A08216-01</h3 -->
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Receipt only - A05351-02</h3 -->
       <div class="apart">
         <%= render 'fd4' %>
+        <%= render 'fd4_vanilla' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
       </div>
-      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay - G85813-99</h3 -->
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay buttons</h3 -->
       <div class="apart">
-        <%= render 'fd4_apple_van_purchase' %>
-        <%= render 'fd4_apple_van_preauth' %>
-        <%= render 'fd4_apple_recurring' %>
-        <%#= render 'fd4_apple_line_items' %>
+        <%= render 'fd4_ap_purchase' %>
+        <%= render 'fd4_ap_preauth' %>
+        <%= render 'fd4_ap_recurring' %>
+        <%= render 'fd4_ap_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay Foreign Currency PNB buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
       </div>
       <!-- h3 class="apart">PayEezy's Payment Page CAT - CA6290-96</h3 -->
       <div class="apart">
         <%= render 'fd6' %>
         <%= render 'fd6_pnb' %>
       </div>
-      <!-- h3 class="apart">PayEezy's Payment Page CERT - CR1386-16</h3 -->
+      <!-- h3 class="apart">PayEezy's Payment Page CERT</h3 -->
       <div class="apart">
         <%= render 'fd7' %>
+        <%= render 'fd7_preauth' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_recurring' %>
+        <%= render 'fd7_esp' %>
+        <%= render 'fd7_fra' %>
+        <%= render 'fd7_fee_10pc' %>
+        <%= render 'fd7_fee_20amount' %>
+        <%= render 'fd7_fee_tiered' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
-    <% elsif current_user.currency_code == "CAD" %>
-      <h2 class="apart">Only the following payment options are available for CAD:</h2>
+
+    <% elsif current_user.currency_code == "AUD" %>
+      <h2 class="apart">These are the available payment options in your currency:</h2>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay CAD buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd7_aud' %>
+      </div>
+      <h2 class="apart">You can also try these other options:</h2>
+      <div class="apart">
+        <%= render 'fd1_pnb' %>
+        <%= render 'fd2_pnb' %>
+        <%= render 'fd3_pnb' %>
+        <%= render 'fd3_ap_pnb' %>
+        <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd3_ap_eur_pnb' %>
+        <%= render 'fd5_pnb' %>
+        <%= render 'fd4_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
+        <%= render 'fd6_pnb' %>
+        <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
+      </div>
+
+        <% elsif current_user.currency_code == "CAD" %>
+      <h2 class="apart">These are the available payment options in your currency:</h2>
       <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay CAD buttons</h3 -->
       <div class="apart">
         <%= render 'fd3_ap_cad_purchase' %>
         <%= render 'fd3_ap_cad_preauth' %>
         <%= render 'fd3_ap_cad_recurring' %>
         <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd4_ap_cad_purchase' %>
+        <%= render 'fd4_ap_cad_preauth' %>
+        <%= render 'fd4_ap_cad_recurring' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd7_cad' %>
       </div>
+      <h2 class="apart">You can also try these other options:</h2>
       <div class="apart">
         <%= render 'fd1_pnb' %>
         <%= render 'fd2_pnb' %>
@@ -176,20 +242,37 @@
         <%= render 'fd3_ap_eur_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
+      </div>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Multicurrency CAD</h3 -->
+      <h3 class="apart">These PPs override your user's currency and the cart amount:</h3>
+      <div class="apart">
+        <%= render 'fd3_multic_cad_purchase' %>
+        <%= render 'fd3_multic_clp_purchase' %>
+        <%= render 'fd3_multic_jpy_purchase' %>
+        <%= render 'fd3_multic_krw_purchase' %>
       </div>
 
     <% elsif current_user.currency_code == "EUR" %>
-      <h2 class="apart">Only the following payment options are available for EUR:</h2>
+      <h2 class="apart">These are the available payment options in your currency:</h2>
       <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay EUR buttons</h3 -->
       <div class="apart">
         <%= render 'fd3_ap_eur_purchase' %>
         <%= render 'fd3_ap_eur_preauth' %>
         <%= render 'fd3_ap_eur_recurring' %>
         <%= render 'fd3_ap_eur_pnb' %>
+        <%= render 'fd4_ap_eur_purchase' %>
+        <%= render 'fd4_ap_eur_preauth' %>
+        <%= render 'fd4_ap_eur_recurring' %>
+        <%= render 'fd4_ap_eur_pnb' %>
+        <%= render 'fd7_eur' %>
+
       </div>
+      <h2 class="apart">You can also try these other options:</h2>
       <div class="apart">
         <%= render 'fd1_pnb' %>
         <%= render 'fd2_pnb' %>
@@ -198,13 +281,20 @@
         <%= render 'fd3_ap_cad_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
-    <% else %>
-      <!-- h2 class="apart">Only the following payment options are available:</h2 -->
+    <% elsif current_user.currency_code == "GBP" %>
+      <h2 class="apart">These are the available payment options in your currency:</h2>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay CAD buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd7_gbp' %>
+      </div>
+      <h2 class="apart">You can also try these other options:</h2>
       <div class="apart">
         <%= render 'fd1_pnb' %>
         <%= render 'fd2_pnb' %>
@@ -214,9 +304,80 @@
         <%= render 'fd3_ap_eur_pnb' %>
         <%= render 'fd5_pnb' %>
         <%= render 'fd4_pnb' %>
-        <%= render 'fd4_apple_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
         <%= render 'fd6_pnb' %>
         <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
+      </div>
+
+    <% elsif current_user.currency_code == "JPY" %>
+      <h2 class="apart">These are the available payment options in your currency:</h2>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay CAD buttons</h3 -->
+      <div class="apart">
+        <%= render 'fd7_jpy' %>
+        <%= render 'fd7_jpy_fee' %>
+      </div>
+      <h2 class="apart">You can also try these other options:</h2>
+      <div class="apart">
+        <%= render 'fd1_pnb' %>
+        <%= render 'fd2_pnb' %>
+        <%= render 'fd3_pnb' %>
+        <%= render 'fd3_ap_pnb' %>
+        <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd3_ap_eur_pnb' %>
+        <%= render 'fd5_pnb' %>
+        <%= render 'fd4_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
+        <%= render 'fd6_pnb' %>
+        <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
+      </div>
+
+      <% elsif current_user.currency_code == "MXN" %>
+        <h2 class="apart">These are the available payment options in your currency:</h2>
+        <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay CAD buttons</h3 -->
+        <div class="apart">
+          <%= render 'fd7_mxn' %>
+        </div>
+        <h2 class="apart">You can also try these other options:</h2>
+        <div class="apart">
+          <%= render 'fd1_pnb' %>
+          <%= render 'fd2_pnb' %>
+          <%= render 'fd3_pnb' %>
+          <%= render 'fd3_ap_pnb' %>
+          <%= render 'fd3_ap_cad_pnb' %>
+          <%= render 'fd3_ap_eur_pnb' %>
+          <%= render 'fd5_pnb' %>
+          <%= render 'fd4_pnb' %>
+          <%= render 'fd4_ap_pnb' %>
+          <%= render 'fd4_ap_cad_pnb' %>
+          <%= render 'fd4_ap_eur_pnb' %>
+          <%= render 'fd6_pnb' %>
+          <%= render 'fd7_pnb' %>
+          <%= render 'fd7_fee_tiered_pnb' %>
+        </div>
+
+    <% else %>
+      <h2 class="apart">We can not process your transaction in <%= "#{current_user.currency_code}" %>, but you can try these other options:</h2>
+      <div class="apart">
+        <%= render 'fd1_pnb' %>
+        <%= render 'fd2_pnb' %>
+        <%= render 'fd3_pnb' %>
+        <%= render 'fd3_ap_pnb' %>
+        <%= render 'fd3_ap_cad_pnb' %>
+        <%= render 'fd3_ap_eur_pnb' %>
+        <%= render 'fd5_pnb' %>
+        <%= render 'fd4_pnb' %>
+        <%= render 'fd4_ap_pnb' %>
+        <%= render 'fd4_ap_cad_pnb' %>
+        <%= render 'fd4_ap_eur_pnb' %>
+        <%= render 'fd6_pnb' %>
+        <%= render 'fd7_pnb' %>
+        <%= render 'fd7_fee_tiered_pnb' %>
       </div>
 
     <% end %>

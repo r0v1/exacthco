@@ -23,6 +23,13 @@ Rails.application.routes.draw do
   # Original: get 'page/now'
   get 'now', to: "page#now"
 
+  # To see a CSS example & test HCO External Style Sheet customization
+  get 'css_file', to: "page#css_file"
+  # get 'css_file', to: "stylesheets#custom-hco-style.css"
+
+  # To see the whole site within an iFrame
+  get 'page/iframe'
+
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

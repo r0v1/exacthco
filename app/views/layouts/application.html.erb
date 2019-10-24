@@ -19,6 +19,14 @@
     <%#= link_to "Contact us", page_contact_path %>
   </div>
 
+  <div id="page_nav">
+    <%if user_signed_in? %>
+      <% if current_user.admin? %>
+        <%= link_to "iFrame View", page_iframe_path %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div id="sign_in">
     <%if user_signed_in? %>
       Logged in as <strong><%= current_user.username %></strong>

@@ -80,10 +80,10 @@
 
     <%# Generation of the x_line_item hidden_field_tag %>
     <%#= hidden_field_tag :x_line_item, x_line_item_1 %>
-    <%# @cart.each do |id, quantity| %>
-      <%# product = Product.find_by_id(id) %>
-        <%#= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %>
-    <%# end %>
+    <% @cart.each do |id, quantity| %>
+      <% product = Product.find_by_id(id) %>
+        <%= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %>
+    <% end %>
 
     <%#= hidden_field_tag :tax2_amount,          tax2_amount %>
     <%#= hidden_field_tag :tax1_amount,          tax1_amount %>
