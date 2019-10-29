@@ -23,4 +23,7 @@ before_action :authenticate_user!, only: [:contact]
       format.css
     end
   end
+
+  def public_pnb
+  end
 end
