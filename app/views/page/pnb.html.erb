@@ -1,0 +1,56 @@
+<%# PNBs %>
+
+<div class="apart">
+  <%# E4 Demo %>
+  <%= render 'cart/fd1_pnb' %>
+</div>
+
+<!-- div class="apart" -->
+  <%# if current_user.admin? %>
+    <%# E4 Prod %>
+    <%#= render 'cart/fd2_pnb' %>
+  <%# end %>
+<!-- /div -->
+
+<div class="apart">
+  <%# E4 QA AP %>
+  <%= render 'cart/fd3_pnb' %>
+
+  <%# E4 QA AP %>
+  <%= render 'cart/fd3_ap_pnb' %>
+
+  <%# E4 QA AP CAD %>
+  <%= render 'cart/fd3_ap_cad_pnb' %>
+
+  <%# E4 QA AP EUR %>
+  <%= render 'cart/fd3_ap_eur_pnb' %>
+</div>
+
+<div class="apart">
+  <%# E4 FT1 %>
+  <%= render 'cart/fd5_pnb' %>
+</div>
+
+<div class="apart">
+  <%# E4 FT2 %>
+  <%= render 'cart/fd4_pnb' %>
+
+  <%# E4 FT2 AP CAD %>
+  <%= render 'cart/fd4_ap_cad_pnb' %>
+
+  <%# E4 FT2 AP EUR %>
+  <%= render 'cart/fd4_ap_eur_pnb' %>
+</div>
+
+<div class="apart">
+  <%# E4 CAT %>
+  <%= render 'cart/fd6_pnb' %>
+</div>
+
+<div class="apart">
+  <%# E4 CERT %>
+  <%= render 'cart/fd7_pnb' %>
+
+  <%# E4 CERT %>
+  <%= render 'cart/fd7_fee_tiered_pnb' %>
+</div>
