@@ -1,0 +1,41 @@
+  <%# E4 QA Vanilla - Q23378-63 - Receipt only - Q23378-63 %>
+
+  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%# https://gateway.payeezyqa.com/pay %>
+
+    <%# The payment data %>
+    <% x_login         = Rails.application.secrets.fd_hco3_vanilla_id %>
+    <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
+    <% x_fp_timestamp  = Time.now.to_i.to_s %>
+    <% x_amount        = @total %>
+    <% x_currency_code = "#{current_user.currency_code}" %>
+
+    <% transaction_key = Rails.application.secrets.fd_hco3_vanilla_tk %>
+    <%#= puts "TK: #{transaction_key}" %>
+
+    <%# If preauth is required (however, preauth can't be completed through HCO): %>
+    <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
+    <% x_type = "AUTH_CAPTURE" %>
+
+    <%# Concatenating the values included in the x_fp_hash  %>
+    <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
+    <%#= puts "HMAC: #{hmac_string}" %>
+
+    <%# Calculating HMAC-MD5 %>
+    <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"), transaction_key, hmac_string) %>
+    <%#= puts "Hash: #{x_fp_hash}" %>
+
+    <%= hidden_field_tag 'x_type',         x_type %>
+    <%= hidden_field_tag 'x_amount',       x_amount %>
+    <%= hidden_field_tag 'x_login',        x_login %>
+    <%= hidden_field_tag 'x_fp_sequence',  x_fp_sequence %>
+    <%= hidden_field_tag :x_fp_timestamp,  x_fp_timestamp %>
+    <%= hidden_field_tag :x_currency_code, x_currency_code %>
+    <%= hidden_field_tag :x_fp_hash,       x_fp_hash %>
+    <%= hidden_field_tag :x_show_form,     "PAYMENT_FORM" %>
+
+    <p class="nosoapart">
+      <a><%= submit_tag "FD QA - Vanilla", class: 'button' %></a>
+    </p>
+
+  <% end %>
