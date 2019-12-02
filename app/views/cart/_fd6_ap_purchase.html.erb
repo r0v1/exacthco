@@ -1,6 +1,6 @@
-  <%# PayEezy's Payment Page QA - Apple Pay - Purchase - S14952-33 %>
+  <%# FD CAT - Apple Pay - Purchase - S14952-33 %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-cat.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# The payment data %>
     <% x_login         = Rails.application.secrets.fd_hco3_ap_id %>
@@ -117,6 +117,6 @@
     <%#= hidden_field_tag :x_whatever_id, x_whatever_id %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA AP PURCHASE", class: 'button' %></a>
+      <a><%= submit_tag "FD CAT AP PURCHASE", class: 'button' %></a>
     </p>
   <% end %>

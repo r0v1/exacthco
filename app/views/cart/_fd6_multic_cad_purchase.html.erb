@@ -1,7 +1,7 @@
-  <%# E4 QA Multicurrency PP CAD - Purchase - C35984-63 %>
+  <%# FD CAT Multicurrency PP CAD - Purchase - C35984-63 %>
   <%# This PP overrides user's currency and amount %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-cat.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# The payment data %>
     <% x_login         = Rails.application.secrets.fd_hco3_multic_id %>
@@ -35,6 +35,6 @@
     <%= render 'customer_name_and_billing_address' %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA Multi-C CAD Purchase", class: 'button' %></a>
+      <a><%= submit_tag "FD CAT Multi-C CAD Purchase", class: 'button' %></a>
     </p>
   <% end %>

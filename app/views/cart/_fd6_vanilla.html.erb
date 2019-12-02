@@ -1,6 +1,6 @@
-  <%# E4 QA Vanilla - Q23378-63 - Receipt only - Q23378-63 %>
+  <%# FD CAT Vanilla - Q23378-63 - Receipt only - Q23378-63 %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-cat.gateway.payeezytest.com/payment", method: "post") do %>
   <%# https://gateway.payeezyqa.com/pay %>
 
     <%# The payment data %>
@@ -35,7 +35,7 @@
     <%= hidden_field_tag :x_show_form,     "PAYMENT_FORM" %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA - Vanilla", class: 'button' %></a>
+      <a><%= submit_tag "FD CAT - Vanilla", class: 'button' %></a>
     </p>
 
   <% end %>

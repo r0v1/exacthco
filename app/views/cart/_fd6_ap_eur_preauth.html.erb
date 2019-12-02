@@ -1,6 +1,6 @@
-  <%# PayEezy's Payment Page QA - Apple Pay EUR - Preauth - R69855-68 %>
+  <%# FD CAT - Apple Pay EUR - Preauth - R69855-68 %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-cat.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# The payment data %>
     <% x_login         = Rails.application.secrets.fd_hco3_ap_eur_id %>
@@ -117,6 +117,6 @@
     <%#= hidden_field_tag :x_whatever_id, x_whatever_id %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA AP EUR PREAUTH", class: 'button' %></a>
+      <a><%= submit_tag "FD CAT AP EUR PREAUTH", class: 'button' %></a>
     </p>
   <% end %>

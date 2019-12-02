@@ -1,6 +1,6 @@
-<%# PayEezy's Payment Page QA - Apple Pay - Recurring - M49916-75 %>
+<%# FD CAT - Apple Pay - Recurring - M49916-75 %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-cat.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# The payment data %>
     <% x_login = Rails.application.secrets.fd_hco3_ap_rec_id %>
@@ -124,6 +124,6 @@
 
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA AP RECURRING", class: 'button' %></a>
+      <a><%= submit_tag "FD CAT AP RECURRING", class: 'button' %></a>
     </p>
   <% end %>

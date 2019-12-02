@@ -1,6 +1,6 @@
-<%# PayEezy's Payment Page QA - Apple Pay CAD - Recurring - J45092-87 %>
+<%# FD CAT - Apple Pay CAD - Recurring - J45092-87 %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
+  <%= form_tag("https://checkout-cat.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# Payment data %>
     <% x_login         = Rails.application.secrets.fd_hco3_ap_cad_rec_id %>
@@ -47,6 +47,6 @@
     <%= hidden_field_tag :x_recurring_billing_amount, x_recurring_billing_amount %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA AP CAD RECURRING", class: 'button' %></a>
+      <a><%= submit_tag "FD CAT AP CAD RECURRING", class: 'button' %></a>
     </p>
   <% end %>

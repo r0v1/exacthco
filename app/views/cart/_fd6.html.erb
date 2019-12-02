@@ -1,7 +1,6 @@
-  <%# PayEezy's Payment Page QA - Receipt only - P77999-01 %>
+  <%# FD CAT - Receipt only - P77999-01 %>
 
-  <%= form_tag("https://checkout.gateway.payeezyqa.com/payment", method: "post") do %>
-  <%# https://gateway.payeezyqa.com/pay %>
+  <%= form_tag("https://checkout-cat.gateway.payeezytest.com/payment", method: "post") do %>
 
     <%# The payment data %>
     <% x_login = Rails.application.secrets.fd_hco3_id %>
@@ -141,6 +140,6 @@
     <%#= hidden_field_tag :x_relay_response, x_relay_response %>
 
     <p class="nosoapart">
-      <a><%= submit_tag "FD QA", class: 'button' %></a>
+      <a><%= submit_tag "FD CAT", class: 'button' %></a>
     </p>
   <% end %>
