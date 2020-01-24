@@ -160,16 +160,12 @@
         <%= render 'fd4_vanilla' %>
         <%= render 'fd4' %>
         <%= render 'fd4_pnb' %>
-      </div>
       <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay buttons</h3 -->
-      <div class="apart">
         <%= render 'fd4_ap_purchase' %>
         <%= render 'fd4_ap_preauth' %>
         <%= render 'fd4_ap_recurring' %>
         <%= render 'fd4_ap_pnb' %>
-      </div>
       <!-- h3 class="apart">PayEezy's Payment Page FT2 - Apple Pay Foreign Currency PNB buttons</h3 -->
-      <div class="apart">
         <%= render 'fd4_ap_cad_pnb' %>
         <%= render 'fd4_ap_eur_pnb' %>
       </div>
@@ -200,6 +196,19 @@
         <%= render 'fd7_fee_tiered' %>
         <%= render 'fd7_fee_tiered_pnb' %>
       </div>
+      <div class="apart">
+        <%= render 'fd8_vanilla' %>
+        <%= render 'fd8' %>
+        <%= render 'fd8_pnb' %>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay buttons</h3 -->
+        <%= render 'fd8_ap_purchase' %>
+        <%= render 'fd8_ap_preauth' %>
+        <%= render 'fd8_ap_recurring' %>
+        <%= render 'fd8_ap_pnb' %>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay Foreign Currency PNB buttons</h3 -->
+        <%= render 'fd8_ap_cad_pnb' %>
+        <%= render 'fd8_ap_eur_pnb' %>
+      </div>
 
 
     <% elsif current_user.currency_code == "AUD" %>
@@ -227,6 +236,10 @@
         <%= render 'fd6_ap_eur_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
+        <%= render 'fd8_pnb' %>
+        <%= render 'fd8_ap_pnb' %>
+        <%= render 'fd8_ap_cad_pnb' %>
+        <%= render 'fd8_ap_eur_pnb' %>
       </div>
 
         <% elsif current_user.currency_code == "CAD" %>
@@ -246,6 +259,10 @@
         <%= render 'fd6_ap_cad_recurring' %>
         <%= render 'fd6_ap_cad_pnb' %>
         <%= render 'fd7_cad' %>
+        <%= render 'fd8_ap_cad_purchase' %>
+        <%= render 'fd8_ap_cad_preauth' %>
+        <%= render 'fd8_ap_cad_recurring' %>
+        <%= render 'fd8_ap_cad_pnb' %>
       </div>
       <h2 class="apart">You can also try these other options:</h2>
       <div class="apart">
@@ -263,6 +280,9 @@
         <%= render 'fd6_ap_eur_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
+        <%= render 'fd8_pnb' %>
+        <%= render 'fd8_ap_pnb' %>
+        <%= render 'fd8_ap_eur_pnb' %>
       </div>
       <!-- h3 class="apart">PayEezy's Payment Page QA - Multicurrency CAD</h3 -->
       <h3 class="apart">These PPs override your user's currency and the cart amount:</h3>
@@ -294,6 +314,10 @@
         <%= render 'fd6_ap_eur_recurring' %>
         <%= render 'fd6_ap_eur_pnb' %>
         <%= render 'fd7_eur' %>
+        <%= render 'fd8_ap_eur_purchase' %>
+        <%= render 'fd8_ap_eur_preauth' %>
+        <%= render 'fd8_ap_eur_recurring' %>
+        <%= render 'fd8_ap_eur_pnb' %>
 
       </div>
       <h2 class="apart">You can also try these other options:</h2>
@@ -312,6 +336,9 @@
         <%= render 'fd6_ap_cad_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
+        <%= render 'fd8_pnb' %>
+        <%= render 'fd8_ap_pnb' %>
+        <%= render 'fd8_ap_cad_pnb' %>
       </div>
 
     <% elsif current_user.currency_code == "GBP" %>
@@ -339,6 +366,10 @@
         <%= render 'fd6_ap_eur_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
+        <%= render 'fd8_pnb' %>
+        <%= render 'fd8_ap_pnb' %>
+        <%= render 'fd8_ap_cad_pnb' %>
+        <%= render 'fd8_ap_eur_pnb' %>
       </div>
 
     <% elsif current_user.currency_code == "JPY" %>
@@ -367,6 +398,10 @@
         <%= render 'fd6_ap_eur_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
+        <%= render 'fd8_pnb' %>
+        <%= render 'fd8_ap_pnb' %>
+        <%= render 'fd8_ap_cad_pnb' %>
+        <%= render 'fd8_ap_eur_pnb' %>
       </div>
 
       <% elsif current_user.currency_code == "MXN" %>
@@ -394,6 +429,10 @@
           <%= render 'fd6_ap_eur_pnb' %>
           <%= render 'fd7_pnb' %>
           <%= render 'fd7_fee_tiered_pnb' %>
+          <%= render 'fd8_pnb' %>
+          <%= render 'fd8_ap_pnb' %>
+          <%= render 'fd8_ap_cad_pnb' %>
+          <%= render 'fd8_ap_eur_pnb' %>
         </div>
 
     <% else %>
@@ -416,6 +455,10 @@
         <%= render 'fd6_ap_eur_pnb' %>
         <%= render 'fd7_pnb' %>
         <%= render 'fd7_fee_tiered_pnb' %>
+        <%= render 'fd8_pnb' %>
+        <%= render 'fd8_ap_pnb' %>
+        <%= render 'fd8_ap_cad_pnb' %>
+        <%= render 'fd8_ap_eur_pnb' %>
       </div>
 
     <% end %>
