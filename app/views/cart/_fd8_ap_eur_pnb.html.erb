@@ -1,0 +1,17 @@
+<%# This PNB is for FD3 PGW AP EUR UAT %>
+<%# Account: Checkout Demo; PP: AP EUR - R69855-68; WSP-CHECK-@fonwwACZA %>
+
+<div onclick="document.getElementById('pay_now_form_dd86be85d8').submit()">
+  <form action="https://checkout.gateway.payeezyuat.com/pay" id="pay_now_form_dd86be85d8" method="post">
+    <input type="hidden" name="x_login" value="WSP-CHECK-@fonwwACZA" />
+    <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+    <input type="hidden" name="x_fp_sequence" value="15799037722124554139" />
+    <input type="hidden" name="x_fp_hash" value="PNB-1.0-03270a2ed4ca801bb7a2b2913044fae5b18a1642" />
+    <input type="hidden" name="x_amount" />
+    <input type="hidden" name="x_currency_code" value="EUR" />
+    <input type="hidden" name="x_test_request" value="TRUE" />
+    <input type="hidden" name="x_relay_response" value="" />
+    <input type="hidden" name="donation_prompt" /><input type="hidden" name="button_code" value="Pay Now AP EUR - R69855-68" />
+    <button class="button">FD UAT AP EUR PNB</button>
+  </form>
+</div>

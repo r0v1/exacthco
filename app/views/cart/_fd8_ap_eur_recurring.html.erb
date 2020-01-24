@@ -1,0 +1,125 @@
+<%# PayEezy's Payment Page UAT - Apple Pay EUR - Recurring - Q85803-91 %>
+
+  <%= form_tag("https://checkout.gateway.payeezyuat.com/payment", method: "post") do %>
+
+    <%# The payment data %>
+    <% x_login = Rails.application.secrets.fd_hco3_ap_eur_rec_id %>
+    <%# x_fp_sequence  = "1234567890" %>
+    <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
+    <% x_fp_timestamp  = Time.now.to_i.to_s %>
+    <% x_freight       = 10.00 %>
+    <%#= Federal tax %>
+    <% tax2_amount     = ((@total + x_freight) * 0.05).round(2) %>
+    <%#= Local tax %>
+    <% tax1_amount     = ((@total + x_freight) * 0.07).round(2) %>
+    <% x_tax           = tax2_amount + tax1_amount %>
+    <% x_amount        = @total + x_freight + x_tax %>
+    <% x_currency_code = "#{current_user.currency_code}" %>
+
+    <% transaction_key = Rails.application.secrets.fd_hco3_ap_eur_rec_tk %>
+
+    <%# If preauth is required (however, preauth can't be completed through HCO): %>
+    <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
+    <% x_type = "AUTH_CAPTURE" %>
+
+    <%# Order and Customer Detail Fields %>
+    <% x_invoice_num = ((rand*10000).to_i).to_s %>
+    <% x_po_num = "P.O." + (((rand*10000).to_i).to_s) %>
+
+    <%# For L3 data: %>
+    <%# x_line_item = "Item ID<|>Item Title<|>Item Description<|>Quantity<|>Unit Price<|>Taxable (Y or N)<|>Product Code<|>Commodity Code<|>Unit of Measure<|>Tax Rate<|>Tax Type<|>Tax Amount<|>Discount Indicator<|>Discount Amount<|>Line Item Total" %>
+    <%# x_line_item = "1<|>Item Name 2<|>Example 1<|>1<|>20.00<|>YES<|>A200<|>A2222<|>each<|>5<|>FED<|>1.00<|>1<|>2.00<|>18.00" %>
+    <%# x_line_item = "2<|>Item Name 1<|>Example 2<|>1<|>10.00<|>YES<|>A100<|>A1111<|>each<|>5<|>FED<|>0.50<|>0<|>0.00<|>10.00" %>
+
+    <%# Recurring %>
+    <%# x_recurring_billing must be submitted as string ("TRUE" or "FALSE") and in capital letters. %>
+    <% x_recurring_billing        = (Rails.application.secrets.fd_hco3_ap_eur_reb).to_s.upcase %>
+    <% x_recurring_billing_id     = (Rails.application.secrets.fd_hco3_ap_eur_rep).to_s %>
+    <% x_recurring_billing_amount = (rand*10).round(2) %>
+
+    <%# Customer Name and Billing Address Fields %>
+    <% x_first_name = current_user.first_name %>
+    <% x_last_name  = current_user.last_name %>
+    <% x_email      = current_user.email %>
+    <% x_company    = current_user.company %>
+    <% x_address    = current_user.address %>
+    <% x_city       = current_user.city %>
+    <% x_state      = current_user.state %>
+    <% x_zip        = current_user.postal_code %>
+    <% x_country    = current_user.country %>
+    <% x_phone      = current_user.cell_phone %>
+    <% x_fax        = current_user.fax %>
+
+    <%# Customer Shipping Address Fields %>
+    <% x_ship_to_first_name = current_user.ship_to_first_name %>
+    <% x_ship_to_last_name  = current_user.ship_to_last_name %>
+    <% x_ship_to_company    = current_user.ship_to_company %>
+    <% x_ship_to_address    = current_user.ship_to_address %>
+    <% x_ship_to_city       = current_user.ship_to_city %>
+    <% x_ship_to_state      = current_user.ship_to_state %>
+    <% x_ship_to_zip        = current_user.ship_to_zip %>
+    <% x_ship_to_country    = current_user.ship_to_country %>
+
+    <%# Concatenating the values included in the x_fp_hash  %>
+    <% hmac_string = "#{x_login}^#{x_fp_sequence}^#{x_fp_timestamp}^#{x_amount}^#{x_currency_code}" %>
+
+    <%# Calculating HMAC-MD5 %>
+    <%# Heroku shows this error message: "Digest::Digest is deprecated; use Digest". Use "Digest::Digest" only for backwards compatibility. %>
+    <%# x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new("md5"),transaction_key, hmac_string) %>
+    <% x_fp_hash = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"), transaction_key, hmac_string) %>
+
+    <%# relay = 10 %>
+    <%#= hidden_field_tag 'relay', relay %>
+
+    <%= hidden_field_tag 'x_type',         x_type %>
+    <%= hidden_field_tag 'x_amount',       x_amount %>
+    <%= hidden_field_tag 'x_login',        x_login %>
+    <%= hidden_field_tag 'x_fp_sequence',  x_fp_sequence %>
+    <%= hidden_field_tag :x_fp_timestamp,  x_fp_timestamp %>
+    <%= hidden_field_tag :x_currency_code, x_currency_code %>
+    <%= hidden_field_tag :x_fp_hash,       x_fp_hash %>
+    <%= hidden_field_tag :x_show_form,     "PAYMENT_FORM" %>
+    <%= hidden_field_tag :x_invoice_num,   x_invoice_num %>
+    <%= hidden_field_tag :x_po_num,        x_po_num %>
+
+    <%# Generation of the x_line_item hidden_field_tag %>
+    <%#= hidden_field_tag :x_line_item, x_line_item_1 %>
+    <% @cart.each do |id, quantity| %>
+      <% product = Product.find_by_id(id) %>
+        <%= hidden_field_tag :x_line_item, "<|><|>#{product.title}<|>#{quantity}<|>#{product.price}<|>YES" %></p>
+    <% end %>
+
+    <%= hidden_field_tag :tax2_amount,          tax2_amount %>
+    <%= hidden_field_tag :tax1_amount,          tax1_amount %>
+    <%= hidden_field_tag :x_tax,                x_tax %>
+    <%= hidden_field_tag :x_freight,            x_freight %>
+
+    <%= hidden_field_tag :x_recurring_billing,        x_recurring_billing %>
+    <%= hidden_field_tag :x_recurring_billing_id,     x_recurring_billing_id %>
+    <%= hidden_field_tag :x_recurring_billing_amount, x_recurring_billing_amount %>
+
+    <%= hidden_field_tag :x_first_name,         x_first_name %>
+    <%= hidden_field_tag :x_last_name,          x_last_name %>
+    <%= hidden_field_tag :x_email,              x_email %>
+    <%= hidden_field_tag :x_company,            x_company %>
+    <%= hidden_field_tag :x_address,            x_address %>
+    <%= hidden_field_tag :x_city,               x_city %>
+    <%= hidden_field_tag :x_state,              x_state %>
+    <%= hidden_field_tag :x_zip,                x_zip %>
+    <%= hidden_field_tag :x_country,            x_country %>
+    <%= hidden_field_tag :x_phone,              x_phone %>
+    <%= hidden_field_tag :x_fax,                x_fax %>
+    <%= hidden_field_tag :x_ship_to_first_name, x_ship_to_first_name %>
+    <%= hidden_field_tag :x_ship_to_last_name,  x_ship_to_last_name %>
+    <%= hidden_field_tag :x_ship_to_company,    x_ship_to_company %>
+    <%= hidden_field_tag :x_ship_to_address,    x_ship_to_address %>
+    <%= hidden_field_tag :x_ship_to_city,       x_ship_to_city %>
+    <%= hidden_field_tag :x_ship_to_state,      x_ship_to_state %>
+    <%= hidden_field_tag :x_ship_to_zip,        x_ship_to_zip %>
+    <%= hidden_field_tag :x_ship_to_country,    x_ship_to_country %>
+
+
+    <p class="nosoapart">
+      <a><%= submit_tag "FD UAT AP EUR RECURRING", class: 'button' %></a>
+    </p>
+  <% end %>
