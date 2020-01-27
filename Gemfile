@@ -34,6 +34,8 @@ gem "payeezy"
 
 gem "rspec-core"
 
+gem 'rails_same_site_cookie'
+
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 
