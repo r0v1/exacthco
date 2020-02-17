@@ -16,7 +16,7 @@
   <% x_amount        = @total + x_freight + x_tax %>
   <% x_currency_code = "#{current_user.currency_code}" %>
 
-  <% transaction_key = Rails.application.secrets.ex_hco10_tk %>
+  <% transaction_key = Rails.application.secrets.et_hco10_tk %>
   <%# If preauth is required (however, preauth can't be completed through HCO): %>
   <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
   <% x_type = "AUTH_CAPTURE" %>
@@ -73,8 +73,8 @@
   <%= hidden_field_tag  :x_currency_code, x_currency_code %>
   <%= hidden_field_tag  :x_fp_hash, x_fp_hash %>
   <%= hidden_field_tag  :x_show_form, "PAYMENT_FORM" %>
-  <%= hidden_field_tag  :x_invoice_num, x_invoice_num %>
-  <%= hidden_field_tag  :x_po_num, x_po_num %>
+  <%#= hidden_field_tag  :x_invoice_num, x_invoice_num %>
+  <%#= hidden_field_tag  :x_po_num, x_po_num %>
 
   <%# Generation of the x_line_item hidden_field_tag %>
   <%#= hidden_field_tag :x_line_item, x_line_item_1 %>
