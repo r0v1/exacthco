@@ -1,0 +1,19 @@
+<%# PayNow button %>
+<%# This PNB is for FD8 PGW AP CAD UAT %>
+<%# Account: Checkout Demo; PP: AP CAD - R39579-25; PNB = WSP-CHECK-TkHUigACXA %>
+
+<div onclick="document.getElementById('pay_now_form_daff69de33').submit()">
+  <form action="https://checkout.gateway.payeezyuat.com/pay" id="pay_now_form_daff69de33" method="post">
+    <input type="hidden" name="x_login" value="WSP-CHECK-1VSUkQACYg" />
+    <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+    <input type="hidden" name="x_fp_sequence" value="1579903328886395803" />
+    <input type="hidden" name="x_fp_hash" value="PNB-1.0-fd14cbf52108af31af1cd472958af132084f9bc0" />
+    <input type="hidden" name="x_amount" />
+    <input type="hidden" name="x_currency_code" value="CAD" />
+    <input type="hidden" name="x_test_request" value="TRUE" />
+    <input type="hidden" name="x_relay_response" value="" />
+    <input type="hidden" name="donation_prompt" />
+    <input type="hidden" name="button_code" value="Pay Now AP CAD - R39579-25" />
+    <button class="button">FD UAT AP CAD PNB</button>
+  </form>
+</div>

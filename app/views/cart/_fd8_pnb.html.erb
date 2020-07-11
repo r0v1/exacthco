@@ -1,0 +1,18 @@
+<%# PayNow button %>
+<%# This PNB is for FD8 OMA UAT %>
+
+<div onclick="document.getElementById('pay_now_form_03ef2b9a9f').submit()">
+  <form action="https://checkout.gateway.payeezyuat.com/pay" id="pay_now_form_03ef2b9a9f" method="post">
+    <input type="hidden" name="x_login" value="WSP-PP-HE-pJfTkAACPA" />
+    <input type="hidden" name="x_show_form" value="PAYMENT_FORM" />
+    <input type="hidden" name="x_fp_sequence" value="15799059493972645752" />
+    <input type="hidden" name="x_fp_hash" value="PNB-1.0-e07e1ddc56dd28339e02afcf1486e4b71cdb9bbd" />
+    <input type="hidden" name="x_amount" />
+    <input type="hidden" name="x_currency_code" value="USD" />
+    <input type="hidden" name="x_test_request" value="TRUE" />
+    <input type="hidden" name="x_relay_response" value="" />
+    <input type="hidden" name="donation_prompt" />
+    <input type="hidden" name="button_code" value="Pay Now UAT PP - P96688-49" />
+    <button class="button">FD UAT PNB</button>
+  </form>
+</div>

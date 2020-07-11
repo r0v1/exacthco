@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get 'css_file', to: "page#css_file"
   # get 'css_file', to: "stylesheets#custom-hco-style.css"
 
+  # To see a CSS example & test HCO External Style Sheet customization
+  get 'pnb', to: "page#pnb"
+
   # To see the whole site within an iFrame
   get 'page/iframe'
 
