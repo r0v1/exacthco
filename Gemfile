@@ -9,7 +9,11 @@ gem "nokogiri", ">= 1.10.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 # gem "rails", "4.2.4"
-gem "rails", "4.2.11"
+# gem "rails", "4.2.11"
+gem "rails", "5.0.1"
+gem "responders", "~> 2.0"
+gem "rails-controller-testing"
+
 # Use postgresql as the database for Active Record
 gem "pg", "0.18.4"
 # Use SCSS for stylesheets
@@ -30,7 +34,7 @@ gem "jbuilder", "~> 2.0"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 
-gem "payeezy"
+# gem "payeezy"
 
 gem "rspec-core"
 
