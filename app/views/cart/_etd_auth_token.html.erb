@@ -1,4 +1,4 @@
-<%# ET Demo Vanilla - AUTH_TOKEN - Receipt only %>
+<%# ETD Vanilla - AUTH_TOKEN - Receipt only %>
 
 <%= form_tag("https://rpm.demo.e-xact.com/payment", method: "post") do %>
 <%#= form_tag("https://rpm.demo.e-xact.com/payment"(@user.id, @relay), method: "post") do %>
@@ -28,7 +28,7 @@
   <%= render 'customer_name_and_billing_address' %>
 
   <p class="nosoapart">
-    <a><%= submit_tag "ET DEMO CAD RECURRING SEED PRE-AUTH", class: 'button' %></a>
+    <a><%= submit_tag "ETD CAD RECURRING SEED PRE-AUTH", class: 'button' %></a>
   </p>
 
 <% end %>

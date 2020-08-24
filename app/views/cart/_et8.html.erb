@@ -13,7 +13,8 @@
   <%#= PST %>
   <% tax1_amount     = ((@total + x_freight) * 0.07).round(2) %>
   <% x_tax           = tax2_amount + tax1_amount %>
-  <% x_amount        = @total + x_freight + x_tax %>
+  <%#= x_amount        = @total + x_freight + x_tax %>
+  <% x_amount        = @total %>
   <% x_currency_code = "#{current_user.currency_code}" %>
 
   <% transaction_key = Rails.application.secrets.et_hco10_tk %>
@@ -108,7 +109,7 @@
   <%= hidden_field_tag :x_ship_to_country,    x_ship_to_country %>
 
   <p class="nosoapart">
-    <a><%= submit_tag "CNPLX-D ENG", class: 'button' %></a>
+    <a><%= submit_tag "CNPLX ENG", class: 'button' %></a>
   </p>
 
 <% end %>

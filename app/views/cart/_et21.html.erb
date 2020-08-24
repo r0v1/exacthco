@@ -1,9 +1,9 @@
-<%# ET Cineplex Demo - Regular FRA PP - AQ7308-01 %>
+<%# ET Imprk Demo - REEF (based on ZDA) CAD ENG PP - A00057-01 %>
 
-<%= form_tag("https://cineplex.demo.e-xact.com/payment", method: "post") do %>
+<%= form_tag("https://impark.demo.e-xact.com/payment", method: "post") do %>
 
   <%# The payment data %>
-  <% x_login         = Rails.application.secrets.et_hco11_id %>
+  <% x_login         = Rails.application.secrets.et_hco20_id %>
   <%# x_fp_sequence = "1234567890" %>
   <% x_fp_sequence   = ((rand*100000).to_i + 5000).to_s %>
   <% x_fp_timestamp  = Time.now.to_i.to_s %>
@@ -13,13 +13,14 @@
   <%#= PST %>
   <% tax1_amount     = ((@total + x_freight) * 0.07).round(2) %>
   <% x_tax           = tax2_amount + tax1_amount %>
-  <% x_amount        = @total + x_freight + x_tax %>
+  <%# x_amount        = @total + x_freight + x_tax %>
+  <% x_amount        = 0.00 %>
   <% x_currency_code = "#{current_user.currency_code}" %>
 
-  <% transaction_key = Rails.application.secrets.et_hco11_tk %>
+  <% transaction_key = Rails.application.secrets.et_hco20_tk %>
   <%# If preauth is required (however, preauth can't be completed through HCO): %>
   <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
-  <% x_type = "AUTH_CAPTURE" %>
+  <% x_type = "AUTH_TOKEN" %>
 
   <%# Order and Customer Detail Fields %>
   <%# x_invoice_num = ((rand*10000).to_i).to_s %>
@@ -108,7 +109,7 @@
   <%= hidden_field_tag :x_ship_to_country,    x_ship_to_country %>
 
   <p class="nosoapart">
-    <a><%= submit_tag "CNPLX FRA", class: 'button' %></a>
+    <a><%= submit_tag "IMPRK REEF", class: 'button' %></a>
   </p>
 
 <% end %>

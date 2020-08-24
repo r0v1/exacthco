@@ -80,16 +80,20 @@
     <h1 class="apart">Checkout with E­-xact's Demo Payment Pages</h1>
 
     <div class="apart">
-      <!-- h3 class="apart">E-xact's Payment Page Demo - Receipt only, no Silent Post</h3 -->
-      <%= render 'ex1' %>
-      <!-- h3 class="apart">E-xact's Payment Page Demo - Silent Post</h3 -->
-      <%= render 'ex2' %>
-      <!-- h3 class="apart">E-xact's Payment Page Demo - Values Received</h3 -->
-      <%= render 'ex3' %>
-      <!-- h3 class="apart">ET Demo Vanilla - AUTH_TOKEN - Receipt only</h3 -->
+      <!-- h3 class="apart">ETD Vanilla - Purchase</h3 -->
+      <%= render 'et18' %>
+      <!-- h3 class="apart">ETD Vanilla - Pre-Auth</h3 -->
+      <%= render 'et19' %>
+      <!-- h3 class="apart">ETD Vanilla - AUTH_TOKEN - Receipt only</h3 -->
       <%= render 'etd_auth_token' %>
-      <!-- h3 class="apart">ET Demo Vanilla - PURCHASE_TOKEN - Receipt only</h3 -->
+      <!-- h3 class="apart">ETD Vanilla - PURCHASE_TOKEN - Receipt only</h3 -->
       <%= render 'etd_purchase_token' %>
+      <!-- h3 class="apart">ETD - Receipt only, no Silent Post</h3 -->
+      <%= render 'ex1' %>
+      <!-- h3 class="apart">ETD - Silent Post</h3 -->
+      <%= render 'ex2' %>
+      <!-- h3 class="apart">ETD - Values Received</h3 -->
+      <%= render 'ex3' %>
     </div>
   <% end %>
 
@@ -125,20 +129,32 @@
         <%= render 'et7' %>
       </div>
       <div class="apart">
-        <!-- h3 class="apart">ET Cineplex Demo REG ENG Purchase - A00210-01</h3 -->
+        <!-- h3 class="apart">ET Cnplx Demo - Vanilla Purchase - A00210-01</h3 -->
+        <%= render 'et16' %>
+        <!-- h3 class="apart">ET Cnplx Demo - Vanilla Pre-Auth - A00210-01</h3 -->
+        <%= render 'et17' %>
+        <!-- h3 class="apart">ET Cnplx Demo REG ENG Purchase - A00210-01</h3 -->
         <%= render 'et8' %>
-        <!-- h3 class="apart">ET Cineplex Demo REG FRA Purchase - A00210-01</h3 -->
+        <!-- h3 class="apart">ET Cnplx Demo REG FRA Purchase - A00210-01</h3 -->
         <%= render 'et9' %>
-        <!-- h3 class="apart">ET Cineplex Mobi REG ENG Purchase - A00210-01</h3 -->
+        <!-- h3 class="apart">ET Cnplx Mobi REG ENG Purchase - A00210-01</h3 -->
         <%= render 'et10' %>
-        <!-- h3 class="apart">ET Cineplex Mobi REG FRA Purchase - A00210-01</h3 -->
+        <!-- h3 class="apart">ET Cnplx Mobi REG FRA Purchase - A00210-01</h3 -->
         <%= render 'et11' %>
       </div>
       <div class="apart">
-        <!-- h3 class="apart">ET Impark Demo - Zero Dollar Auth CAD ENG PP - A00057-01 </h3 -->
+        <!-- h3 class="apart">ET Imprk Demo - Vanilla Purchase - A00057-01</h3 -->
+        <%= render 'et14' %>
+        <!-- h3 class="apart">ET Imprk Demo - Vanilla Pre-Auth - A00057-01</h3 -->
+        <%= render 'et15' %>
+        <!-- h3 class="apart">ET Imprk Demo - Zero Dollar Auth (ZDA) CAD ENG PP - A00057-01</h3 -->
         <%= render 'et12' %>
-        <!-- h3 class="apart">ET Impark Demo REG FRA Purchase - A00210-01</h3 -->
+        <!-- h3 class="apart">ET Impark Demo - OTP GA CAD ENG PP - A00057-01</h3 -->
         <%= render 'et13' %>
+        <!-- h3 class="apart">ET Imprk Demo - REEF (based on ZDA) CAD ENG PP - A00057-01</h3 -->
+        <%= render 'et21' %>
+        <!-- h3 class="apart">ET Imprk Demo - Standard Template - Full - A00057-01</h3 -->
+        <%= render 'et20' %>
       </div>
     <% end %>
 
