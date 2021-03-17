@@ -1,10 +1,10 @@
-<%# ETQA Demo - Vanilla PP CAD Purchase - A05723-01 %>
+<%# ETFT1 Demo - Cineplex PP CAD Purchase - A05726-01 %>
 
-<%= form_tag("https://steam.qa.e-xact.com/payment", method: "post") do %>
+<%= form_tag("https://admin-ft1.test.e-xact.com/payment", method: "post") do %>
 
   <%# The payment data %>
-  <% x_login         = Rails.application.secrets.et_hco1_id %>
-  <% transaction_key = Rails.application.secrets.et_hco1_tk %>
+  <% x_login         = Rails.application.secrets.et_hco4_id %>
+  <% transaction_key = Rails.application.secrets.et_hco4_tk %>
   <% x_fp_sequence   = generate_sequence_number %>
   <% x_fp_timestamp  = generate_timestamp %>
   <% x_amount        = @total %>
@@ -30,6 +30,6 @@
   <%= render 'customer_name_and_billing_address' %>
 
   <p class="nosoapart">
-    <a><%= submit_tag "ET QA VANILLA CAD PURCHASE", class: 'button' %></a>
+    <a><%= submit_tag "ET FT1 CINEPLEX CAD PURCHASE", class: 'button' %></a>
   </p>
 <% end %>
