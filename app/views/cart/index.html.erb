@@ -294,6 +294,25 @@
         <%= render 'fd8_ap_cad_pnb' %>
         <%= render 'fd8_ap_eur_pnb' %>
       </div>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Receipt only - A05351-02</h3 -->
+      <div class="apart">
+        <%= render 'fd9_vanilla' %>
+        <%= render 'fd9' %>
+        <%= render 'fd9_pnb' %>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay buttons</h3 -->
+        <%= render 'fd9_ap_purchase' %>
+        <%= render 'fd9_ap_preauth' %>
+        <%= render 'fd9_ap_avs' %>
+        <%= render 'fd9_ap_recurring' %>
+        <%= render 'fd9_ap_pnb' %>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - Apple Pay Foreign Currency PNB buttons</h3 -->
+        <%= render 'fd9_ap_cad_pnb' %>
+        <%= render 'fd9_ap_eur_pnb' %>
+      <!-- h3 class="apart">PayEezy's Payment Page QA - 3DS buttons</h3 -->
+        <%= render 'fd9_3dsv1_purchase' %>
+        <%= render 'fd9_3dsv2_purchase' %>
+        <%= render 'fd9_3dsfo_purchase' %>
+      </div>
 
 
     <% elsif current_user.currency_code == "AUD" %>
@@ -325,6 +344,10 @@
         <%= render 'fd8_ap_pnb' %>
         <%= render 'fd8_ap_cad_pnb' %>
         <%= render 'fd8_ap_eur_pnb' %>
+        <%= render 'fd9_pnb' %>
+        <%= render 'fd9_ap_pnb' %>
+        <%= render 'fd9_ap_cad_pnb' %>
+        <%= render 'fd9_ap_eur_pnb' %>
       </div>
 
         <% elsif current_user.currency_code == "CAD" %>
@@ -348,6 +371,10 @@
         <%= render 'fd8_ap_cad_preauth' %>
         <%= render 'fd8_ap_cad_recurring' %>
         <%= render 'fd8_ap_cad_pnb' %>
+        <%= render 'fd9_ap_cad_purchase' %>
+        <%= render 'fd9_ap_cad_preauth' %>
+        <%= render 'fd9_ap_cad_recurring' %>
+        <%= render 'fd9_ap_cad_pnb' %>
       </div>
       <h2 class="apart">You can also try these other options:</h2>
       <div class="apart">
@@ -368,6 +395,9 @@
         <%= render 'fd8_pnb' %>
         <%= render 'fd8_ap_pnb' %>
         <%= render 'fd8_ap_eur_pnb' %>
+        <%= render 'fd9_pnb' %>
+        <%= render 'fd9_ap_pnb' %>
+        <%= render 'fd9_ap_eur_pnb' %>
       </div>
       <!-- h3 class="apart">PayEezy's Payment Page QA - Multicurrency CAD</h3 -->
       <h3 class="apart">These PPs override your user's currency and the cart amount:</h3>
@@ -380,6 +410,10 @@
         <%= render 'fd6_multic_clp_purchase' %>
         <%= render 'fd6_multic_jpy_purchase' %>
         <%= render 'fd6_multic_krw_purchase' %>
+        <%= render 'fd9_multic_cad_purchase' %>
+        <%= render 'fd9_multic_clp_purchase' %>
+        <%= render 'fd9_multic_jpy_purchase' %>
+        <%= render 'fd9_multic_krw_purchase' %>
       </div>
 
     <% elsif current_user.currency_code == "EUR" %>
@@ -403,6 +437,10 @@
         <%= render 'fd8_ap_eur_preauth' %>
         <%= render 'fd8_ap_eur_recurring' %>
         <%= render 'fd8_ap_eur_pnb' %>
+        <%= render 'fd9_ap_eur_purchase' %>
+        <%= render 'fd9_ap_eur_preauth' %>
+        <%= render 'fd9_ap_eur_recurring' %>
+        <%= render 'fd9_ap_eur_pnb' %>
 
       </div>
       <h2 class="apart">You can also try these other options:</h2>
@@ -424,6 +462,9 @@
         <%= render 'fd8_pnb' %>
         <%= render 'fd8_ap_pnb' %>
         <%= render 'fd8_ap_cad_pnb' %>
+        <%= render 'fd9_pnb' %>
+        <%= render 'fd9_ap_pnb' %>
+        <%= render 'fd9_ap_cad_pnb' %>
       </div>
 
     <% elsif current_user.currency_code == "GBP" %>
@@ -455,6 +496,10 @@
         <%= render 'fd8_ap_pnb' %>
         <%= render 'fd8_ap_cad_pnb' %>
         <%= render 'fd8_ap_eur_pnb' %>
+        <%= render 'fd9_pnb' %>
+        <%= render 'fd9_ap_pnb' %>
+        <%= render 'fd9_ap_cad_pnb' %>
+        <%= render 'fd9_ap_eur_pnb' %>
       </div>
 
     <% elsif current_user.currency_code == "JPY" %>
@@ -487,6 +532,10 @@
         <%= render 'fd8_ap_pnb' %>
         <%= render 'fd8_ap_cad_pnb' %>
         <%= render 'fd8_ap_eur_pnb' %>
+        <%= render 'fd9_pnb' %>
+        <%= render 'fd9_ap_pnb' %>
+        <%= render 'fd9_ap_cad_pnb' %>
+        <%= render 'fd9_ap_eur_pnb' %>
       </div>
 
       <% elsif current_user.currency_code == "MXN" %>
@@ -518,6 +567,10 @@
           <%= render 'fd8_ap_pnb' %>
           <%= render 'fd8_ap_cad_pnb' %>
           <%= render 'fd8_ap_eur_pnb' %>
+          <%= render 'fd9_pnb' %>
+          <%= render 'fd9_ap_pnb' %>
+          <%= render 'fd9_ap_cad_pnb' %>
+          <%= render 'fd9_ap_eur_pnb' %>
         </div>
 
     <% else %>
@@ -544,6 +597,10 @@
         <%= render 'fd8_ap_pnb' %>
         <%= render 'fd8_ap_cad_pnb' %>
         <%= render 'fd8_ap_eur_pnb' %>
+        <%= render 'fd9_pnb' %>
+        <%= render 'fd9_ap_pnb' %>
+        <%= render 'fd9_ap_cad_pnb' %>
+        <%= render 'fd9_ap_eur_pnb' %>
       </div>
 
     <% end %>

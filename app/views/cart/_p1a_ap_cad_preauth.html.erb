@@ -1,0 +1,35 @@
+  <%# P1 QA - Apple Pay CAD - Purchase - R39579-25 %>
+
+  <%= form_tag("https://checkout.exactpayqa.com/payment", method: "post") do %>
+
+    <%# Payment data %>
+    <% x_login         = Rails.application.secrets.fd_hco3_ap_cad_id %>
+    <% transaction_key = Rails.application.secrets.fd_hco3_ap_cad_tk %>
+    <% x_fp_sequence   = generate_sequence_number %>
+    <% x_fp_timestamp  = generate_timestamp %>
+    <% x_amount        = @total %>
+    <% x_currency_code = "#{current_user.currency_code}" %>
+
+    <%# AUTH_CAPTURE = Purchase; AUTH_ONLY = Pre-auth; AUTH_TOKEN; PURCHASE_TOKEN  %>
+    <%# A Pre-auth can not be completed through HCO! %>
+    <% x_type = "AUTH_ONLY" %>
+
+    <% hmac_string = generate_hmac_string(x_login, x_fp_sequence, x_fp_timestamp, x_amount, x_currency_code) %>
+    <% x_fp_hash   = generate_md5_hash(transaction_key, hmac_string) %>
+
+    <%= hidden_field_tag 'x_login',        x_login %>
+    <%= hidden_field_tag 'x_fp_sequence',  x_fp_sequence %>
+    <%= hidden_field_tag :x_fp_timestamp,  x_fp_timestamp %>
+    <%= hidden_field_tag 'x_amount',       x_amount %>
+    <%= hidden_field_tag :x_currency_code, x_currency_code %>
+    <%= hidden_field_tag 'x_type',         x_type %>
+    <%= hidden_field_tag :x_fp_hash,       x_fp_hash %>
+
+    <%= render 'automated_payment_data' %>
+    <%= render 'customer_name_and_shipping_address' %>
+    <%= render 'customer_name_and_billing_address' %>
+
+    <p class="nosoapart">
+      <a><%= submit_tag "P1 QA AP CAD PREAUTH", class: 'button' %></a>
+    </p>
+  <% end %>
