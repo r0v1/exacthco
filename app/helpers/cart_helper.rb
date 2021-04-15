@@ -22,4 +22,8 @@ module CartHelper
      OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("md5"), transaction_key, hmac_string)
   end
 
+  def generate_hmac_sha256_hash(transaction_key, hmac_string)
+    OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha256"), transaction_key, hmac_string)
+  end
+
 end
