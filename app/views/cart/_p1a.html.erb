@@ -75,9 +75,6 @@
     <% x_fp_hash   = generate_hmac_sha256_hash(transaction_key, hmac_string) %>
     <%#= puts "Hash: #{x_fp_hash}" %>
 
-    <%# relay = 10 %>
-    <%#= hidden_field_tag 'relay', relay %>
-
     <%= hidden_field_tag 'x_type',         x_type %>
     <%= hidden_field_tag 'x_amount',       x_amount %>
     <%#= hidden_field_tag 'x_card_num', x_card_num %>
